@@ -24,7 +24,6 @@ public class Tron {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-
     public Tron() {
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
