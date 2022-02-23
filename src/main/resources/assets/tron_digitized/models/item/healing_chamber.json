@@ -1,0 +1,28 @@
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/healing_chamber_inner.obj",
+  "diffuseLighting": false,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform": {
+    "translation": [
+      -0.25,
+      -0.25,
+      -0.25
+    ],
+    "scale": [
+      0.25,
+      0.25,
+      0.25
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ]
+  },
+  "textures": {
+  },
+  "gui_light": "front"
+}

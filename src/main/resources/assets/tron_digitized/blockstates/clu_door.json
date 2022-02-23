@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "tron_digitized:block/clu_door",
+      "y": 90
+    },
+    "axis=x": {
+      "model": "tron_digitized:block/clu_door"
+    }
+  }
+}

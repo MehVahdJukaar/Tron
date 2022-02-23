@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/clu_door_frame.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 0.25, 0.505, -0.497 ],
+    "scale": [ 0.75, 1.01, 1.04 ],
+    "rotation": [0, 0, 0]
+  },
+  "textures": {
+
+  }
+}

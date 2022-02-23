@@ -1,0 +1,22 @@
+{
+  "block.clu_door": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "tron_digitized:block/clu_door",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.tron_digitized.block.clu_door"
+  },
+  "block.healing_chamber": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "tron_digitized:block/healing_chamber",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.tron_digitized.block.healing_chamber"
+  }
+}

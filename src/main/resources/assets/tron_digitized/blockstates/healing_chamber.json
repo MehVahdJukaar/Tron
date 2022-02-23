@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "enabled=true": {
+      "model": "tron_digitized:block/healing_chamber_on"
+    },
+    "enabled=false": {
+      "model": "tron_digitized:block/healing_chamber_off"
+    }
+  }
+}
