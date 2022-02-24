@@ -122,6 +122,9 @@ public class ModRegistry {
     public static final RegistryObject<Block> RECLINER = regWithItem("recliner", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.RECLINER, 11, 18, 32));
 
+    public static final RegistryObject<Block> BEDSIDE = regWithItem("bedside", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 18, 32));
+
 
     public static final RegistryObject<EntityType<ChairEntity>> CHAIR_ENTITY = ENTITIES.register("chair",
             () -> EntityType.Builder.<ChairEntity>of(ChairEntity::new, MobCategory.MISC)
@@ -135,7 +138,7 @@ public class ModRegistry {
     public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES
             .register("custom_block_tile", () -> BlockEntityType.Builder.of(TronBlockTile::new,
                     BLACK_CHAIR.get(),WHITE_CHAIR.get(),KITCHEN_CHAIR.get(),RECLINER.get(),
-                    THRONE.get(), THRONE_BIG.get()
+                    THRONE.get(), THRONE_BIG.get(), BEDSIDE.get()
             ).build(null));
 
 

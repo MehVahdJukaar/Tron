@@ -46,6 +46,7 @@ public class ClientSetup {
     public static final ResourceLocation KITCHEN_CHAIR = new ResourceLocation(Tron.MOD_ID + ":block/kitchen_chair");
     public static final ResourceLocation CLU_THRONE = new ResourceLocation(Tron.MOD_ID + ":block/clu_throne");
     public static final ResourceLocation CLU_THRONE_BIG = new ResourceLocation(Tron.MOD_ID + ":block/clu_throne_big");
+    public static final ResourceLocation BEDSIDE = new ResourceLocation(Tron.MOD_ID + ":block/bedside");
 
 
     @SubscribeEvent
@@ -62,6 +63,7 @@ public class ClientSetup {
         ForgeModelBakery.addSpecialModel(WHITE_CHAIR);
         ForgeModelBakery.addSpecialModel(CLU_THRONE);
         ForgeModelBakery.addSpecialModel(CLU_THRONE_BIG);
+        ForgeModelBakery.addSpecialModel(BEDSIDE);
     }
 
     @SubscribeEvent

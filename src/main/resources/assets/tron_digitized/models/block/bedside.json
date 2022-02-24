@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/bedside.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 0.5, 1.5, 0.25 ],
+    "scale": [ 1, 1, 1 ],
+    "rotation": [0, 0, 0]
+  },
+  "textures": {
+
+  }
+}
