@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(modid = Tron.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
 
+    public static final ResourceLocation CLU_DOOR = new ResourceLocation(Tron.MOD_ID + ":block/clu_door");
     public static final ResourceLocation CLU_DOOR_LEFT = new ResourceLocation(Tron.MOD_ID + ":block/clu_door_left");
     public static final ResourceLocation CLU_DOOR_RIGHT = new ResourceLocation(Tron.MOD_ID + ":block/clu_door_right");
     public static final ResourceLocation HEALING_CHAMBER_GLASS = new ResourceLocation(Tron.MOD_ID + ":block/healing_chamber_glass");
@@ -51,6 +52,7 @@ public class ClientSetup {
     public static void onModelRegistry(ModelRegistryEvent event) {
         //loaders
         // ModelLoaderRegistry.registerLoader(Tron.res("glow_lights_loader"), new GlowLightsModelLoader());
+        ForgeModelBakery.addSpecialModel(CLU_DOOR);
         ForgeModelBakery.addSpecialModel(CLU_DOOR_LEFT);
         ForgeModelBakery.addSpecialModel(CLU_DOOR_RIGHT);
         ForgeModelBakery.addSpecialModel(HEALING_CHAMBER_GLASS);

@@ -5,15 +5,21 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class CluDoorBlockTile extends BlockEntity {
+public class CluDoorBlockTile extends TronBlockTile {
 
     public float openingProgress = 0;
     public float prevOpeningProgress = 0;
 
     public CluDoorBlockTile(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModRegistry.CLU_DOOR_TILE.get(), pWorldPosition, pBlockState);
+        super(pWorldPosition, pBlockState);
+    }
+
+    @Override
+    public BlockEntityType<?> getType() {
+        return ModRegistry.CLU_DOOR_TILE.get();
     }
 
     @Override
@@ -27,7 +33,6 @@ public class CluDoorBlockTile extends BlockEntity {
         super.load(pTag);
         this.openingProgress = pTag.getFloat("openingProgress");
         this.prevOpeningProgress = this.openingProgress;
-
     }
 
 

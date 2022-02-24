@@ -1,8 +1,10 @@
 package net.mehvahdjukaar.tron_digitized.common.block;
 
+import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -28,10 +31,11 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.common.extensions.IForgeBlock;
 import org.jetbrains.annotations.Nullable;
 
-public class CluDoorBlock extends Block implements IForgeBlock, EntityBlock {
+public class CluDoorBlock extends Block implements IForgeBlock, EntityBlock, ICustomModelProvider {
     protected static final VoxelShape SHAPE_Z = Block.box(-16, -16, 0, 32, 80, 16);
     protected static final VoxelShape SHAPE_X = Block.box(0, -16, -16, 16, 80, 32);
 
@@ -120,5 +124,19 @@ public class CluDoorBlock extends Block implements IForgeBlock, EntityBlock {
     }
 
 
+    @Override
+    public ResourceLocation getCustomModelLocation() {
+        return ClientSetup.CLU_DOOR;
+    }
+
+    @Override
+    public boolean isTranslucent() {
+        return false;
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.ENTITYBLOCK_ANIMATED;
+    }
 }
 

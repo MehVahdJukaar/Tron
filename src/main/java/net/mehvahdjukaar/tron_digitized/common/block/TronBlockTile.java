@@ -11,14 +11,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 
-public class TronBlockTIle extends BlockEntity {
+public class TronBlockTile extends BlockEntity {
 
     @Nullable
     private final ResourceLocation modelLocation;
     private final boolean translucent;
     private final Function<BlockState, Float> yawGetter;
 
-    public TronBlockTIle(BlockPos pWorldPosition, BlockState pBlockState) {
+    public TronBlockTile(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModRegistry.CUSTOM_BLOCK_TILE.get(), pWorldPosition, pBlockState);
         if(pBlockState.getBlock() instanceof ICustomModelProvider modelProvider){
             this.modelLocation = modelProvider.getCustomModelLocation();

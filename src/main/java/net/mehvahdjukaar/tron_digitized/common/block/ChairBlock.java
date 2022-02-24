@@ -1,7 +1,6 @@
 package net.mehvahdjukaar.tron_digitized.common.block;
 
 import net.mehvahdjukaar.tron_digitized.common.entity.ChairEntity;
-import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -9,12 +8,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -22,25 +18,29 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class ChairBlock extends TronBlock {
 
-    protected static final VoxelShape SHAPE_BASE = Block.box(-4, 0, -4, 20, 13, 20);
+    protected final VoxelShape shapeBaseX;
+    protected final VoxelShape shapeBaseZ;
     public static final BooleanProperty SAT_IN = BooleanProperty.create("sat_in");
 
     private final float chairHeight;
 
-    public ChairBlock(Properties properties, ResourceLocation modelLoc, float chairHeight) {
-        this(properties,32,24, modelLoc, chairHeight);
+    public ChairBlock(Properties properties, ResourceLocation modelLoc, int height, int width, float chairHeight) {
+        this(properties, modelLoc, height, width, width, chairHeight);
     }
 
-    public ChairBlock(Properties properties, int height, int width, ResourceLocation modelLoc, float chairHeight) {
-        super(properties,modelLoc,height,width);
-        this.chairHeight = chairHeight;
+    public ChairBlock(Properties properties, ResourceLocation modelLoc, int height, int width, int length, float chairHeight) {
+        super(properties, modelLoc, height, width);
+        this.chairHeight = (chairHeight-13) / 16f;
+        float w = width / 2f;
+        float l = length / 2f;
+        shapeBaseX = Block.box(8 - w, 0, 8 - l, 8 + w, chairHeight, 8 + l);
+        shapeBaseZ = Block.box(8 - l, 0, 8 - w, 8 + l, chairHeight, 8 + w);
+
         this.registerDefaultState(this.getStateDefinition().any().setValue(SAT_IN, false).setValue(FACING, Direction.NORTH));
     }
 
@@ -50,7 +50,7 @@ public class ChairBlock extends TronBlock {
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (! state.getValue(SAT_IN) && worldIn.getBlockState(pos.above()).isAir() && player.getVehicle() == null) {
+        if (!state.getValue(SAT_IN) && worldIn.getBlockState(pos.above()).isAir() && player.getVehicle() == null) {
             if (!worldIn.isClientSide) {
                 ChairEntity entity = new ChairEntity(worldIn, this.getChairHeight());
                 entity.setPos((double) pos.getX() + 0.5D, (double) pos.getY() + 0.6D, (double) pos.getZ() + 0.5D);
@@ -65,13 +65,15 @@ public class ChairBlock extends TronBlock {
         }
     }
 
-    public float getChairHeight(){
+    public float getChairHeight() {
         return chairHeight;
-    };
+    }
+
+    ;
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE_BASE;
+        return (pState.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeBaseX : shapeBaseZ;
     }
 
     private void fixState(Level worldIn, BlockPos pos, BlockState state) {
@@ -90,11 +92,6 @@ public class ChairBlock extends TronBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(SAT_IN);
-    }
-
-    @Override
-    public ResourceLocation getCustomModelLocation() {
-        return ClientSetup.BLACK_CHAIR;
     }
 
 }

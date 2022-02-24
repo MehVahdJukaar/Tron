@@ -93,25 +93,25 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK)
                     .sound(SoundType.GLASS)
                     .noOcclusion()
-                    .strength(1),ClientSetup.BLACK_CHAIR,0));
+                    .strength(1),ClientSetup.BLACK_CHAIR,32,24,13));
 
     public static final RegistryObject<Block> KITCHEN_CHAIR = regWithItem("kitchen_chair", () ->
-            new KitchenChair(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
+            new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1)));
+                    .strength(1), ClientSetup.KITCHEN_CHAIR, 36, 18, 16f));
 
     public static final RegistryObject<Block> THRONE = regWithItem("clu_throne", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE_BIG,0));
+                    .strength(1),ClientSetup.CLU_THRONE,36, 18,0.2f));
 
     public static final RegistryObject<Block> THRONE_BIG = regWithItem("clu_throne_big", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE_BIG,0));
+                    .strength(1),ClientSetup.CLU_THRONE_BIG,36, 18,0.2f));
 
     public static final RegistryObject<Block> WHITE_CHAIR = regWithItem("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
@@ -132,9 +132,10 @@ public class ModRegistry {
                     .build("sled"));
 
     //generic tile for entity models (For translucent stuff)
-    public static final RegistryObject<BlockEntityType<TronBlockTIle>> CUSTOM_BLOCK_TILE = TILES
-            .register("custom_block_tile", () -> BlockEntityType.Builder.of(TronBlockTIle::new,
-                    BLACK_CHAIR.get(),WHITE_CHAIR.get(),KITCHEN_CHAIR.get(),RECLINER.get()
+    public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES
+            .register("custom_block_tile", () -> BlockEntityType.Builder.of(TronBlockTile::new,
+                    BLACK_CHAIR.get(),WHITE_CHAIR.get(),KITCHEN_CHAIR.get(),RECLINER.get(),
+                    THRONE.get(), THRONE_BIG.get()
             ).build(null));
 
 

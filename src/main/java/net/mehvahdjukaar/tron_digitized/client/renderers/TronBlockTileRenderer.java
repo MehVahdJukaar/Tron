@@ -3,7 +3,7 @@ package net.mehvahdjukaar.tron_digitized.client.renderers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import net.mehvahdjukaar.tron_digitized.common.block.TronBlockTIle;
+import net.mehvahdjukaar.tron_digitized.common.block.TronBlockTile;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
-public class TronBlockTileRenderer implements BlockEntityRenderer<TronBlockTIle> {
+public class TronBlockTileRenderer<T extends TronBlockTile> implements BlockEntityRenderer<T> {
 
     private final BlockRenderDispatcher blockRenderer;
 
@@ -21,7 +21,7 @@ public class TronBlockTileRenderer implements BlockEntityRenderer<TronBlockTIle>
     }
 
     @Override
-    public void render(TronBlockTIle pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
+    public void render(T pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
         var loc = pBlockEntity.getModelLocation();
         if (loc != null) {
             pPoseStack.translate(0.5, 0.5, 0.5);
