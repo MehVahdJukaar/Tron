@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.entity.BeaconBlockEntity;
 
 public class TronBlockTileRenderer<T extends TronBlockTile> implements BlockEntityRenderer<T> {
 
@@ -18,6 +19,11 @@ public class TronBlockTileRenderer<T extends TronBlockTile> implements BlockEnti
     public TronBlockTileRenderer(BlockEntityRendererProvider.Context context) {
         this.blockRenderer = context.getBlockRenderDispatcher();
 
+    }
+
+    @Override
+    public boolean shouldRenderOffScreen(T pBlockEntity) {
+        return true;
     }
 
     @Override
