@@ -30,40 +30,37 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = Tron.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
 
-    public static final ResourceLocation CLU_DOOR = new ResourceLocation(Tron.MOD_ID + ":block/clu_door");
-    public static final ResourceLocation CLU_DOOR_LEFT = new ResourceLocation(Tron.MOD_ID + ":block/clu_door_left");
-    public static final ResourceLocation CLU_DOOR_RIGHT = new ResourceLocation(Tron.MOD_ID + ":block/clu_door_right");
-    public static final ResourceLocation HEALING_CHAMBER_GLASS = new ResourceLocation(Tron.MOD_ID + ":block/healing_chamber_glass");
-    public static final ResourceLocation BLACK_CHAIR = new ResourceLocation(Tron.MOD_ID + ":block/black_chair");
-    public static final ResourceLocation WHITE_CHAIR = new ResourceLocation(Tron.MOD_ID + ":block/white_chair");
-    public static final ResourceLocation RECLINER = new ResourceLocation(Tron.MOD_ID + ":block/recliner");
-    public static final ResourceLocation KITCHEN_CHAIR = new ResourceLocation(Tron.MOD_ID + ":block/kitchen_chair");
-    public static final ResourceLocation CLU_THRONE = new ResourceLocation(Tron.MOD_ID + ":block/clu_throne");
-    public static final ResourceLocation CLU_THRONE_BIG = new ResourceLocation(Tron.MOD_ID + ":block/clu_throne_big");
-    public static final ResourceLocation BEDSIDE = new ResourceLocation(Tron.MOD_ID + ":block/bedside");
+    public static final ResourceLocation CLU_DOOR = addCustomModel("clu_door");
+    public static final ResourceLocation CLU_DOOR_LEFT = addCustomModel("clu_door_left");
+    public static final ResourceLocation CLU_DOOR_RIGHT = addCustomModel("clu_door_right");
+    public static final ResourceLocation HEALING_CHAMBER_GLASS = addCustomModel("healing_chamber_glass");
+    public static final ResourceLocation BLACK_CHAIR = addCustomModel("black_chair");
+    public static final ResourceLocation WHITE_CHAIR = addCustomModel("white_chair");
+    public static final ResourceLocation RECLINER = addCustomModel("recliner");
+    public static final ResourceLocation KITCHEN_CHAIR = addCustomModel("kitchen_chair");
+    public static final ResourceLocation CLU_THRONE = addCustomModel("clu_throne");
+    public static final ResourceLocation CLU_THRONE_BIG = addCustomModel("clu_throne_big");
+    public static final ResourceLocation BEDSIDE = addCustomModel("bedside");
 
+    private static final Set<ResourceLocation> CUSTOM_MODELS = new HashSet<>();
+    public static ResourceLocation addCustomModel(String name){
+        var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
+        CUSTOM_MODELS.add(res);
+        return res;
+    }
 
     @SubscribeEvent
     public static void onModelRegistry(ModelRegistryEvent event) {
         //loaders
-        // ModelLoaderRegistry.registerLoader(Tron.res("glow_lights_loader"), new GlowLightsModelLoader());
-        ForgeModelBakery.addSpecialModel(CLU_DOOR);
-        ForgeModelBakery.addSpecialModel(CLU_DOOR_LEFT);
-        ForgeModelBakery.addSpecialModel(CLU_DOOR_RIGHT);
-        ForgeModelBakery.addSpecialModel(HEALING_CHAMBER_GLASS);
-        ForgeModelBakery.addSpecialModel(BLACK_CHAIR);
-        ForgeModelBakery.addSpecialModel(RECLINER);
-        ForgeModelBakery.addSpecialModel(KITCHEN_CHAIR);
-        ForgeModelBakery.addSpecialModel(WHITE_CHAIR);
-        ForgeModelBakery.addSpecialModel(CLU_THRONE);
-        ForgeModelBakery.addSpecialModel(CLU_THRONE_BIG);
-        ForgeModelBakery.addSpecialModel(BEDSIDE);
+        CUSTOM_MODELS.forEach(ForgeModelBakery::addSpecialModel);
     }
 
     @SubscribeEvent

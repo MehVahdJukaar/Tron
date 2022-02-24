@@ -18,6 +18,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 
 public class ModRegistry {
@@ -62,6 +64,17 @@ public class ModRegistry {
         return b;
     }
 
+    private static final Set<Supplier<Block>> TILE_BLOCKS = new HashSet<>();
+
+    public static RegistryObject<Block> addTileBlock(String name, Supplier<Block> blockSup){
+        var b = regWithItem(name, blockSup);
+        TILE_BLOCKS.add(b);
+        return b;
+    }
+
+    private static Block[] getAllTileBlocks(){
+        return TILE_BLOCKS.stream().map(Supplier::get).toArray(Block[]::new);
+    }
 
     public static final RegistryObject<Block> CLU_DOOR = regWithItem("clu_door", () ->
             new CluDoorBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.TERRACOTTA_WHITE)
@@ -126,20 +139,23 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 18, 32));
 
 
+
+
+
+    //generic tile for entity models (For translucent stuff)
+    public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES
+            .register("custom_block_tile", () -> BlockEntityType.Builder.of(TronBlockTile::new,
+                    getAllTileBlocks()
+            ).build(null));
+
+
     public static final RegistryObject<EntityType<ChairEntity>> CHAIR_ENTITY = ENTITIES.register("chair",
             () -> EntityType.Builder.<ChairEntity>of(ChairEntity::new, MobCategory.MISC)
                     .sized(0.375F, 0.5F)
                     .updateInterval(-1)
                     .clientTrackingRange(3)
                     .setShouldReceiveVelocityUpdates(false)
-                    .build("sled"));
-
-    //generic tile for entity models (For translucent stuff)
-    public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES
-            .register("custom_block_tile", () -> BlockEntityType.Builder.of(TronBlockTile::new,
-                    BLACK_CHAIR.get(),WHITE_CHAIR.get(),KITCHEN_CHAIR.get(),RECLINER.get(),
-                    THRONE.get(), THRONE_BIG.get(), BEDSIDE.get()
-            ).build(null));
+                    .build("chair"));
 
 
    /*
