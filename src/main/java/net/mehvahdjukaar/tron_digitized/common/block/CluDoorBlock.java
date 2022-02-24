@@ -36,8 +36,8 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 import org.jetbrains.annotations.Nullable;
 
 public class CluDoorBlock extends Block implements IForgeBlock, EntityBlock, ICustomModelProvider {
-    protected static final VoxelShape SHAPE_Z = Block.box(-16, -16, 0, 32, 80, 16);
-    protected static final VoxelShape SHAPE_X = Block.box(0, -16, -16, 16, 80, 32);
+    protected static final VoxelShape SHAPE_Z = Block.box(-32, -16, 0, 48, 80, 16);
+    protected static final VoxelShape SHAPE_X = Block.box(0, -16, -32, 16, 80, 48);
 
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
