@@ -66,7 +66,7 @@ public class ModRegistry {
 
     private static final Set<Supplier<Block>> TILE_BLOCKS = new HashSet<>();
 
-    public static RegistryObject<Block> addTileBlock(String name, Supplier<Block> blockSup){
+    public static RegistryObject<Block> regTileBlock(String name, Supplier<Block> blockSup){
         var b = regWithItem(name, blockSup);
         TILE_BLOCKS.add(b);
         return b;
@@ -102,41 +102,41 @@ public class ModRegistry {
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
 
 
-    public static final RegistryObject<Block> BLACK_CHAIR = regWithItem("black_chair", () ->
+    public static final RegistryObject<Block> BLACK_CHAIR = regTileBlock("black_chair", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK)
                     .sound(SoundType.GLASS)
                     .noOcclusion()
                     .strength(1),ClientSetup.BLACK_CHAIR,32,24,13));
 
-    public static final RegistryObject<Block> KITCHEN_CHAIR = regWithItem("kitchen_chair", () ->
+    public static final RegistryObject<Block> KITCHEN_CHAIR = regTileBlock("kitchen_chair", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .strength(1), ClientSetup.KITCHEN_CHAIR, 36, 18, 16f));
 
-    public static final RegistryObject<Block> THRONE = regWithItem("clu_throne", () ->
+    public static final RegistryObject<Block> THRONE = regTileBlock("clu_throne", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .strength(1),ClientSetup.CLU_THRONE,28, 48,18,16));
 
-    public static final RegistryObject<Block> THRONE_BIG = regWithItem("clu_throne_big", () ->
+    public static final RegistryObject<Block> THRONE_BIG = regTileBlock("clu_throne_big", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .strength(1),ClientSetup.CLU_THRONE_BIG,40, 160, 48,22));
 
-    public static final RegistryObject<Block> WHITE_CHAIR = regWithItem("white_chair", () ->
+    public static final RegistryObject<Block> WHITE_CHAIR = regTileBlock("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .strength(1),ClientSetup.WHITE_CHAIR, 16, 16));
 
-    public static final RegistryObject<Block> RECLINER = regWithItem("recliner", () ->
+    public static final RegistryObject<Block> RECLINER = regTileBlock("recliner", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.RECLINER, 11, 18, 32));
 
-    public static final RegistryObject<Block> BEDSIDE = regWithItem("bedside", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 18, 32));
+    public static final RegistryObject<Block> BEDSIDE = regTileBlock("bedside", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 24, 14));
 
 
 
