@@ -105,13 +105,13 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE,36, 18,0.2f));
+                    .strength(1),ClientSetup.CLU_THRONE,28, 48,18,16));
 
     public static final RegistryObject<Block> THRONE_BIG = regWithItem("clu_throne_big", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE_BIG,36, 18,0.2f));
+                    .strength(1),ClientSetup.CLU_THRONE_BIG,40, 160, 48,22));
 
     public static final RegistryObject<Block> WHITE_CHAIR = regWithItem("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)

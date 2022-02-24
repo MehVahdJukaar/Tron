@@ -37,7 +37,7 @@ public class ChairBlock extends TronBlock {
     }
 
     public ChairBlock(Properties properties, ResourceLocation modelLoc, int height, int width, int length, float chairHeight) {
-        super(properties, modelLoc, height, width);
+        super(properties, modelLoc, height, width,length);
         this.chairHeight = (chairHeight-13) / 16f;
         float w = width / 2f;
         float l = length / 2f;
