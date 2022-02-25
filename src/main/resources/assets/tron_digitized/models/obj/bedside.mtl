@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd quartz_block_top_2
+map_Kd tron_digitized:blocks/quartz_block_top_2
 
 newmtl m_1
 Ns 0.000000
