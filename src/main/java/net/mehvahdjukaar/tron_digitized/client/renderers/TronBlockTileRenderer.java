@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BeaconBlockEntity;
+import net.minecraft.world.phys.Vec3;
 
 public class TronBlockTileRenderer<T extends TronBlockTile> implements BlockEntityRenderer<T> {
 

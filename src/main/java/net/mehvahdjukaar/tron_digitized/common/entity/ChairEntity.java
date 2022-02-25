@@ -10,6 +10,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.piston.PistonMovingBlockEntity;
@@ -24,14 +25,21 @@ import java.util.List;
 public class ChairEntity extends Entity implements IEntityAdditionalSpawnData {
 
     private float chairHeight;
+    private int seats;
 
     public ChairEntity(EntityType<?> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
         this.chairHeight = 0;
+        this.seats = 1;
     }
-    public ChairEntity(Level worldIn, float chairHeight) {
+    public ChairEntity(Level worldIn, float chairHeight, int seats) {
         super(ModRegistry.CHAIR_ENTITY.get(), worldIn);
         this.chairHeight = chairHeight;
+        this.seats = seats;
+    }
+
+    public ChairEntity(Level worldIn, float chairHeight) {
+        this(worldIn, chairHeight, 1);
     }
 
     @Override
@@ -79,15 +87,27 @@ public class ChairEntity extends Entity implements IEntityAdditionalSpawnData {
         return chairHeight;
     }
 
+    @Override
+    public void positionRider(Entity pPassenger) {
+        super.positionRider(pPassenger);
+    }
+
+    @Override
+    protected boolean canAddPassenger(Entity pPassenger) {
+        return this.getPassengers().size()<seats;
+    }
+
     protected void defineSynchedData() {
     }
 
     protected void readAdditionalSaveData(CompoundTag compound) {
         this.chairHeight = compound.getFloat("chairHeight");
+        this.seats = compound.getInt("seats");
     }
 
     protected void addAdditionalSaveData(CompoundTag compound) {
         compound.putFloat("chairHeight",this.chairHeight);
+        compound.putInt("seats",this.seats);
     }
 
     @Nonnull
@@ -98,10 +118,12 @@ public class ChairEntity extends Entity implements IEntityAdditionalSpawnData {
     @Override
     public void writeSpawnData(FriendlyByteBuf buffer) {
         buffer.writeFloat(this.chairHeight);
+        buffer.writeInt(this.seats);
     }
 
     @Override
     public void readSpawnData(FriendlyByteBuf additionalData) {
         this.chairHeight = additionalData.readFloat();
+        this.seats = additionalData.readInt();
     }
 }

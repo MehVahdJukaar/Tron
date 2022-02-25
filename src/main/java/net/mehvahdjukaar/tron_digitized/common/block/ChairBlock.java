@@ -74,8 +74,8 @@ public class ChairBlock extends TronBlock {
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(pContext instanceof EntityCollisionContext) {
-            return (pState.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeBaseX : shapeBaseZ;
+        if(pContext instanceof EntityCollisionContext e && e.getEntity()!=null) {
+           return (pState.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeBaseX : shapeBaseZ;
         }
         return super.getCollisionShape(pState, pLevel, pPos, pContext);
     }

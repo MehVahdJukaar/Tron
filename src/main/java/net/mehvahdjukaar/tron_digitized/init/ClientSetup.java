@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(modid = Tron.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
 
-    public static final Set<ResourceLocation> CUSTOM_MODELS = new HashSet<>();
+    private static final Set<ResourceLocation> CUSTOM_MODELS = new HashSet<>();
 
     public static final ResourceLocation CLU_DOOR = addCustomModel("clu_door");
     public static final ResourceLocation CLU_DOOR_LEFT = addCustomModel("clu_door_left");
