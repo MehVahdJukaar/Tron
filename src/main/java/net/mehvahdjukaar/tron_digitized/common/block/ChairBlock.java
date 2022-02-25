@@ -44,6 +44,8 @@ public class ChairBlock extends TronBlock {
         shapeBaseX = Block.box(8 - w, 0, 8 - l, 8 + w, chairHeight, 8 + l);
         shapeBaseZ = Block.box(8 - l, 0, 8 - w, 8 + l, chairHeight, 8 + w);
 
+
+
         this.registerDefaultState(this.getStateDefinition().any().setValue(SAT_IN, false).setValue(FACING, Direction.NORTH));
     }
 
@@ -73,11 +75,8 @@ public class ChairBlock extends TronBlock {
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(pContext instanceof EntityCollisionContext e && e.getEntity()!=null) {
-           return (pState.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeBaseX : shapeBaseZ;
-        }
-        return super.getCollisionShape(pState, pLevel, pPos, pContext);
+    protected VoxelShape getColliderShape(BlockState pState) {
+        return (pState.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeBaseX : shapeBaseZ;
     }
 
     private void fixState(Level worldIn, BlockPos pos, BlockState state) {

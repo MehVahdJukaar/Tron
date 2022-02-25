@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,6 +21,8 @@ import java.util.function.Function;
 
 public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    protected final VoxelShape renderShapeX;
+    protected final VoxelShape renderShapeZ;
     private final VoxelShape shapeX;
     private final VoxelShape shapeZ;
     private final ResourceLocation modelLocation;
@@ -31,9 +34,15 @@ public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
         float l = length / 2f;
         shapeZ = Block.box(8 - w, 0, 8 - l, 8 + w, height, 8 + l);
         shapeX = Block.box(8 - l, 0, 8 - w, 8 + l, height, 8 + w);
+        //bigger collision shapes
+        w++;
+        l++;
+        renderShapeX = Block.box(8 - w, 0, 8 - l, 8 + w, height + 1, 8 + l);
+        renderShapeZ = Block.box(8 - l, 0, 8 - w, 8 + l, height + 1, 8 + w);
+
     }
 
-    public TronBlock(Properties properties, ResourceLocation modelLoc, int height, int width ) {
+    public TronBlock(Properties properties, ResourceLocation modelLoc, int height, int width) {
         this(properties, modelLoc, height, width, width);
     }
 
@@ -51,7 +60,7 @@ public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
 
 
     public VoxelShape getBaseShape(BlockState state) {
-        return (state.getValue(FACING).getAxis() == Direction.Axis.X)?shapeX : shapeZ;
+        return (state.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeX : shapeZ;
     }
 
     @Override
@@ -66,6 +75,18 @@ public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
 
     @Override
     public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return getBaseShape(pState);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        if (pContext instanceof EntityCollisionContext e && e.getEntity() != null) {
+            return getColliderShape(pState);
+        }
+        return (pState.getValue(FACING).getAxis() == Direction.Axis.X) ? renderShapeX : renderShapeZ;
+    }
+
+    protected VoxelShape getColliderShape(BlockState pState) {
         return getBaseShape(pState);
     }
 
