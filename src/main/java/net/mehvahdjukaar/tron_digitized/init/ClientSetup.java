@@ -28,15 +28,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = Tron.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
+
+    public static final Set<ResourceLocation> CUSTOM_MODELS = new HashSet<>();
 
     public static final ResourceLocation CLU_DOOR = addCustomModel("clu_door");
     public static final ResourceLocation CLU_DOOR_LEFT = addCustomModel("clu_door_left");
@@ -50,7 +51,6 @@ public class ClientSetup {
     public static final ResourceLocation CLU_THRONE_BIG = addCustomModel("clu_throne_big");
     public static final ResourceLocation BEDSIDE = addCustomModel("bedside");
 
-    private static final Set<ResourceLocation> CUSTOM_MODELS = new HashSet<>();
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
         CUSTOM_MODELS.add(res);
