@@ -2,13 +2,13 @@
 {
   "parent": "forge:block/default",
   "loader": "forge:obj",
-  "model": "tron_digitized:models/obj/clu_throne_big.obj",
+  "model": "tron_digitized:models/obj/kitchen_table.obj",
   "diffuseLighting": true,
   "ambientToFullbright": false,
   "flip-v": true,
   "transform":{
-    "translation": [ 3.455, 7, 3 ],
-    "scale": [ 3.95, 3.95, 3.95 ],
+    "translation": [ 0, 0, 0 ],
+    "scale": [ 1, 1, 1 ],
     "rotation": [0, 0, 0]
   },
   "textures": {

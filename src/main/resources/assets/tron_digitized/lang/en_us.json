@@ -7,9 +7,9 @@
   "block.tron_digitized.recliner": "Recliner",
   "block.tron_digitized.kitchen_chair": "Kitchen Chair",
   "block.tron_digitized.clu_throne": "Clu Throne",
-  "block.tron_digitized.clu_throne_big": "Clu Throne Big",
   "subtitle.tron_digitized.block.clu_door": "Clu Door Opening",
   "subtitle.tron_digitized.block.healing_chamber": "Healing Chamber Healing",
-  "block.tron_digitized.block.bedside": "Bedside Table"
+  "block.tron_digitized.block.bedside": "Bedside Table",
+  "block.tron_digitized.block.kitchen_table": "Kitchen Table"
 
 }
