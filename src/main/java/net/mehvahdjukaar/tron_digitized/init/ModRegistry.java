@@ -112,13 +112,13 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1), ClientSetup.KITCHEN_CHAIR, 36, 18, 16f));
+                    .strength(1), ClientSetup.KITCHEN_CHAIR, 32, 16, 14f));
 
     public static final RegistryObject<Block> THRONE = regTileBlock("clu_throne", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE,28, 48,18,16));
+                    .strength(1),ClientSetup.CLU_THRONE,13, 28,16,13));
 
     public static final RegistryObject<Block> WHITE_CHAIR = regTileBlock("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
@@ -131,6 +131,9 @@ public class ModRegistry {
 
     public static final RegistryObject<Block> BEDSIDE = regTileBlock("bedside", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 24, 14));
+
+    public static final RegistryObject<Block> KITCHEN_TABLE = regTileBlock("kitchen_table", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.KITCHEN_TABLE, 16, 48, 16));
 
 
 
