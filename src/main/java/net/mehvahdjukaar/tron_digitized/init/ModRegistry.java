@@ -8,8 +8,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -41,7 +40,7 @@ public class ModRegistry {
         PARTICLES.register(bus);
     }
 
-    public static final CreativeModeTab MOD_TAB = new CreativeModeTab("tron_digitized") {
+    public static final CreativeModeTab MOD_TAB = new CreativeModeTab("tron_digitized"){
         @Override
         public ItemStack makeIcon() {
             return Items.DIAMOND_BLOCK.getDefaultInstance();
@@ -59,27 +58,26 @@ public class ModRegistry {
     public static RegistryObject<SoundEvent> makeSoundEvent(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(Tron.res(name)));
     }
-
     protected static RegistryObject<Block> regWithItem(String name, Supplier<Block> blockSup) {
-        var b = BLOCKS.register(name, blockSup);
+        var b =  BLOCKS.register(name, blockSup);
         regBlockItem(b);
         return b;
     }
 
     private static final Set<Supplier<Block>> TILE_BLOCKS = new HashSet<>();
 
-    public static RegistryObject<Block> regTileBlock(String name, Supplier<Block> blockSup) {
+    public static RegistryObject<Block> regTileBlock(String name, Supplier<Block> blockSup){
         var b = regWithItem(name, blockSup);
         TILE_BLOCKS.add(b);
         return b;
     }
 
-    private static Block[] getAllTileBlocks() {
+    private static Block[] getAllTileBlocks(){
         return TILE_BLOCKS.stream().map(Supplier::get).toArray(Block[]::new);
     }
 
     public static final RegistryObject<Block> CLU_DOOR = regWithItem("clu_door", () ->
-            new CluDoorBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
+            new CluDoorBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.TERRACOTTA_WHITE)
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .dynamicShape()
@@ -90,7 +88,7 @@ public class ModRegistry {
                     ModRegistry.CLU_DOOR.get()).build(null));
 
     public static final RegistryObject<Block> HEALING_CHAMBER = regWithItem("healing_chamber", () ->
-            new HealingChamberBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
+            new HealingChamberBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.TERRACOTTA_WHITE)
                     .noOcclusion()
                     .dynamicShape()
                     .strength(1.5F)));
@@ -108,39 +106,43 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK)
                     .sound(SoundType.GLASS)
                     .noOcclusion()
-                    .dynamicShape()
-                    .strength(1), ClientSetup.BLACK_CHAIR, 32, 24, 13));
+                    .strength(1),ClientSetup.BLACK_CHAIR,32,24,13));
 
     public static final RegistryObject<Block> KITCHEN_CHAIR = regTileBlock("kitchen_chair", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .dynamicShape()
-                    .strength(1), ClientSetup.KITCHEN_CHAIR, 36, 18, 16f));
+                    .strength(1), ClientSetup.KITCHEN_CHAIR, 32, 16, 14f));
 
     public static final RegistryObject<Block> THRONE = regTileBlock("clu_throne", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1), ClientSetup.CLU_THRONE, 28, 48, 18, 16));
-
-    public static final RegistryObject<Block> THRONE_BIG = regTileBlock("clu_throne_big", () ->
-            new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
-                    .sound(SoundType.METAL)
-                    .noOcclusion()
-                    .strength(1), ClientSetup.CLU_THRONE_BIG, 40, 160, 48, 22));
+                    .strength(1),ClientSetup.CLU_THRONE,13, 28,16,13));
 
     public static final RegistryObject<Block> WHITE_CHAIR = regTileBlock("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1), ClientSetup.WHITE_CHAIR, 16, 16));
+                    .strength(1),ClientSetup.WHITE_CHAIR, 16, 16));
 
     public static final RegistryObject<Block> RECLINER = regTileBlock("recliner", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.RECLINER, 11, 18, 32));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.RECLINER, 11, 18, 32));
 
     public static final RegistryObject<Block> BEDSIDE = regTileBlock("bedside", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BEDSIDE, 11, 24, 14));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 24, 14));
+
+    public static final RegistryObject<Block> KITCHEN_TABLE = regTileBlock("kitchen_table", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.KITCHEN_TABLE, 16, 48, 16));
+
+    public static final RegistryObject<Block> METAL_TABLE = regTileBlock("metal_table", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.METAL_TABLE, 16, 16, 16));
+
+    public static final RegistryObject<Block> QUORRAS_DRESSER = regTileBlock("quorras_dresser", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.QUORRAS_DRESSER, 32, 48, 16));
+
+
+
 
 
     //generic tile for entity models (For translucent stuff)

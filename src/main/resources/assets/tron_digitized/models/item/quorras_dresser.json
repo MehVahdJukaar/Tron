@@ -1,7 +1,7 @@
 {
   "parent": "forge:block/default",
   "loader": "forge:obj",
-  "model": "tron_digitized:models/obj/clu_throne.obj",
+  "model": "tron_digitized:models/obj/quorras_dresser.obj",
   "diffuseLighting": true,
   "ambientToFullbright": false,
   "flip-v": true,

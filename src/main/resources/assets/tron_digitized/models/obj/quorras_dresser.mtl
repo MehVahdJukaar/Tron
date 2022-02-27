@@ -1,5 +1,5 @@
 # Blender MTL File: 'None'
-# Material Count: 7
+# Material Count: 6
 
 newmtl m_0
 Ns 0.000000
@@ -10,7 +10,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/clu_throne3
+map_Kd tron_digitized:blocks/quartz_block_top_2
+
+newmtl m_1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd tron_digitized:blocks/lamp_bottom
 
 newmtl m_2
 Ns 0.000000
@@ -21,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/clu_throne
+map_Kd tron_digitized:blocks/glass_for_fireplace
 
 newmtl m_3
 Ns 0.000000
@@ -32,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/clu_throne2
+map_Kd tron_digitized:blocks/smooth_stone
 
 newmtl m_4
 Ns 0.000000
@@ -43,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/clu_throne4
+map_Kd tron_digitized:blocks/quorra_dresser_top
 
 newmtl m_5
 Ns 0.000000
@@ -54,26 +65,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/clu_lightline2
-
-newmtl m_6
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-map_Kd tron_digitized:blocks/clu_lightline
-
-newmtl m_7
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-map_Kd tron_digitized:blocks/clu_material
+map_Kd tron_digitized:blocks/mirror
