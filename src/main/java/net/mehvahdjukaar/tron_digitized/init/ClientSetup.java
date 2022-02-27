@@ -50,6 +50,8 @@ public class ClientSetup {
     public static final ResourceLocation CLU_THRONE = addCustomModel("clu_throne");
     public static final ResourceLocation BEDSIDE = addCustomModel("bedside");
     public static final ResourceLocation KITCHEN_TABLE = addCustomModel("kitchen_table");
+    public static final ResourceLocation METAL_TABLE = addCustomModel("metal_table");
+    public static final ResourceLocation QUORRAS_DRESSER = addCustomModel("quorras_dresser");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);

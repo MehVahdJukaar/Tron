@@ -135,6 +135,12 @@ public class ModRegistry {
     public static final RegistryObject<Block> KITCHEN_TABLE = regTileBlock("kitchen_table", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.KITCHEN_TABLE, 16, 48, 16));
 
+    public static final RegistryObject<Block> METAL_TABLE = regTileBlock("metal_table", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.METAL_TABLE, 16, 16, 16));
+
+    public static final RegistryObject<Block> QUORRAS_DRESSER = regTileBlock("quorras_dresser", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.QUORRAS_DRESSER, 32, 48, 16));
+
 
 
 
