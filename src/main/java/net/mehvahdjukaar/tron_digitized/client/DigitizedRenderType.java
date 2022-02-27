@@ -41,7 +41,7 @@ public class DigitizedRenderType extends RenderType {
         float f = (float) (i % 80000L) / 80000.0F;
         float f1 =0.5f+ Mth.sin((float) (((float) (i % 30000L) / 30000.0F)*Math.PI))*0.5f;
         Matrix4f matrix4f = Matrix4f.createTranslateMatrix(0.0F, f, 0.0F);
-        matrix4f.multiply(Vector3f.ZP.rotationDegrees(31));
+        matrix4f.multiply(Vector3f.ZP.rotationDegrees(30));
         matrix4f.multiply(Matrix4f.createScaleMatrix(1.5f, 1.5f, 1.5f));
         RenderSystem.setTextureMatrix(matrix4f);
 
