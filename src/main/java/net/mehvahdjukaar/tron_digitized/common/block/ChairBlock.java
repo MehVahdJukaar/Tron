@@ -32,11 +32,11 @@ public class ChairBlock extends TronBlock {
 
     private final float chairHeight;
 
-    public ChairBlock(Properties properties, ResourceLocation modelLoc, int height, int width, float chairHeight) {
+    public ChairBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float chairHeight) {
         this(properties, modelLoc, height, width, width, chairHeight);
     }
 
-    public ChairBlock(Properties properties, ResourceLocation modelLoc, int height, int width, int length, float chairHeight) {
+    public ChairBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length, float chairHeight) {
         super(properties, modelLoc, height, width,length);
         this.chairHeight = (chairHeight-13) / 16f;
         float w = width / 2f;

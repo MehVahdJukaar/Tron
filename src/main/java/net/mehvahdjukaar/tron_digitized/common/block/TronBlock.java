@@ -27,7 +27,7 @@ public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
     private final VoxelShape shapeZ;
     private final ResourceLocation modelLocation;
 
-    public TronBlock(Properties properties, ResourceLocation modelLoc, int height, int width, int length) {
+    public TronBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length) {
         super(properties);
         this.modelLocation = modelLoc;
         float w = width / 2f;
