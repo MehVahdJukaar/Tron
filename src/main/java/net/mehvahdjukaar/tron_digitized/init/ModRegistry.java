@@ -118,7 +118,7 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE,24, 28,16,13));
+                    .strength(1),ClientSetup.CLU_THRONE,24, 105,42,13));
 
     public static final RegistryObject<Block> WHITE_CHAIR = regTileBlock("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
