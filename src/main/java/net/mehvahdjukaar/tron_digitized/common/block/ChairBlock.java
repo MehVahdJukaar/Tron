@@ -1,7 +1,6 @@
 package net.mehvahdjukaar.tron_digitized.common.block;
 
 import net.mehvahdjukaar.tron_digitized.common.entity.ChairEntity;
-import net.minecraft.client.renderer.blockentity.BeaconRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -9,17 +8,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
@@ -37,14 +32,12 @@ public class ChairBlock extends TronBlock {
     }
 
     public ChairBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length, float chairHeight) {
-        super(properties, modelLoc, height, width,length);
-        this.chairHeight = (chairHeight-13) / 16f;
+        super(properties, modelLoc, height, width, length);
+        this.chairHeight = (chairHeight - 13) / 16f;
         float w = width / 2f;
         float l = length / 2f;
         shapeBaseX = Block.box(8 - w, 0, 8 - l, 8 + w, chairHeight, 8 + l);
         shapeBaseZ = Block.box(8 - l, 0, 8 - w, 8 + l, chairHeight, 8 + w);
-
-
 
         this.registerDefaultState(this.getStateDefinition().any().setValue(SAT_IN, false).setValue(FACING, Direction.NORTH));
     }
