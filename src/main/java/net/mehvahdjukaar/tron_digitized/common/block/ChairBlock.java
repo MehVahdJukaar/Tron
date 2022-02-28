@@ -26,12 +26,17 @@ public class ChairBlock extends TronBlock {
     public static final BooleanProperty SAT_IN = BooleanProperty.create("sat_in");
 
     private final float chairHeight;
+    private final int maxPassengers;
 
     public ChairBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float chairHeight) {
         this(properties, modelLoc, height, width, width, chairHeight);
     }
 
     public ChairBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length, float chairHeight) {
+        this(properties, modelLoc, height, width, length, chairHeight, 1);
+    }
+
+    public ChairBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length, float chairHeight, int seats) {
         super(properties, modelLoc, height, width, length);
         this.chairHeight = (chairHeight - 13) / 16f;
         float w = width / 2f;
@@ -40,6 +45,7 @@ public class ChairBlock extends TronBlock {
         shapeBaseZ = Block.box(8 - l, 0, 8 - w, 8 + l, chairHeight, 8 + w);
 
         this.registerDefaultState(this.getStateDefinition().any().setValue(SAT_IN, false).setValue(FACING, Direction.NORTH));
+        this.maxPassengers = seats;
     }
 
     @Override
@@ -48,19 +54,30 @@ public class ChairBlock extends TronBlock {
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (!state.getValue(SAT_IN) && worldIn.getBlockState(pos.above()).isAir() && player.getVehicle() == null) {
-            if (!worldIn.isClientSide) {
-                ChairEntity entity = new ChairEntity(worldIn, this.getChairHeight());
-                entity.setPos((double) pos.getX() + 0.5D, (double) pos.getY() + 0.6D, (double) pos.getZ() + 0.5D);
-                worldIn.addFreshEntity(entity);
-                player.startRiding(entity);
-                worldIn.setBlockAndUpdate(pos, state.setValue(SAT_IN, true));
-            }
+        if (worldIn.getBlockState(pos.above()).isAir() && player.getVehicle() == null) {
 
-            return InteractionResult.SUCCESS;
-        } else {
-            return super.use(state, worldIn, pos, player, handIn, hit);
+            if (!worldIn.isClientSide) {
+                ChairEntity entity;
+                var chairs = worldIn.getEntitiesOfClass(ChairEntity.class, new AABB(pos));
+                if (chairs.isEmpty()) {
+                    entity = new ChairEntity(worldIn, this.getChairHeight(), this.maxPassengers);
+                    entity.setPos((double) pos.getX() + 0.5D, (double) pos.getY() + 0.6D, (double) pos.getZ() + 0.5D);
+                    worldIn.addFreshEntity(entity);
+                    if (!state.getValue(SAT_IN)) {
+                        worldIn.setBlockAndUpdate(pos, state.setValue(SAT_IN, true));
+                    }
+                } else {
+                    entity = chairs.get(0);
+                }
+                //var aa = worldIn.getEntitiesOfClass(Pig.class, new AABB(pos));
+                //aa.forEach(e->e.startRiding(entity));
+                if (entity.getPassengers().size() < this.maxPassengers) {
+                    player.startRiding(entity);
+                    return InteractionResult.CONSUME;
+                }
+            } else return InteractionResult.SUCCESS;
         }
+        return super.use(state, worldIn, pos, player, handIn, hit);
     }
 
     public float getChairHeight() {

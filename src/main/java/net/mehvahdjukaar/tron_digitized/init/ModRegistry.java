@@ -120,6 +120,9 @@ public class ModRegistry {
                     .noOcclusion()
                     .strength(1),ClientSetup.CLU_THRONE,24, 105,42,13));
 
+    public static final RegistryObject<Block> BLACK_COUCH = regTileBlock("black_couch", () ->
+            new ChairBlock(BlockBehaviour.Properties.copy(BLACK_CHAIR.get()),ClientSetup.BLACK_COUCH,32,34,20,13, 2));
+
     public static final RegistryObject<Block> WHITE_CHAIR = regTileBlock("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
@@ -133,7 +136,7 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 24, 14));
 
     public static final RegistryObject<Block> KITCHEN_TABLE = regTileBlock("kitchen_table", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.KITCHEN_TABLE, 21.5f, 48, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).sound(SoundType.GLASS),ClientSetup.KITCHEN_TABLE, 21.5f, 48, 16));
 
     public static final RegistryObject<Block> METAL_TABLE = regTileBlock("metal_table", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.METAL_TABLE, 16, 16, 16));
@@ -142,11 +145,13 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.QUORRAS_DRESSER, 32, 48, 16));
 
     public static final RegistryObject<Block> SIMPLE_GLASS_TABLE = regTileBlock("simple_glass_table", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.SIMPLE_GLASS_TABLE, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(KITCHEN_TABLE.get()),ClientSetup.SIMPLE_GLASS_TABLE, 16, 16, 16));
 
     public static final RegistryObject<Block> WHITE_TABLE = regTileBlock("white_table", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.WHITE_TABLE, 16, 16, 16));
 
+    public static final RegistryObject<Block> BOOKSHELF = regTileBlock("bookshelf", () ->
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF, 16, 16, 16));
 
 
 

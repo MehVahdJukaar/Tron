@@ -7,7 +7,9 @@ import com.mojang.math.Matrix4f;
 import com.mojang.math.Vector3f;
 import net.mehvahdjukaar.tron_digitized.Tron;
 import net.minecraft.Util;
+import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.util.Mth;
 
 public class DigitizedRenderType extends RenderType {
@@ -31,10 +33,22 @@ public class DigitizedRenderType extends RenderType {
                             .setWriteMaskState(COLOR_DEPTH_WRITE)
                             .setCullState(NO_CULL)
                             .setDepthTestState(EQUAL_DEPTH_TEST)
-                            .setTransparencyState(GLINT_TRANSPARENCY)
+                            .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
                             .setTexturingState(TEXTURING_STATE_SHARD)
                             .setOverlayState(OVERLAY).createCompositeState(true));
 
+    public static RenderType test(){
+        return     create("digitized2", DefaultVertexFormat.POSITION_TEX, VertexFormat.Mode.QUADS, 256,
+                true, true, CompositeState.builder()
+                        .setShaderState(RENDERTYPE_ENTITY_GLINT_SHADER)
+                        .setTextureState(TEXTURE_SHARD)
+                        .setWriteMaskState(COLOR_DEPTH_WRITE)
+                        .setCullState(NO_CULL)
+                        .setDepthTestState(EQUAL_DEPTH_TEST)
+                        .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                        .setTexturingState(TEXTURING_STATE_SHARD)
+                        .setOverlayState(OVERLAY).createCompositeState(true));
+    }
 
     private static void setupRainbowTexturing(float in, long time) {
         long i = Util.getMillis() * time;

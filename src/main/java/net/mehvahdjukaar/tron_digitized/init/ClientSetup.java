@@ -54,6 +54,8 @@ public class ClientSetup {
     public static final ResourceLocation QUORRAS_DRESSER = addCustomModel("quorras_dresser");
     public static final ResourceLocation SIMPLE_GLASS_TABLE = addCustomModel("simple_glass_table");
     public static final ResourceLocation WHITE_TABLE = addCustomModel("white_table");
+    public static final ResourceLocation BOOKSHELF = addCustomModel("bookshelf");
+    public static final ResourceLocation BLACK_COUCH = addCustomModel("black_couch");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);

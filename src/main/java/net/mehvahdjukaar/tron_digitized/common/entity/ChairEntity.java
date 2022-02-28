@@ -1,5 +1,6 @@
 package net.mehvahdjukaar.tron_digitized.common.entity;
 
+import com.mojang.math.Vector3f;
 import net.mehvahdjukaar.tron_digitized.common.block.ChairBlock;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.core.BlockPos;
@@ -26,6 +27,7 @@ public class ChairEntity extends Entity implements IEntityAdditionalSpawnData {
 
     private float chairHeight;
     private int seats;
+    private BlockState state = ModRegistry.BLACK_CHAIR.get().defaultBlockState();
 
     public ChairEntity(EntityType<?> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
@@ -44,11 +46,12 @@ public class ChairEntity extends Entity implements IEntityAdditionalSpawnData {
 
     @Override
     public void tick() {
+
         super.tick();
         List<Entity> passengers = this.getPassengers();
         boolean dead = passengers.isEmpty();
         BlockPos pos = this.blockPosition();
-        BlockState state = this.level.getBlockState(pos);
+        this.state = this.level.getBlockState(pos);
         if (!dead && !(state.getBlock() instanceof ChairBlock)) {
             PistonMovingBlockEntity piston = null;
             boolean didOffset = false;
@@ -89,7 +92,26 @@ public class ChairEntity extends Entity implements IEntityAdditionalSpawnData {
 
     @Override
     public void positionRider(Entity pPassenger) {
-        super.positionRider(pPassenger);
+        if (this.hasPassenger(pPassenger)) {
+            var passengers = this.getPassengers();
+            int size = passengers.size();
+            int i = this.getPassengers().indexOf(pPassenger);
+
+            double d0 = this.getY() + this.getPassengersRidingOffset() + pPassenger.getMyRidingOffset();
+
+            Vector3f step;
+            float distance = 1;
+            float f = ((size-1)*distance)/2f;
+            if (this.state.hasProperty(ChairBlock.FACING)) {
+                step = this.state.getValue(ChairBlock.FACING).getClockWise().step();
+            }else step = Vector3f.ZERO;
+            var oldStep = step.copy();
+            oldStep.mul(-i*distance);
+            step.mul(f);
+            step.add(oldStep);
+
+            pPassenger.setPos(this.getX() + step.x(), d0, this.getZ()+step.z());
+        }
     }
 
     @Override
