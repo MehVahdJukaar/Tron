@@ -42,7 +42,8 @@ public class BookshelfGui extends Screen {
         RenderSystem.setShaderTexture(0, PAGES[page]);
         matrixStack.pushPose();
         matrixStack.translate(this.width / 2f, this.height / 2f, 0);
-        matrixStack.scale(0.8f, 0.8f, 0);
+        float scale = 1;
+        matrixStack.scale(scale, scale, 0);
         int imageWidth = 256;
         int imageHeight = 256;
         int k = (-imageWidth) / 2;
