@@ -5,10 +5,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.mehvahdjukaar.tron_digitized.Tron;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.LecternScreen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.WritableBookItem;
 
 public class BookshelfGui extends Screen {
 
@@ -51,6 +55,7 @@ public class BookshelfGui extends Screen {
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
         if (pButton == 0) {
             this.page = (++this.page) % 5;
+            Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.BOOK_PAGE_TURN, 1.0F));
         }
         return super.mouseClicked(pMouseX, pMouseY, pButton);
     }

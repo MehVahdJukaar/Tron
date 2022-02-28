@@ -9,7 +9,6 @@ import net.mehvahdjukaar.tron_digitized.Tron;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.util.Mth;
 
 public class DigitizedRenderType extends RenderType {
@@ -18,10 +17,8 @@ public class DigitizedRenderType extends RenderType {
         super(p_173178_, p_173179_, p_173180_, p_173181_, p_173182_, p_173183_, p_173184_, p_173185_);
     }
 
-    protected static final TexturingStateShard TEXTURING_STATE_SHARD = new TexturingStateShard("entity_glint_texturing", () -> {
-        setupRainbowTexturing(1.2F, 4L);
-
-    }, RenderSystem::resetTextureMatrix);
+    protected static final TexturingStateShard TEXTURING_STATE_SHARD = new TexturingStateShard("entity_glint_texturing",
+            () -> addTextureMovement(1.2F, 4L), RenderSystem::resetTextureMatrix);
 
     protected static final TextureStateShard TEXTURE_SHARD = new TextureStateShard(Tron.res("textures/entity/healing_player.png"), true, false);
 
@@ -33,14 +30,13 @@ public class DigitizedRenderType extends RenderType {
                             .setWriteMaskState(COLOR_DEPTH_WRITE)
                             .setCullState(NO_CULL)
                             .setDepthTestState(EQUAL_DEPTH_TEST)
-                            .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
                             .setTexturingState(TEXTURING_STATE_SHARD)
                             .setOverlayState(OVERLAY).createCompositeState(true));
 
     public static RenderType test(){
-        return     create("digitized2", DefaultVertexFormat.POSITION_TEX, VertexFormat.Mode.QUADS, 256,
+        return     create("digitized2", DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP, VertexFormat.Mode.QUADS, 256,
                 true, true, CompositeState.builder()
-                        .setShaderState(RENDERTYPE_ENTITY_GLINT_SHADER)
+                        .setShaderState(RENDERTYPE_ENTITY_TRANSLUCENT_SHADER)
                         .setTextureState(TEXTURE_SHARD)
                         .setWriteMaskState(COLOR_DEPTH_WRITE)
                         .setCullState(NO_CULL)
@@ -50,7 +46,7 @@ public class DigitizedRenderType extends RenderType {
                         .setOverlayState(OVERLAY).createCompositeState(true));
     }
 
-    private static void setupRainbowTexturing(float in, long time) {
+    private static void addTextureMovement(float in, long time) {
         long i = Util.getMillis() * time;
         float f = (float) (i % 80000L) / 80000.0F;
         float f1 = 0.5f + Mth.sin((float) (((float) (i % 30000L) / 30000.0F) * Math.PI)) * 0.5f;
