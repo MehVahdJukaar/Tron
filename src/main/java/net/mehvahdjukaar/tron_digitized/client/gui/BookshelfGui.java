@@ -22,7 +22,7 @@ public class BookshelfGui extends Screen {
 
     protected BookshelfGui(BlockPos pos) {
         super(new TranslatableComponent("gui.tron.bookshelf"));
-        this.page = pos.hashCode() % 5;
+        this.page = Math.abs(pos.hashCode() )% 5;
     }
 
     public static void open(BlockPos pos) {
