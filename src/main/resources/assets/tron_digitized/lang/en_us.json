@@ -16,6 +16,9 @@
   "block.tron_digitized.simple_glass_table": "Simple Glass Table",
   "block.tron_digitized.bookshelf": "Bookshelf",
   "block.tron_digitized.white_table": "White Table",
-  "block.tron_digitized.black_couch": "Black Couch"
-
+  "block.tron_digitized.black_couch": "Black Couch",
+  "block.tron_digitized.bookshelf2": "Bookshelf 2",
+  "block.tron_digitized.bookshelf3": "Bookshelf 3",
+  "block.tron_digitized.bookshelf_end": "Bookshelf End",
+  "block.tron_digitized.bookshelf_end2": "Bookshelf End 2"
 }
