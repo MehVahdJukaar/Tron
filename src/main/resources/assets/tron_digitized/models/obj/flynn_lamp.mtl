@@ -1,5 +1,5 @@
 # Blender MTL File: 'None'
-# Material Count: 3
+# Material Count: 4
 
 newmtl m_0
 Ns 0.000000
@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/lamp_bottom
+map_Kd tron_digitized:blocks/lamp_bottom3
 
 newmtl m_1
 Ns 0.000000
@@ -21,9 +21,20 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/white_concrete
+map_Kd tron_digitized:blocks/lamp_bottom3
 
 newmtl m_2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd tron_digitized:blocks/white_concrete
+
+newmtl m_2.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
