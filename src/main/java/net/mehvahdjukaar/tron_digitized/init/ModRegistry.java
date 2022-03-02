@@ -167,6 +167,9 @@ public class ModRegistry {
     public static final RegistryObject<Block> BOOKSHELF_END2 = regTileBlock("bookshelf_end2", () ->
             new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF_END2, 16, 16, 16));
 
+    public static final RegistryObject<Block> FLYNN_LAMP = regTileBlock("flynn_lamp", () ->
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.FLYNN_LAMP, 16, 16, 16));
+
 
 
 
