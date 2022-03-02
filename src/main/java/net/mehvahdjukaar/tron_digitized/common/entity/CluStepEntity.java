@@ -67,7 +67,7 @@ public class CluStepEntity extends Entity {
 
         for (int i = 0; i < offsets.length; i++) {
             var v = offsets[i];
-            var step = new CluStepEntity(pLevel, main.position().add(v.x, pPos.getY() + 0.5, v.z), pState, i + 1);
+            var step = new CluStepEntity(pLevel, main.position().add(v.x, pPos.getY(), v.z), pState, i + 1);
             step.setYRot(-(float) (180 * v.y / Math.PI));
             step.startRiding(main);
             pLevel.addFreshEntity(step);
@@ -213,7 +213,7 @@ public class CluStepEntity extends Entity {
             int i = this.getPassengers().indexOf(pPassenger);
             var v = offsets[i];
             float y = -Math.min(openingProgress, (i / (float) STEPS));
-            pPassenger.setPos(this.position().add(v.x, y * (float) HEIGHT, v.z));
+            pPassenger.setPos(this.position().add(v.x, 0.75+y * (float) HEIGHT, v.z));
             pPassenger.moveDist = this.moveDist;
         }
     }
@@ -228,11 +228,5 @@ public class CluStepEntity extends Entity {
                 }
             }
         }
-    }
-
-    public AABB getProgressDeltaAabb(float yDir, float prev, float op) {
-        double d0 = Math.max(prev, op);
-        double d1 = Math.min(prev, op);
-        return this.makeBoundingBox().move(0, yDir, 0);
     }
 }
