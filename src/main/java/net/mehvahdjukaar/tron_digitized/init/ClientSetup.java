@@ -54,6 +54,7 @@ public class ClientSetup {
     public static final ResourceLocation BOOKSHELF = addCustomModel("bookshelf");
     public static final ResourceLocation BLACK_COUCH = addCustomModel("black_couch");
     public static final ResourceLocation CLU_STEP = addCustomModel("clu_step");
+    public static final ResourceLocation CLU_STAIRS_FILL = addCustomModel("clu_stairs_fill");
     public static final ResourceLocation BOOKSHELF2 = addCustomModel("bookshelf2");
     public static final ResourceLocation BOOKSHELF3 = addCustomModel("bookshelf3");
     public static final ResourceLocation BOOKSHELF_END = addCustomModel("bookshelf_end");

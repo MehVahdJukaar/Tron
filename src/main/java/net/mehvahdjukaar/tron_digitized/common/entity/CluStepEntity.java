@@ -30,16 +30,19 @@ public class CluStepEntity extends Entity {
     private static final int STEPS = 20;
     private static final int HEIGHT = 4;
     private static final float OPENING_SPEED = 0.02f;
+    //private static final EntityDimensions MAIN_DIMENSIONS = EntityDimensions.fixed(4F, 0.25F);
 
     private static final EntityDataAccessor<Integer> STEP_ORDINAL = SynchedEntityData.defineId(CluStepEntity.class, EntityDataSerializers.INT);
 
     private static final Vec3[] offsets = Util.make(new Vec3[STEPS], v -> {
         for (int i = 0; i < v.length; i++) {
-            float angle = (float) ((i / (v.length - 1f)) * 2 * Math.PI);
+            float angle = (float) ((i / ((float)v.length)) * 2 * Math.PI);
             v[i] = new Vec3(RADIUS * Mth.sin(angle), angle, RADIUS * Mth.cos(angle));
         }
 
     });
+
+
 
     public float openingProgress = 0;
     public float prevOpeningProgress = 0;
@@ -53,6 +56,12 @@ public class CluStepEntity extends Entity {
         this(ModRegistry.CLU_STEP_ENTITY.get(), level);
         this.setPos(pos);
         this.setOrdinal(ordinal);
+    }
+
+    @Override
+    public EntityDimensions getDimensions(Pose pPose) {
+        //if(this.getOrdinal() == 0)return MAIN_DIMENSIONS;
+        return super.getDimensions(pPose);
     }
 
     public static void create(Level pLevel, BlockPos pPos, BlockState pState) {

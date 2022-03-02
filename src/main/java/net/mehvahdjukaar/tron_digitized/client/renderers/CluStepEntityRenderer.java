@@ -32,9 +32,9 @@ public class CluStepEntityRenderer extends EntityRenderer<CluStepEntity> {
 
     @Override
     public void render(CluStepEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack poseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        if (pEntity.getOrdinal() == 0) return;
+
         super.render(pEntity, pEntityYaw, pPartialTicks, poseStack, pBuffer, pPackedLight);
-        var loc = ClientSetup.CLU_STEP;
+        var loc = pEntity.getOrdinal() == 0 ? ClientSetup.CLU_STAIRS_FILL:  ClientSetup.CLU_STEP;
         poseStack.pushPose();
         poseStack.mulPose(Vector3f.YP.rotationDegrees(-pEntity.getYRot()));
 
