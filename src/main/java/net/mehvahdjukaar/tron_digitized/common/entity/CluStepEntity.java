@@ -4,6 +4,7 @@ import net.mehvahdjukaar.tron_digitized.common.block.CluStairsBlock;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -13,19 +14,23 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
+
+import java.util.List;
 
 public class CluStepEntity extends Entity {
 
@@ -44,6 +49,7 @@ public class CluStepEntity extends Entity {
     });
 
     public float openingProgress = 0;
+    public float prevOpeningProgress = 0;
 
     public CluStepEntity(EntityType<?> type, Level level) {
         super(type, level);
@@ -149,17 +155,25 @@ public class CluStepEntity extends Entity {
             if ( state.getBlock()!= ModRegistry.CLU_STAIRS.get()) {
                 this.discard();
             }else{
+                this.prevOpeningProgress = this.openingProgress;
                 if(state.getValue(CluStairsBlock.ENABLED)){
+                    this.moveDist = 1;
                     if(this.openingProgress<1)
                         this.openingProgress = Math.min(this.openingProgress+0.0245f, 1);
                 }
                 else{
+                    this.moveDist = -1;
                     if(this.openingProgress>0)
                         this.openingProgress = Math.max(this.openingProgress-0.0245f, 0);
                 }
             }
-        } else if (!this.isPassenger()) {
-            this.discard();
+            this.getPassengers().forEach(c->c.moveDist=this.moveDist);
+        } else{
+            if (!this.isPassenger()) {
+                this.discard();
+            }else{
+                this.moveCollidedEntities();
+            }
         }
     }
 
@@ -198,6 +212,24 @@ public class CluStepEntity extends Entity {
             var v = offsets[i];
             float y = -Math.min(openingProgress,(i/(float)STEPS));
             pPassenger.setPos(this.position() .add(v.x, y* (float) HEIGHT, v.z));
+            pPassenger.moveDist = this.moveDist;
         }
+    }
+
+    private void moveCollidedEntities() {
+
+        AABB aabb = getProgressDeltaAabb(this.moveDist, this.prevOpeningProgress, this.openingProgress);
+        List<LivingEntity> list = this.level.getEntitiesOfClass(LivingEntity.class, aabb);
+        for (LivingEntity entity : list) {
+            if (entity.getPistonPushReaction() != PushReaction.IGNORE) {
+                entity.move(MoverType.SHULKER_BOX, new Vec3(0, (aabb.getYsize() + 0.01D) * -2*moveDist, 0));
+            }
+        }
+    }
+
+    public AABB getProgressDeltaAabb(float yDir, float prev, float op) {
+        double d0 = Math.max(prev, op);
+        double d1 = Math.min(prev, op);
+        return this.makeBoundingBox().expandTowards(0, yDir * d0,0).contract(0, (double)(-yDir) * (1.0D + d1), 0);
     }
 }
