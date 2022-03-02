@@ -9,7 +9,10 @@ import net.mehvahdjukaar.tron_digitized.Tron;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+
+import java.util.function.BiFunction;
 
 public class DigitizedRenderType extends RenderType {
 
@@ -33,26 +36,31 @@ public class DigitizedRenderType extends RenderType {
                             .setTexturingState(TEXTURING_STATE_SHARD)
                             .setOverlayState(OVERLAY).createCompositeState(true));
 
-    public static RenderType test(){
-        return     create("digitized2", DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP, VertexFormat.Mode.QUADS, 256,
-                true, true, CompositeState.builder()
-                        .setShaderState(RENDERTYPE_ENTITY_TRANSLUCENT_SHADER)
+    public static RenderType test2(){
+
+        return create("digitized3", DefaultVertexFormat.NEW_ENTITY, VertexFormat.Mode.QUADS, 256,
+                true, true, RenderType.CompositeState.builder()
+                        .setShaderState(RenderStateShard.RENDERTYPE_ENTITY_TRANSLUCENT_SHADER)
                         .setTextureState(TEXTURE_SHARD)
-                        .setWriteMaskState(COLOR_DEPTH_WRITE)
                         .setCullState(NO_CULL)
-                        .setDepthTestState(EQUAL_DEPTH_TEST)
-                        .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                        .setLightmapState(LIGHTMAP)
+                        .setOverlayState(OVERLAY)
                         .setTexturingState(TEXTURING_STATE_SHARD)
-                        .setOverlayState(OVERLAY).createCompositeState(true));
-    }
+                        .setDepthTestState(EQUAL_DEPTH_TEST)
+
+                        .createCompositeState(true));
+    };
 
     private static void addTextureMovement(float in, long time) {
+
         long i = Util.getMillis() * time;
         float f = (float) (i % 80000L) / 80000.0F;
         float f1 = 0.5f + Mth.sin((float) (((float) (i % 30000L) / 30000.0F) * Math.PI)) * 0.5f;
         Matrix4f matrix4f = Matrix4f.createTranslateMatrix(0.0F, f, 0.0F);
         matrix4f.multiply(Vector3f.ZP.rotationDegrees(30));
-        matrix4f.multiply(Matrix4f.createScaleMatrix(1.5f, 1.5f, 1.5f));
+        float scale = 1.5f;
+        matrix4f.multiply(Matrix4f.createScaleMatrix(scale, scale, scale));
+
         RenderSystem.setTextureMatrix(matrix4f);
 
 

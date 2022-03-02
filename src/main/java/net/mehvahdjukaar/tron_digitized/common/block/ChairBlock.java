@@ -75,6 +75,7 @@ public class ChairBlock extends TronBlock {
                     player.startRiding(entity);
                     return InteractionResult.CONSUME;
                 }
+                return InteractionResult.FAIL;
             } else return InteractionResult.SUCCESS;
         }
         return super.use(state, worldIn, pos, player, handIn, hit);

@@ -4,10 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.client.DigitizedGuiOverlay;
 import net.mehvahdjukaar.tron_digitized.client.DigitizedLayer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.ChairEntityRenderer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.CluDoorTileRenderer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.TronBlockTileRenderer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.HealingChamberTileRenderer;
+import net.mehvahdjukaar.tron_digitized.client.renderers.*;
 import net.mehvahdjukaar.tron_digitized.common.entity.IHealableEntity;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.model.EntityModel;
@@ -56,6 +53,7 @@ public class ClientSetup {
     public static final ResourceLocation WHITE_TABLE = addCustomModel("white_table");
     public static final ResourceLocation BOOKSHELF = addCustomModel("bookshelf");
     public static final ResourceLocation BLACK_COUCH = addCustomModel("black_couch");
+    public static final ResourceLocation CLU_STEP = addCustomModel("clu_step");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
@@ -76,6 +74,7 @@ public class ClientSetup {
         event.registerBlockEntityRenderer(ModRegistry.CUSTOM_BLOCK_TILE.get(), TronBlockTileRenderer::new);
 
         event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY.get(), ChairEntityRenderer::new);
+        event.registerEntityRenderer(ModRegistry.CLU_STEP_ENTITY.get(), CluStepEntityRenderer::new);
     }
 
     @SubscribeEvent

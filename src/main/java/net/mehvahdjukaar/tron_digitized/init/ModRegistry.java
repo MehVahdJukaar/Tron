@@ -3,8 +3,10 @@ package net.mehvahdjukaar.tron_digitized.init;
 import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.common.block.*;
 import net.mehvahdjukaar.tron_digitized.common.entity.ChairEntity;
+import net.mehvahdjukaar.tron_digitized.common.entity.CluStepEntity;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.*;
@@ -156,6 +158,12 @@ public class ModRegistry {
 
 
 
+    public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
+            new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)
+                    .noOcclusion()
+                    .dynamicShape()
+                    .strength(1.5F)));
+
     //generic tile for entity models (For translucent stuff)
     public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES
             .register("custom_block_tile", () -> BlockEntityType.Builder.of(TronBlockTile::new,
@@ -170,6 +178,12 @@ public class ModRegistry {
                     .clientTrackingRange(3)
                     .setShouldReceiveVelocityUpdates(false)
                     .build("chair"));
+
+    public static final RegistryObject<EntityType<CluStepEntity>> CLU_STEP_ENTITY = ENTITIES.register("clu_step",
+            () -> EntityType.Builder.<CluStepEntity>of(CluStepEntity::new, MobCategory.MISC)
+                    .sized(0.75f, 0.25f)
+                    .clientTrackingRange(8)
+                    .build("clu_step"));
 
 
    /*
