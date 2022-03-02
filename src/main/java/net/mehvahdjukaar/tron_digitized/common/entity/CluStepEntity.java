@@ -196,7 +196,7 @@ public class CluStepEntity extends Entity {
         if (this.hasPassenger(pPassenger)) {
             int i = this.getPassengers().indexOf(pPassenger);
             var v = offsets[i];
-            float y = -Math.min(openingProgress,openingProgress*(i/(float)STEPS));
+            float y = -Math.min(openingProgress,(i/(float)STEPS));
             pPassenger.setPos(this.position() .add(v.x, y* (float) HEIGHT, v.z));
         }
     }

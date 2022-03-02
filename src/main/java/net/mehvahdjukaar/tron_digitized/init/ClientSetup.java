@@ -4,10 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.client.DigitizedGuiOverlay;
 import net.mehvahdjukaar.tron_digitized.client.DigitizedLayer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.ChairEntityRenderer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.CluDoorTileRenderer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.TronBlockTileRenderer;
-import net.mehvahdjukaar.tron_digitized.client.renderers.HealingChamberTileRenderer;
+import net.mehvahdjukaar.tron_digitized.client.renderers.*;
 import net.mehvahdjukaar.tron_digitized.common.entity.IHealableEntity;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.model.EntityModel;
@@ -81,6 +78,7 @@ public class ClientSetup {
         event.registerBlockEntityRenderer(ModRegistry.CUSTOM_BLOCK_TILE.get(), TronBlockTileRenderer::new);
 
         event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY.get(), ChairEntityRenderer::new);
+        event.registerEntityRenderer(ModRegistry.CLU_STEP_ENTITY.get(), CluStepEntityRenderer::new);
     }
 
     @SubscribeEvent
