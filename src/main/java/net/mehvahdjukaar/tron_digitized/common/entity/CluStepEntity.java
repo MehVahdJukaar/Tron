@@ -30,6 +30,7 @@ public class CluStepEntity extends Entity {
     private static final int STEPS = 20;
     private static final int HEIGHT = 7;
     private static final float OPENING_SPEED = 0.01f;
+    private static final float STEP_Y_OFFSET = 0.75f;
 
     private static final EntityDataAccessor<Integer> STEP_ORDINAL = SynchedEntityData.defineId(CluStepEntity.class, EntityDataSerializers.INT);
 
@@ -213,7 +214,7 @@ public class CluStepEntity extends Entity {
             int i = this.getPassengers().indexOf(pPassenger);
             var v = offsets[i];
             float y = -Math.min(openingProgress, (i / (float) STEPS));
-            pPassenger.setPos(this.position().add(v.x, 0.75+y * (float) HEIGHT, v.z));
+            pPassenger.setPos(this.position().add(v.x, STEP_Y_OFFSET+y * (float) HEIGHT, v.z));
             pPassenger.moveDist = this.moveDist;
         }
     }
