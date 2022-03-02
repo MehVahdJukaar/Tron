@@ -30,7 +30,7 @@ public class CluStepEntity extends Entity {
     private static final int STEPS = 20;
     private static final int HEIGHT = 7;
     private static final float OPENING_SPEED = 0.01f;
-    private static final float STEP_Y_OFFSET = 0.75f;
+    private static final float STEP_Y_OFFSET = 0.76f;
 
     private static final EntityDataAccessor<Integer> STEP_ORDINAL = SynchedEntityData.defineId(CluStepEntity.class, EntityDataSerializers.INT);
 
