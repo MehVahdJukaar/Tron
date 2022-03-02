@@ -155,6 +155,18 @@ public class ModRegistry {
     public static final RegistryObject<Block> BOOKSHELF = regTileBlock("bookshelf", () ->
             new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF, 16, 16, 16));
 
+    public static final RegistryObject<Block> BOOKSHELF2 = regTileBlock("bookshelf2", () ->
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF2, 16, 16, 16));
+
+    public static final RegistryObject<Block> BOOKSHELF3 = regTileBlock("bookshelf3", () ->
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF3, 16, 16, 16));
+
+    public static final RegistryObject<Block> BOOKSHELF_END = regTileBlock("bookshelf_end", () ->
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF_END, 16, 16, 16));
+
+    public static final RegistryObject<Block> BOOKSHELF_END2 = regTileBlock("bookshelf_end2", () ->
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF_END2, 16, 16, 16));
+
 
 
 
