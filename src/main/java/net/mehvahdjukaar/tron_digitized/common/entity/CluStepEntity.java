@@ -26,11 +26,10 @@ import java.util.List;
 
 public class CluStepEntity extends Entity {
 
-    private static final float RADIUS = 2f;
+    private static final float RADIUS = 1.36f;
     private static final int STEPS = 20;
-    private static final int HEIGHT = 4;
-    private static final float OPENING_SPEED = 0.02f;
-    //private static final EntityDimensions MAIN_DIMENSIONS = EntityDimensions.fixed(4F, 0.25F);
+    private static final int HEIGHT = 7;
+    private static final float OPENING_SPEED = 0.01f;
 
     private static final EntityDataAccessor<Integer> STEP_ORDINAL = SynchedEntityData.defineId(CluStepEntity.class, EntityDataSerializers.INT);
 
@@ -41,8 +40,6 @@ public class CluStepEntity extends Entity {
         }
 
     });
-
-
 
     public float openingProgress = 0;
     public float prevOpeningProgress = 0;
