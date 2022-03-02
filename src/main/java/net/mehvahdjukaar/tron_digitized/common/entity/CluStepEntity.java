@@ -214,7 +214,8 @@ public class CluStepEntity extends Entity {
             int i = this.getPassengers().indexOf(pPassenger);
             var v = offsets[i];
             float y = -Math.min(openingProgress, (i / (float) STEPS));
-            pPassenger.setPos(this.position().add(v.x, STEP_Y_OFFSET+y * (float) HEIGHT, v.z));
+            float yOff = STEP_Y_OFFSET + (i%2==0 ? 0.001f : 0);
+            pPassenger.setPos(this.position().add(v.x, yOff+y * (float) HEIGHT, v.z));
             pPassenger.moveDist = this.moveDist;
         }
     }
