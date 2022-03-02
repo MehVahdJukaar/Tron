@@ -4,29 +4,21 @@ import net.mehvahdjukaar.tron_digitized.common.block.CluStairsBlock;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Shulker;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.ShulkerBoxBlock;
-import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
@@ -37,13 +29,14 @@ public class CluStepEntity extends Entity {
     private static final float RADIUS = 2f;
     private static final int STEPS = 20;
     private static final int HEIGHT = 4;
+    private static final float OPENING_SPEED = 0.02f;
 
     private static final EntityDataAccessor<Integer> STEP_ORDINAL = SynchedEntityData.defineId(CluStepEntity.class, EntityDataSerializers.INT);
 
     private static final Vec3[] offsets = Util.make(new Vec3[STEPS], v -> {
         for (int i = 0; i < v.length; i++) {
-            float angle = (float) ((i / (v.length-1f)) * 2*Math.PI);
-            v[i] = new Vec3(RADIUS*Mth.sin(angle),angle, RADIUS*Mth.cos(angle));
+            float angle = (float) ((i / (v.length - 1f)) * 2 * Math.PI);
+            v[i] = new Vec3(RADIUS * Mth.sin(angle), angle, RADIUS * Mth.cos(angle));
         }
 
     });
@@ -68,8 +61,8 @@ public class CluStepEntity extends Entity {
 
         for (int i = 0; i < offsets.length; i++) {
             var v = offsets[i];
-            var step = new CluStepEntity(pLevel,main.position().add(v.x, pPos.getY() + 0.5, v.z), pState, i + 1);
-            step.setYRot(-(float) (180*v.y/Math.PI));
+            var step = new CluStepEntity(pLevel, main.position().add(v.x, pPos.getY() + 0.5, v.z), pState, i + 1);
+            step.setYRot(-(float) (180 * v.y / Math.PI));
             step.startRiding(main);
             pLevel.addFreshEntity(step);
         }
@@ -152,26 +145,29 @@ public class CluStepEntity extends Entity {
         //master
         if (this.getOrdinal() == 0) {
             BlockState state = this.getBlockStateOn();
-            if ( state.getBlock()!= ModRegistry.CLU_STAIRS.get()) {
+            if (state.getBlock() != ModRegistry.CLU_STAIRS.get()) {
                 this.discard();
-            }else{
+            } else {
                 this.prevOpeningProgress = this.openingProgress;
-                if(state.getValue(CluStairsBlock.ENABLED)){
-                    this.moveDist = 1;
-                    if(this.openingProgress<1)
-                        this.openingProgress = Math.min(this.openingProgress+0.0245f, 1);
-                }
-                else{
-                    this.moveDist = -1;
-                    if(this.openingProgress>0)
-                        this.openingProgress = Math.max(this.openingProgress-0.0245f, 0);
+                this.moveDist = 0;
+                if (state.getValue(CluStairsBlock.ENABLED)) {
+
+                    if (this.openingProgress < 1) {
+                        this.moveDist = -OPENING_SPEED;
+                        this.openingProgress = Math.min(this.openingProgress - moveDist, 1);
+                    }
+                } else {
+                    if (this.openingProgress > 0) {
+                        this.moveDist = OPENING_SPEED;
+                        this.openingProgress = Math.max(this.openingProgress - moveDist, 0);
+                    }
                 }
             }
-            this.getPassengers().forEach(c->c.moveDist=this.moveDist);
-        } else{
+            this.getPassengers().forEach(c -> c.moveDist = this.moveDist);
+        } else {
             if (!this.isPassenger()) {
                 this.discard();
-            }else{
+            } else {
                 this.moveCollidedEntities();
             }
         }
@@ -202,7 +198,7 @@ public class CluStepEntity extends Entity {
 
     @Override
     protected boolean canAddPassenger(Entity pPassenger) {
-        return this.getPassengers().size()<STEPS;
+        return this.getPassengers().size() < STEPS;
     }
 
     @Override
@@ -210,19 +206,20 @@ public class CluStepEntity extends Entity {
         if (this.hasPassenger(pPassenger)) {
             int i = this.getPassengers().indexOf(pPassenger);
             var v = offsets[i];
-            float y = -Math.min(openingProgress,(i/(float)STEPS));
-            pPassenger.setPos(this.position() .add(v.x, y* (float) HEIGHT, v.z));
+            float y = -Math.min(openingProgress, (i / (float) STEPS));
+            pPassenger.setPos(this.position().add(v.x, y * (float) HEIGHT, v.z));
             pPassenger.moveDist = this.moveDist;
         }
     }
 
     private void moveCollidedEntities() {
-
-        AABB aabb = getProgressDeltaAabb(this.moveDist, this.prevOpeningProgress, this.openingProgress);
-        List<LivingEntity> list = this.level.getEntitiesOfClass(LivingEntity.class, aabb);
-        for (LivingEntity entity : list) {
-            if (entity.getPistonPushReaction() != PushReaction.IGNORE) {
-                entity.move(MoverType.SHULKER_BOX, new Vec3(0, (aabb.getYsize() + 0.01D) * -2*moveDist, 0));
+        if (this.moveDist > 0) {
+            AABB aabb = this.makeBoundingBox().move(0, moveDist*HEIGHT+0.001, 0);
+            List<LivingEntity> list = this.level.getEntitiesOfClass(LivingEntity.class, aabb);
+            for (LivingEntity entity : list) {
+                if (entity.getPistonPushReaction() != PushReaction.IGNORE) {
+                    entity.move(MoverType.SHULKER_BOX, new Vec3(0, aabb.maxY-entity.getY(), 0));
+                }
             }
         }
     }
@@ -230,6 +227,6 @@ public class CluStepEntity extends Entity {
     public AABB getProgressDeltaAabb(float yDir, float prev, float op) {
         double d0 = Math.max(prev, op);
         double d1 = Math.min(prev, op);
-        return this.makeBoundingBox().expandTowards(0, yDir * d0,0).contract(0, (double)(-yDir) * (1.0D + d1), 0);
+        return this.makeBoundingBox().move(0, yDir, 0);
     }
 }
