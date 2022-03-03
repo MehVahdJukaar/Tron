@@ -60,6 +60,7 @@ public class ClientSetup {
     public static final ResourceLocation BOOKSHELF_END = addCustomModel("bookshelf_end");
     public static final ResourceLocation BOOKSHELF_END2 = addCustomModel("bookshelf_end2");
     public static final ResourceLocation FLYNN_LAMP = addCustomModel("flynn_lamp");
+    public static final ResourceLocation CLU_BACK_DOOR = addCustomModel("clu_back_door");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
