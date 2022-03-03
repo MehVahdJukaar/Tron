@@ -3,6 +3,7 @@ package net.mehvahdjukaar.tron_digitized.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.mehvahdjukaar.tron_digitized.Tron;
+import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.LecternScreen;
@@ -56,7 +57,7 @@ public class BookshelfGui extends Screen {
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
         if (pButton == 0) {
             this.page = (++this.page) % 5;
-            Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.BOOK_PAGE_TURN, 1.0F));
+            Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(ModRegistry.BOOKSHELF_SOUND.get(), 1.0F));
         }
         return super.mouseClicked(pMouseX, pMouseY, pButton);
     }

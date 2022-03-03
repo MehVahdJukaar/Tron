@@ -102,6 +102,7 @@ public class ModRegistry {
 
     public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
+    public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
 
 
     public static final RegistryObject<Block> BLACK_CHAIR = regTileBlock("black_chair", () ->

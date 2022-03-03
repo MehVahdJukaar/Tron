@@ -18,5 +18,23 @@
       }
     ],
     "subtitle": "subtitle.tron_digitized.block.healing_chamber"
+  },
+  "block.bookshelf": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "tron_digitized:block/flynn_open_flip1",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:block/flynn_open_flip3",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:block/flynn_open_flip2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.tron_digitized.block.bookshelf"
   }
 }
