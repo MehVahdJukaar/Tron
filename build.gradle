@@ -50,7 +50,7 @@ minecraft {
 
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             property 'mixin.env.remapRefMap', 'true'
-            arg "-mixin.config=tron.mixins.json".toString()
+            arg "-mixin.config=tron_digitized.mixins.json".toString()
 
             workingDirectory project.file('run')
 
