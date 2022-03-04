@@ -169,14 +169,13 @@ public class ModRegistry {
             new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF_END2, 16, 16, 16));
 
     public static final RegistryObject<Block> FLYNN_LAMP = regTileBlock("flynn_lamp", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15)
-                    ,ClientSetup.FLYNN_LAMP, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.FLYNN_LAMP, 16, 16, 16));
 
     public static final RegistryObject<Block> CLU_BACK_DOOR = regTileBlock("clu_back_door", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.CLU_BACK_DOOR, 160, 32, 160));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.CLU_BACK_DOOR, 120, 32, 120));
 
     public static final RegistryObject<Block> CLU_BACK_STAIRS = regTileBlock("clu_back_stairs", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.CLU_BACK_STAIRS, 46.5f, 32, 90.5f));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.CLU_BACK_STAIRS, 18, 80, 50));
 
 
 
