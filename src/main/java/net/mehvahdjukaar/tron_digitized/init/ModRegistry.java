@@ -6,11 +6,11 @@ import net.mehvahdjukaar.tron_digitized.common.entity.ChairEntity;
 import net.mehvahdjukaar.tron_digitized.common.entity.CluStepEntity;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -42,7 +42,7 @@ public class ModRegistry {
         PARTICLES.register(bus);
     }
 
-    public static final CreativeModeTab MOD_TAB = new CreativeModeTab("tron_digitized"){
+    public static final CreativeModeTab MOD_TAB = new CreativeModeTab("tron_digitized") {
         @Override
         public ItemStack makeIcon() {
             return Items.DIAMOND_BLOCK.getDefaultInstance();
@@ -60,21 +60,22 @@ public class ModRegistry {
     public static RegistryObject<SoundEvent> makeSoundEvent(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(Tron.res(name)));
     }
+
     protected static RegistryObject<Block> regWithItem(String name, Supplier<Block> blockSup) {
-        var b =  BLOCKS.register(name, blockSup);
+        var b = BLOCKS.register(name, blockSup);
         regBlockItem(b);
         return b;
     }
 
     private static final Set<Supplier<Block>> TILE_BLOCKS = new HashSet<>();
 
-    public static RegistryObject<Block> regTileBlock(String name, Supplier<Block> blockSup){
+    public static RegistryObject<Block> regTileBlock(String name, Supplier<Block> blockSup) {
         var b = regWithItem(name, blockSup);
         TILE_BLOCKS.add(b);
         return b;
     }
 
-    private static Block[] getAllTileBlocks(){
+    private static Block[] getAllTileBlocks() {
         return TILE_BLOCKS.stream().map(Supplier::get).toArray(Block[]::new);
     }
 
@@ -109,7 +110,7 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK)
                     .sound(SoundType.GLASS)
                     .noOcclusion()
-                    .strength(1),ClientSetup.BLACK_CHAIR,32,24,13));
+                    .strength(1), ClientSetup.BLACK_CHAIR, 32, 24, 13));
 
     public static final RegistryObject<Block> KITCHEN_CHAIR = regTileBlock("kitchen_chair", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
@@ -121,63 +122,62 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.CLU_THRONE,24, 105,42,13));
+                    .strength(1), ClientSetup.CLU_THRONE, 24, 105, 42, 13));
 
     public static final RegistryObject<Block> BLACK_COUCH = regTileBlock("black_couch", () ->
-            new ChairBlock(BlockBehaviour.Properties.copy(BLACK_CHAIR.get()),ClientSetup.BLACK_COUCH,32,34,20,13, 2));
+            new ChairBlock(BlockBehaviour.Properties.copy(BLACK_CHAIR.get()), ClientSetup.BLACK_COUCH, 32, 34, 20, 13, 2));
 
     public static final RegistryObject<Block> WHITE_CHAIR = regTileBlock("white_chair", () ->
             new TronBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1),ClientSetup.WHITE_CHAIR, 16, 16));
+                    .strength(1), ClientSetup.WHITE_CHAIR, 16, 16));
 
     public static final RegistryObject<Block> RECLINER = regTileBlock("recliner", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.RECLINER, 11, 18, 32));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.RECLINER, 11, 18, 32));
 
     public static final RegistryObject<Block> BEDSIDE = regTileBlock("bedside", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BEDSIDE, 11, 24, 14));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BEDSIDE, 11, 24, 14));
 
     public static final RegistryObject<Block> KITCHEN_TABLE = regTileBlock("kitchen_table", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).sound(SoundType.GLASS),ClientSetup.KITCHEN_TABLE, 21.5f, 48, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).sound(SoundType.GLASS), ClientSetup.KITCHEN_TABLE, 21.5f, 48, 16));
 
     public static final RegistryObject<Block> METAL_TABLE = regTileBlock("metal_table", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.METAL_TABLE, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.METAL_TABLE, 16, 16, 16));
 
     public static final RegistryObject<Block> QUORRAS_DRESSER = regTileBlock("quorras_dresser", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.QUORRAS_DRESSER, 32, 48, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.QUORRAS_DRESSER, 32, 48, 16));
 
     public static final RegistryObject<Block> SIMPLE_GLASS_TABLE = regTileBlock("simple_glass_table", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(KITCHEN_TABLE.get()),ClientSetup.SIMPLE_GLASS_TABLE, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(KITCHEN_TABLE.get()), ClientSetup.SIMPLE_GLASS_TABLE, 16, 16, 16));
 
     public static final RegistryObject<Block> WHITE_TABLE = regTileBlock("white_table", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.WHITE_TABLE, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WHITE_TABLE, 16, 16, 16));
 
     public static final RegistryObject<Block> BOOKSHELF = regTileBlock("bookshelf", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF, 16, 16, 16));
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BOOKSHELF, 16, 16, 16));
 
     public static final RegistryObject<Block> BOOKSHELF2 = regTileBlock("bookshelf2", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF2, 16, 16, 16));
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BOOKSHELF2, 16, 16, 16));
 
     public static final RegistryObject<Block> BOOKSHELF3 = regTileBlock("bookshelf3", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF3, 16, 16, 16));
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BOOKSHELF3, 16, 16, 16));
 
     public static final RegistryObject<Block> BOOKSHELF_END = regTileBlock("bookshelf_end", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF_END, 16, 16, 16));
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BOOKSHELF_END, 16, 16, 16));
 
     public static final RegistryObject<Block> BOOKSHELF_END2 = regTileBlock("bookshelf_end2", () ->
-            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.BOOKSHELF_END2, 16, 16, 16));
+            new BookshelfBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BOOKSHELF_END2, 16, 16, 16));
 
     public static final RegistryObject<Block> FLYNN_LAMP = regTileBlock("flynn_lamp", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.FLYNN_LAMP, 16, 16, 16));
+            new LampBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> s.getValue(LampBlock.LIT) ? 15 : 0),
+                    ClientSetup.FLYNN_LAMP, ClientSetup.FLYNN_LAMP_OFF, 16, 16, 16));
 
     public static final RegistryObject<Block> CLU_BACK_DOOR = regTileBlock("clu_back_door", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.CLU_BACK_DOOR, 120, 32, 120));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_BACK_DOOR, 120, 32, 120));
 
     public static final RegistryObject<Block> CLU_BACK_STAIRS = regTileBlock("clu_back_stairs", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),ClientSetup.CLU_BACK_STAIRS, 18, 80, 50));
-
-
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_BACK_STAIRS, 18, 80, 50));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->

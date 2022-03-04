@@ -14,19 +14,16 @@ import java.util.function.Function;
 public class TronBlockTile extends BlockEntity {
 
     @Nullable
-    private final ResourceLocation modelLocation;
     private final boolean translucent;
     private final Function<BlockState, Float> yawGetter;
 
     public TronBlockTile(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModRegistry.CUSTOM_BLOCK_TILE.get(), pWorldPosition, pBlockState);
         if(pBlockState.getBlock() instanceof ICustomModelProvider modelProvider){
-            this.modelLocation = modelProvider.getCustomModelLocation();
             this.translucent = modelProvider.isTranslucent();
             this.yawGetter = modelProvider.getYawGetter();
         }
         else {
-            this.modelLocation = null;
             this.translucent = true;
             this.yawGetter = s->0f;
         }
@@ -34,7 +31,7 @@ public class TronBlockTile extends BlockEntity {
 
     @Nullable
     public ResourceLocation getModelLocation() {
-        return modelLocation;
+        return ((ICustomModelProvider)this.getBlockState().getBlock()).getCustomModelLocation(this.getBlockState());
     }
 
     public boolean isTranslucent() {

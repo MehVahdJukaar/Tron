@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 public interface ICustomModelProvider {
 
-    ResourceLocation getCustomModelLocation();
+    ResourceLocation getCustomModelLocation(BlockState state);
 
     default boolean isTranslucent(){
         return true;

@@ -91,7 +91,7 @@ public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
     }
 
     @Override
-    public ResourceLocation getCustomModelLocation() {
+    public ResourceLocation getCustomModelLocation(BlockState state) {
         return modelLocation;
     }
 

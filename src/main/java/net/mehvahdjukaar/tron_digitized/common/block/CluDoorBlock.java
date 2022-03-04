@@ -125,7 +125,7 @@ public class CluDoorBlock extends Block implements IForgeBlock, EntityBlock, ICu
 
 
     @Override
-    public ResourceLocation getCustomModelLocation() {
+    public ResourceLocation getCustomModelLocation(BlockState state) {
         return ClientSetup.CLU_DOOR;
     }
 
