@@ -186,6 +186,9 @@ public class ModRegistry {
             new LampBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> s.getValue(LampBlock.LIT) ? 15 : 0),
                     ClientSetup.CHAND_ON, ClientSetup.CHAND, 32, 32, 32));
 
+    public static final RegistryObject<Block> CLU_GLOW_WALL = regTileBlock("clu_glow_wall", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_GLOW_WALL, 16, 16, 16));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)

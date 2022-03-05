@@ -1,7 +1,7 @@
 {
   "parent": "forge:block/default",
   "loader": "forge:obj",
-  "model": "tron_digitized:models/obj/bookshelf_end2.obj",
+  "model": "tron_digitized:models/obj/clu_glow_wall.obj",
   "diffuseLighting": true,
   "ambientToFullbright": false,
   "flip-v": true,

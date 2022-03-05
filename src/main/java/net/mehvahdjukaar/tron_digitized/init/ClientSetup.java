@@ -66,6 +66,7 @@ public class ClientSetup {
     public static final ResourceLocation FIREPLACE = addCustomModel("fireplace");
     public static final ResourceLocation CHAND_ON = addCustomModel("chand_on");
     public static final ResourceLocation CHAND = addCustomModel("chand");
+    public static final ResourceLocation CLU_GLOW_WALL = addCustomModel("clu_glow_wall");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
