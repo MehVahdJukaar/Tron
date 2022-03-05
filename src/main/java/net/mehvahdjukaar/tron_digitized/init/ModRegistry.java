@@ -122,7 +122,7 @@ public class ModRegistry {
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
                     .noOcclusion()
-                    .strength(1), ClientSetup.CLU_INTERFACE, 32, 16, 12f));
+                    .strength(1), ClientSetup.CLU_INTERFACE, 16, 48, 12f));
 
     public static final RegistryObject<Block> THRONE = regTileBlock("clu_throne", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
