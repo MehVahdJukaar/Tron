@@ -179,6 +179,9 @@ public class ModRegistry {
     public static final RegistryObject<Block> CLU_BACK_STAIRS = regTileBlock("clu_back_stairs", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_BACK_STAIRS, 18, 80, 50));
 
+    public static final RegistryObject<Block> FIREPLACE = regTileBlock("fireplace", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FIREPLACE, 32, 58, 32));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)

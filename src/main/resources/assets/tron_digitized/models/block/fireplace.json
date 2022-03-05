@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/fireplace.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 0.07, 1.65, 0.8 ],
+    "scale": [ 1.065, 1.065, 1.065 ],
+    "rotation": [0, 0, 0]
+  },
+  "textures": {
+
+  }
+}
