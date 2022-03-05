@@ -118,6 +118,12 @@ public class ModRegistry {
                     .noOcclusion()
                     .strength(1), ClientSetup.KITCHEN_CHAIR, 32, 16, 12f));
 
+    public static final RegistryObject<Block> CLU_INTERFACE = regTileBlock("clu_interface", () ->
+            new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()
+                    .strength(1), ClientSetup.CLU_INTERFACE, 32, 16, 12f));
+
     public static final RegistryObject<Block> THRONE = regTileBlock("clu_throne", () ->
             new ChairBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.QUARTZ)
                     .sound(SoundType.METAL)
@@ -187,7 +193,7 @@ public class ModRegistry {
                     ClientSetup.CHAND_ON, ClientSetup.CHAND, 32, 32, 32));
 
     public static final RegistryObject<Block> CLU_GLOW_WALL = regTileBlock("clu_glow_wall", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_GLOW_WALL, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15), ClientSetup.CLU_GLOW_WALL, 16, 16, 16));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
