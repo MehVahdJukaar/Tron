@@ -182,6 +182,10 @@ public class ModRegistry {
     public static final RegistryObject<Block> FIREPLACE = regTileBlock("fireplace", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FIREPLACE, 32, 58, 32));
 
+    public static final RegistryObject<Block> CHAND_ON = regTileBlock("chand_on", () ->
+            new LampBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> s.getValue(LampBlock.LIT) ? 15 : 0),
+                    ClientSetup.CHAND_ON, ClientSetup.CHAND, 32, 32, 32));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)
