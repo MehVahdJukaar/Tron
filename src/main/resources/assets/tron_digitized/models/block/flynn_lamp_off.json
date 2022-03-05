@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/flynn_lamp_off.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 1.55, 2.7, -3.8 ],
+    "scale": [ 1.5, 1.5, 1.5 ],
+    "rotation": [0, 90, 0]
+  },
+  "textures": {
+
+  }
+}
