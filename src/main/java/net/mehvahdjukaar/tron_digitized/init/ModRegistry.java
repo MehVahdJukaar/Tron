@@ -229,6 +229,9 @@ public class ModRegistry {
     public static final RegistryObject<Block> CLU_LITTLE_WINDOW_UPSIDEDOWN = regTileBlock("clu_little_window_upsidedown", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_LITTLE_WINDOW_UPSIDEDOWN, 49.5f, 28, 69));
 
+    public static final RegistryObject<Block> PORTAL_PAD = regTileBlock("portal_pad", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_PAD, 8, 120, 120));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)
