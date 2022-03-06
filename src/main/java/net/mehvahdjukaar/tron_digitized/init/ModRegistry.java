@@ -104,6 +104,7 @@ public class ModRegistry {
     public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
     public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
+    public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal");
 
 
     public static final RegistryObject<Block> BLACK_CHAIR = regTileBlock("black_chair", () ->
@@ -194,6 +195,33 @@ public class ModRegistry {
 
     public static final RegistryObject<Block> CLU_GLOW_WALL = regTileBlock("clu_glow_wall", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15), ClientSetup.CLU_GLOW_WALL, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER = regTileBlock("server", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_BLANK = regTileBlock("server_blank", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_BLANK, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_BLANK_MIDDLE = regTileBlock("server_blank_middle", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_BLANK_MIDDLE, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_BLANK_TOP = regTileBlock("server_blank_top", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_BLANK_TOP, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_MIDDLE = regTileBlock("server_middle", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_MIDDLE, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_RED = regTileBlock("server_red", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_RED, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_RED_MIDDLE = regTileBlock("server_red_middle", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_RED_MIDDLE, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_RED_TOP = regTileBlock("server_red_top", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_RED_TOP, 16, 16, 16));
+
+    public static final RegistryObject<Block> SERVER_TOP = regTileBlock("server_top", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_TOP, 16, 16, 16));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->

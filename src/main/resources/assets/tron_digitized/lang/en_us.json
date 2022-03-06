@@ -28,5 +28,14 @@
   "subtitle.tron_digitized.block.bookshelf": "Bookshelf Flip Page",
   "block.tron_digitized.fireplace": "Fireplace",
   "block.tron_digitized.chand_on": "Chandelier",
-  "block.tron_digitized.clu_interface": "Clu Interface"
+  "block.tron_digitized.clu_interface": "Clu Interface",
+  "block.tron_digitized.server": "Server",
+  "block.tron_digitized.server_blank": "Server Blank",
+  "block.tron_digitized.server_blank_middle": "Server Blank Middle",
+  "block.tron_digitized.server_blank_top": "Server Blank Top",
+  "block.tron_digitized.server_middle": "Server Middle",
+  "block.tron_digitized.server_red": "Server Red",
+  "block.tron_digitized.server_red_middle": "Server Red Middle",
+  "block.tron_digitized.server_red_top": "Server Red Top",
+  "block.tron_digitized.server_top": "Server Top"
 }
