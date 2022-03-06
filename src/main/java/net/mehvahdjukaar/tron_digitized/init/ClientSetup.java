@@ -77,6 +77,8 @@ public class ClientSetup {
     public static final ResourceLocation SERVER_RED_MIDDLE = addCustomModel("server_red_middle");
     public static final ResourceLocation SERVER_RED_TOP = addCustomModel("server_red_top");
     public static final ResourceLocation SERVER_TOP = addCustomModel("server_top");
+    public static final ResourceLocation CLU_LITTLE_WINDOW = addCustomModel("clu_little_window");
+    public static final ResourceLocation CLU_LITTLE_WINDOW_UPSIDEDOWN = addCustomModel("clu_little_window_upsidedown");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);

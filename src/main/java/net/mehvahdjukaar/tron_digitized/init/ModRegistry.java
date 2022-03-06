@@ -223,6 +223,12 @@ public class ModRegistry {
     public static final RegistryObject<Block> SERVER_TOP = regTileBlock("server_top", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SERVER_TOP, 16, 16, 16));
 
+    public static final RegistryObject<Block> CLU_LITTLE_WINDOW = regTileBlock("clu_little_window", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_LITTLE_WINDOW, 16, 16, 16));
+
+    public static final RegistryObject<Block> CLU_LITTLE_WINDOW_UPSIDEDOWN = regTileBlock("clu_little_window_upsidedown", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_LITTLE_WINDOW_UPSIDEDOWN, 16, 16, 16));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)

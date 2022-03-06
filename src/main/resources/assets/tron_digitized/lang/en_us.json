@@ -37,5 +37,7 @@
   "block.tron_digitized.server_red": "Server Red",
   "block.tron_digitized.server_red_middle": "Server Red Middle",
   "block.tron_digitized.server_red_top": "Server Red Top",
-  "block.tron_digitized.server_top": "Server Top"
+  "block.tron_digitized.server_top": "Server Top",
+  "block.tron_digitized.clu_little_window": "Clu Little Window",
+  "block.tron_digitized.clu_little_window_upsidedown": "Clu Little Window Upsidedown"
 }
