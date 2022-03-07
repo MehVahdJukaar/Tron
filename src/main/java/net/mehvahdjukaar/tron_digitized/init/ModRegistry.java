@@ -177,7 +177,7 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_BACK_DOOR, 120, 32, 120));
 
     public static final RegistryObject<Block> CLU_BACK_STAIRS = regTileBlock("clu_back_stairs", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_BACK_STAIRS, 18, 80, 50));
+            new CluBlackStairsBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_BACK_STAIRS));
 
     public static final RegistryObject<Block> FIREPLACE = regTileBlock("fireplace", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15), ClientSetup.FIREPLACE, 32, 58, 32));

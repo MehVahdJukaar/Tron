@@ -23,9 +23,9 @@ public class TronBlock extends BaseEntityBlock implements ICustomModelProvider {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     protected final VoxelShape renderShapeX;
     protected final VoxelShape renderShapeZ;
-    private final VoxelShape shapeX;
-    private final VoxelShape shapeZ;
-    private final ResourceLocation modelLocation;
+    protected final VoxelShape shapeX;
+    protected final VoxelShape shapeZ;
+    protected final ResourceLocation modelLocation;
 
     public TronBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length) {
         super(properties);
