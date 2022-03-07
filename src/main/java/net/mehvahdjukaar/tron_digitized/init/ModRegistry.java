@@ -45,7 +45,7 @@ public class ModRegistry {
     public static final CreativeModeTab MOD_TAB = new CreativeModeTab("tron_digitized") {
         @Override
         public ItemStack makeIcon() {
-            return Items.DIAMOND_BLOCK.getDefaultInstance();
+            return CLU_DOOR.get().asItem().getDefaultInstance();
         }
     };
 
@@ -190,7 +190,7 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15), ClientSetup.FIREPLACE, 32, 58, 32));
 
     public static final RegistryObject<Block> CHAND_ON = regTileBlock("chand_on", () ->
-            new LampBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> s.getValue(LampBlock.LIT) ? 15 : 0),
+            new ChandelierBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> s.getValue(LampBlock.LIT) ? 15 : 0),
                     ClientSetup.CHAND_ON, ClientSetup.CHAND, 32, 32, 32));
 
     public static final RegistryObject<Block> CLU_GLOW_WALL = regTileBlock("clu_glow_wall", () ->
