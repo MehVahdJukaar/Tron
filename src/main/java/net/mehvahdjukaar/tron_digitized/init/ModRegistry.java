@@ -232,6 +232,15 @@ public class ModRegistry {
     public static final RegistryObject<Block> PORTAL_PAD = regTileBlock("portal_pad", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_PAD, 8, 120, 120));
 
+    public static final RegistryObject<Block> FLYNN = regTileBlock("flynn", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN, 48, 48, 16));
+
+    public static final RegistryObject<Block> FLYNN_SIGN = regTileBlock("flynn_sign", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN_SIGN, 48, 48, 1));
+
+    public static final RegistryObject<Block> FLYNN_SIGN2 = regTileBlock("flynn_sign2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN_SIGN2, 48, 48, 1));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)

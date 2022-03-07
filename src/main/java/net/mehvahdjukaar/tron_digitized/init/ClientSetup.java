@@ -80,6 +80,9 @@ public class ClientSetup {
     public static final ResourceLocation CLU_LITTLE_WINDOW = addCustomModel("clu_little_window");
     public static final ResourceLocation CLU_LITTLE_WINDOW_UPSIDEDOWN = addCustomModel("clu_little_window_upsidedown");
     public static final ResourceLocation PORTAL_PAD = addCustomModel("portal_pad");
+    public static final ResourceLocation FLYNN = addCustomModel("flynn");
+    public static final ResourceLocation FLYNN_SIGN = addCustomModel("flynn_sign");
+    public static final ResourceLocation FLYNN_SIGN2 = addCustomModel("flynn_sign2");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);

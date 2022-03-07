@@ -40,5 +40,8 @@
   "block.tron_digitized.server_top": "Server Top",
   "block.tron_digitized.clu_little_window": "Clu Little Window",
   "block.tron_digitized.clu_little_window_upsidedown": "Clu Little Window Upsidedown",
-  "block.tron_digitized.portal_pad": "Portal Pad"
+  "block.tron_digitized.portal_pad": "Portal Pad",
+  "block.tron_digitized.flynn": "Flynn's Sign the Grid",
+  "block.tron_digitized.flynn_sign": "Flynn's Sign the User World",
+  "block.tron_digitized.flynn_sign2": "Flynn's Sign the User World 2"
 }
