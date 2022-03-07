@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -236,10 +237,11 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN, 48, 48, 16));
 
     public static final RegistryObject<Block> FLYNN_SIGN = regTileBlock("flynn_sign", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN_SIGN, 48, 48, 1));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).sound(SoundType.GLASS)
+                    .emissiveRendering((a,b,c)->true), ClientSetup.FLYNN_SIGN, 48, 48, 1));
 
     public static final RegistryObject<Block> FLYNN_SIGN2 = regTileBlock("flynn_sign2", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN_SIGN2, 48, 48, 1));
+            new TronBlock(BlockBehaviour.Properties.copy(FLYNN_SIGN.get()), ClientSetup.FLYNN_SIGN2, 48, 48, 1));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
