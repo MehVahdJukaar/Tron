@@ -1,0 +1,28 @@
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/flynn_sign.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform": {
+    "translation": [
+      -0.25,
+      -0.125,
+      -0.45
+    ],
+    "scale": [
+      0.25,
+      0.25,
+      0.25
+    ],
+    "rotation": [
+      0,
+      180,
+      0
+    ]
+  },
+  "textures": {
+  },
+  "gui_light": "front"
+}

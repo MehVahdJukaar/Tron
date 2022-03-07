@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/portal_pad.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 2, 2.7, 2 ],
+    "scale": [ 2.5, 2.5, 2.5 ],
+    "rotation": [0, 0, 0]
+  },
+  "textures": {
+
+  }
+}

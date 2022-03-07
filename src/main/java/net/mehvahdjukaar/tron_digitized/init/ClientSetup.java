@@ -67,6 +67,22 @@ public class ClientSetup {
     public static final ResourceLocation CHAND_ON = addCustomModel("chand_on");
     public static final ResourceLocation CHAND = addCustomModel("chand");
     public static final ResourceLocation CLU_GLOW_WALL = addCustomModel("clu_glow_wall");
+    public static final ResourceLocation CLU_INTERFACE = addCustomModel("clu_interface");
+    public static final ResourceLocation SERVER = addCustomModel("server");
+    public static final ResourceLocation SERVER_BLANK = addCustomModel("server_blank");
+    public static final ResourceLocation SERVER_BLANK_MIDDLE = addCustomModel("server_blank_middle");
+    public static final ResourceLocation SERVER_BLANK_TOP = addCustomModel("server_blank_top");
+    public static final ResourceLocation SERVER_MIDDLE = addCustomModel("server_middle");
+    public static final ResourceLocation SERVER_RED = addCustomModel("server_red");
+    public static final ResourceLocation SERVER_RED_MIDDLE = addCustomModel("server_red_middle");
+    public static final ResourceLocation SERVER_RED_TOP = addCustomModel("server_red_top");
+    public static final ResourceLocation SERVER_TOP = addCustomModel("server_top");
+    public static final ResourceLocation CLU_LITTLE_WINDOW = addCustomModel("clu_little_window");
+    public static final ResourceLocation CLU_LITTLE_WINDOW_UPSIDEDOWN = addCustomModel("clu_little_window_upsidedown");
+    public static final ResourceLocation PORTAL_PAD = addCustomModel("portal_pad");
+    public static final ResourceLocation FLYNN = addCustomModel("flynn");
+    public static final ResourceLocation FLYNN_SIGN = addCustomModel("flynn_sign");
+    public static final ResourceLocation FLYNN_SIGN2 = addCustomModel("flynn_sign2");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
