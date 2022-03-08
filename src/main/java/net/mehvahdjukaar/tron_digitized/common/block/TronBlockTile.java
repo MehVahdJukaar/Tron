@@ -18,7 +18,12 @@ public class TronBlockTile extends BlockEntity {
     private final Function<BlockState, Float> yawGetter;
 
     public TronBlockTile(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModRegistry.CUSTOM_BLOCK_TILE.get(), pWorldPosition, pBlockState);
+        this(ModRegistry.CUSTOM_BLOCK_TILE.get(),pWorldPosition, pBlockState);
+    }
+
+
+    public TronBlockTile(BlockEntityType<?> t, BlockPos pWorldPosition, BlockState pBlockState) {
+        super(t, pWorldPosition, pBlockState);
         if(pBlockState.getBlock() instanceof ICustomModelProvider modelProvider){
             this.translucent = modelProvider.isTranslucent();
             this.yawGetter = modelProvider.getYawGetter();

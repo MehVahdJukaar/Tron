@@ -102,6 +102,8 @@ public class ModRegistry {
                     ModRegistry.HEALING_CHAMBER.get()).build(null));
 
 
+
+
     public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
     public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
@@ -249,6 +251,11 @@ public class ModRegistry {
                     .noOcclusion()
                     .dynamicShape()
                     .strength(1.5F)));
+
+
+    public static final RegistryObject<BlockEntityType<PortalPadBlockTile>> PORTAL_PAD_TILE = TILES
+            .register("portal_pad", () -> BlockEntityType.Builder.of(PortalPadBlockTile::new,
+                    ModRegistry.PORTAL_PAD.get()).build(null));
 
     //generic tile for entity models (For translucent stuff)
     public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES
