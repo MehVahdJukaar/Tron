@@ -105,7 +105,7 @@ public class ModRegistry {
     public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
     public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
-    public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal");
+    public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal_pad");
 
 
     public static final RegistryObject<Block> BLACK_CHAIR = regTileBlock("black_chair", () ->
@@ -234,14 +234,26 @@ public class ModRegistry {
             new PortalPadBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_PAD, 8, 120, 120));
 
     public static final RegistryObject<Block> FLYNN = regTileBlock("flynn", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN, 48, 48, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN, 16, 48, 16));
 
     public static final RegistryObject<Block> FLYNN_SIGN = regTileBlock("flynn_sign", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).sound(SoundType.GLASS)
-                    .emissiveRendering((a,b,c)->true), ClientSetup.FLYNN_SIGN, 48, 48, 1));
+                    .emissiveRendering((a,b,c)->true), ClientSetup.FLYNN_SIGN, 48, 48, 17));
 
     public static final RegistryObject<Block> FLYNN_SIGN2 = regTileBlock("flynn_sign2", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(FLYNN_SIGN.get()), ClientSetup.FLYNN_SIGN2, 48, 48, 1));
+            new TronBlock(BlockBehaviour.Properties.copy(FLYNN_SIGN.get()), ClientSetup.FLYNN_SIGN2, 48, 48, 17));
+
+    public static final RegistryObject<Block> INFINITAS = regTileBlock("infinitas", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.INFINITAS, 64, 64, 1));
+
+    public static final RegistryObject<Block> TRONLIVES = regTileBlock("tronlives", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.TRONLIVES, 64, 64, 1));
+
+    public static final RegistryObject<Block> CURTAIN = regTileBlock("curtain", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CURTAIN, 64, 96, 1));
+
+    public static final RegistryObject<Block> CURTAIN2 = regTileBlock("curtain2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CURTAIN2, 64, 96, 1));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->

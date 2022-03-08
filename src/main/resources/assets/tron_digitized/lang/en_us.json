@@ -43,5 +43,9 @@
   "block.tron_digitized.portal_pad": "Portal Pad",
   "block.tron_digitized.flynn": "Flynn's Sign the Grid",
   "block.tron_digitized.flynn_sign": "Flynn's Sign the User World",
-  "block.tron_digitized.flynn_sign2": "Flynn's Sign the User World 2"
+  "block.tron_digitized.flynn_sign2": "Flynn's Sign the User World 2",
+  "block.tron_digitized.infinitas": "Infinitas Graffiti",
+  "block.tron_digitized.tronlives": "Tron Lives Graffiti",
+  "block.tron_digitized.curtain": "Curtain",
+  "block.tron_digitized.curtain2": "Curtain Right"
 }
