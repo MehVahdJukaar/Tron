@@ -19,15 +19,15 @@
     ],
     "subtitle": "subtitle.tron_digitized.block.healing_chamber"
   },
-  "block.portal": {
+  "block.portal_pad": {
     "category": "block",
     "sounds": [
       {
-        "name": "tron_digitized:block/portal",
+        "name": "tron_digitized:block/portal_pad",
         "stream": false
       }
     ],
-    "subtitle": "subtitle.tron_digitized.block.portal"
+    "subtitle": "subtitle.tron_digitized.block.portal_pad"
   },
   "block.bookshelf": {
     "category": "block",
