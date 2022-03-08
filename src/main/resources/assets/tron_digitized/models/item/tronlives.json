@@ -1,13 +1,13 @@
 {
   "parent": "forge:block/default",
   "loader": "forge:obj",
-  "model": "tron_digitized:models/obj/flynn_sign.obj",
+  "model": "tron_digitized:models/obj/tronlives.obj",
   "diffuseLighting": true,
   "ambientToFullbright": false,
   "flip-v": true,
   "transform": {
     "translation": [
-      -0.75,
+      -0.25,
       -0.125,
       -0.45
     ],
@@ -18,7 +18,7 @@
     ],
     "rotation": [
       0,
-      180,
+      0,
       0
     ]
   },

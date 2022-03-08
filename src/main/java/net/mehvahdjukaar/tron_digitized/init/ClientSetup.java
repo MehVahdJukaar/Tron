@@ -83,6 +83,10 @@ public class ClientSetup {
     public static final ResourceLocation FLYNN = addCustomModel("flynn");
     public static final ResourceLocation FLYNN_SIGN = addCustomModel("flynn_sign");
     public static final ResourceLocation FLYNN_SIGN2 = addCustomModel("flynn_sign2");
+    public static final ResourceLocation INFINITAS = addCustomModel("infinitas");
+    public static final ResourceLocation TRONLIVES = addCustomModel("tronlives");
+    public static final ResourceLocation CURTAIN = addCustomModel("curtain");
+    public static final ResourceLocation CURTAIN2 = addCustomModel("curtain2");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
