@@ -87,6 +87,7 @@ public class ClientSetup {
     public static final ResourceLocation TRONLIVES = addCustomModel("tronlives");
     public static final ResourceLocation CURTAIN = addCustomModel("curtain");
     public static final ResourceLocation CURTAIN2 = addCustomModel("curtain2");
+    public static final ResourceLocation SCREEN = addCustomModel("screen");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
