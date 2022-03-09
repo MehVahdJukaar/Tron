@@ -263,6 +263,9 @@ public class ModRegistry {
     public static final RegistryObject<Block> WORLD = regTileBlock("world", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WORLD, 32, 32, 32));
 
+    public static final RegistryObject<Block> SCREEN2 = regTileBlock("screen2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN2, 40, 96, 1));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)
