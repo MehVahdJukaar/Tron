@@ -90,6 +90,7 @@ public class ClientSetup {
     public static final ResourceLocation SCREEN = addCustomModel("screen");
     public static final ResourceLocation WORLD = addCustomModel("world");
     public static final ResourceLocation SCREEN2 = addCustomModel("screen2");
+    public static final ResourceLocation CLU_WORLD = addCustomModel("clu_world");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
