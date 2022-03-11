@@ -261,13 +261,13 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN, 24, 48, 1));
 
     public static final RegistryObject<Block> WORLD = regTileBlock("world", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WORLD, 32, 32, 32));
+            new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WORLD, 32, 32, 32));
 
     public static final RegistryObject<Block> SCREEN2 = regTileBlock("screen2", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN2, 40, 96, 1));
 
     public static final RegistryObject<Block> CLU_WORLD = regTileBlock("clu_world", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_WORLD, 32, 32, 32));
+            new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_WORLD, 32, 32, 32));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
@@ -277,9 +277,13 @@ public class ModRegistry {
                     .strength(1.5F)));
 
 
+    public static final RegistryObject<BlockEntityType<GlobeBlockTile>> GLOBE_TILE = TILES
+            .register("globe", () -> BlockEntityType.Builder.of(GlobeBlockTile::new,
+                    CLU_WORLD.get(),WORLD.get()).build(null));
+
     public static final RegistryObject<BlockEntityType<PortalPadBlockTile>> PORTAL_PAD_TILE = TILES
             .register("portal_pad", () -> BlockEntityType.Builder.of(PortalPadBlockTile::new,
-                    ModRegistry.PORTAL_PAD.get()).build(null));
+                    PORTAL_PAD.get()).build(null));
 
     //generic tile for entity models (For translucent stuff)
     public static final RegistryObject<BlockEntityType<TronBlockTile>> CUSTOM_BLOCK_TILE = TILES

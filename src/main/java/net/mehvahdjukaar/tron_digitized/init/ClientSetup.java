@@ -110,6 +110,7 @@ public class ClientSetup {
         event.registerBlockEntityRenderer(ModRegistry.HEALING_CHAMBER_TILE.get(), HealingChamberTileRenderer::new);
         event.registerBlockEntityRenderer(ModRegistry.CUSTOM_BLOCK_TILE.get(), TronBlockTileRenderer::new);
         event.registerBlockEntityRenderer(ModRegistry.PORTAL_PAD_TILE.get(), TronBlockTileRenderer::new);
+        event.registerBlockEntityRenderer(ModRegistry.GLOBE_TILE.get(), GlobeTileRenderer::new);
 
         event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY.get(), ChairEntityRenderer::new);
         event.registerEntityRenderer(ModRegistry.CLU_STEP_ENTITY.get(), CluStepEntityRenderer::new);
