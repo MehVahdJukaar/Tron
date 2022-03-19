@@ -15,7 +15,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class TronBlockTileRenderer<T extends TronBlockTile> implements BlockEntityRenderer<T> {
 
-    private final BlockRenderDispatcher blockRenderer;
+    protected final BlockRenderDispatcher blockRenderer;
 
     public TronBlockTileRenderer(BlockEntityRendererProvider.Context context) {
         this.blockRenderer = context.getBlockRenderDispatcher();

@@ -3,10 +3,12 @@ package net.mehvahdjukaar.tron_digitized.client.renderers;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.mehvahdjukaar.tron_digitized.common.block.GlobeBlockTile;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BannerRenderer;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.util.Mth;
+import net.minecraft.resources.ResourceLocation;
 
 public class GlobeTileRenderer extends TronBlockTileRenderer<GlobeBlockTile> {
     public GlobeTileRenderer(BlockEntityRendererProvider.Context context) {
@@ -16,16 +18,29 @@ public class GlobeTileRenderer extends TronBlockTileRenderer<GlobeBlockTile> {
     @Override
     public void render(GlobeBlockTile tile, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 
-        pPoseStack.pushPose();
-        pPoseStack.translate(0.5,0.5,0.5);
-        //float t = ((System.currentTimeMillis() % 360000) / 100f);
-        long i = tile.getLevel().getGameTime();
-        int scale = 377;
-        float f2 = ((float)Math.floorMod(i, (long)scale) + pPartialTick) / (float)scale;
-        //float t = (tile.getLevel().getGameTime() % 360) * (float) 2.4 + pPartialTick ;
-        pPoseStack.mulPose(Vector3f.YN.rotationDegrees(f2*360));
-        pPoseStack.translate(-0.5,-0.5,-0.5);
-        super.render(tile, pPartialTick, pPoseStack, pBufferSource, pPackedLight, pPackedOverlay);
-        pPoseStack.popPose();
+        var loc = tile.getModelLocation();
+        if (loc != null) {
+            pPoseStack.pushPose();
+            pPoseStack.translate(0.5, 0.5, 0.5);
+            // int s = 10000;
+            //float t = ((System.currentTimeMillis() % (s*10000)) / (float)s)*360;
+            long i = tile.getLevel().getGameTime();
+            int scale = 377;
+            float f2 = ((float) Math.floorMod(i, (long) scale) + pPartialTick) / (float) scale;
+            //float t = (tile.getLevel().getGameTime() % 360) * (float) 2.4 + pPartialTick ;
+            pPoseStack.mulPose(Vector3f.YN.rotation((float) (f2 * 2 * Math.PI)));
+            pPoseStack.translate(-0.5, -0.5, -0.5);
+
+            blockRenderer.getModelRenderer().renderModel(pPoseStack.last(),
+                    pBufferSource.getBuffer(RenderType.lightning()),
+                    null,
+                    blockRenderer.getBlockModelShaper().getModelManager().getModel(loc),
+                    1.0F, 1.0F, 1.0F,
+                    LightTexture.FULL_BRIGHT, pPackedOverlay);
+           // renderBlockModel(loc, pPoseStack, pBufferSource, blockRenderer, pPackedLight, pPackedOverlay, true);
+
+            pPoseStack.popPose();
+        }
+
     }
 }
