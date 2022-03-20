@@ -10,7 +10,7 @@ public class PortalPadBlockTile extends TronBlockTile {
 
     private int counter = 0;
 
-    private static final int SOUND_DURATION = 33 * 20;
+    private static final int SOUND_DURATION = 32 * 20;
 
     public PortalPadBlockTile(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModRegistry.PORTAL_PAD_TILE.get(), pWorldPosition, pBlockState);

@@ -48,10 +48,7 @@
   "block.tron_digitized.tronlives": "Tron Lives Graffiti",
   "block.tron_digitized.curtain": "Curtain",
   "block.tron_digitized.curtain2": "Curtain Right",
-  "block.tron_digitized.screen": "Screen",
+  "item.tron_digitized.screen": "Tron Interface",
   "block.tron_digitized.world": "World",
-  "block.tron_digitized.screen2": "Screen 2",
-  "block.tron_digitized.clu_world": "Clu World",
-  "block.tron_digitized.screen3": "Screen 3",
-  "block.tron_digitized.screen4": "Screen 4"
+  "block.tron_digitized.clu_world": "Clu World"
 }
