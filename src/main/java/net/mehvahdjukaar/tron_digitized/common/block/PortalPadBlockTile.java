@@ -19,11 +19,11 @@ public class PortalPadBlockTile extends TronBlockTile {
 
     public static void tick(Level level, BlockPos pos, BlockState state, PortalPadBlockTile tile) {
         if (level.isClientSide) {
-            tile.counter += 1;
             if (tile.counter % SOUND_DURATION == 0) {
                 level.playLocalSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D,
                         ModRegistry.PORTAL_SOUND.get(), SoundSource.BLOCKS, 1, 1, false);
             }
+            tile.counter += 1;
         }
     }
 }

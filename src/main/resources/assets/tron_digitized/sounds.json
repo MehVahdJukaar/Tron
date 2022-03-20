@@ -23,7 +23,7 @@
     "category": "block",
     "sounds": [
       {
-        "name": "tron_digitized:block/portal_pad",
+        "name": "tron_digitized:block/portal",
         "stream": true
       }
     ],
