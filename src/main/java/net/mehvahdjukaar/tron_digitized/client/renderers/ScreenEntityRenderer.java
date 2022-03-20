@@ -71,8 +71,9 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
         public void render(PoseStack poseStack, MultiBufferSource pBuffer, BlockRenderDispatcher renderer,
                            int pPackedLight, float animation) {
             poseStack.pushPose();
-            float x = Mth.lerp(animation, start.x, end.x);
-            float y = Mth.lerp(animation, start.y, end.y);
+            float a = animation*animation;
+            float x = Mth.lerp(a, start.x, end.x);
+            float y = Mth.lerp(a, start.y, end.y);
             float s = Mth.lerp(1 / -(animation + 0.618f) + 0.618f + 1, scale0, scale1);
             poseStack.translate(x, y, 0);
 
