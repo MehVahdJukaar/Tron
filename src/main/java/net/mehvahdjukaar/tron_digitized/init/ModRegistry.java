@@ -4,10 +4,13 @@ import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.common.block.*;
 import net.mehvahdjukaar.tron_digitized.common.entity.ChairEntity;
 import net.mehvahdjukaar.tron_digitized.common.entity.CluStepEntity;
+import net.mehvahdjukaar.tron_digitized.common.entity.ScreenEntity;
+import net.mehvahdjukaar.tron_digitized.common.items.ScreenItem;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -257,23 +260,11 @@ public class ModRegistry {
     public static final RegistryObject<Block> CURTAIN2 = regTileBlock("curtain2", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CURTAIN2, 64, 96, 1));
 
-    public static final RegistryObject<Block> SCREEN = regTileBlock("screen", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN, 24, 48, 1));
-
     public static final RegistryObject<Block> WORLD = regTileBlock("world", () ->
             new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WORLD, 32, 32, 32));
 
-    public static final RegistryObject<Block> SCREEN2 = regTileBlock("screen2", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN2, 40, 96, 1));
-
     public static final RegistryObject<Block> CLU_WORLD = regTileBlock("clu_world", () ->
             new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_WORLD, 32, 32, 32));
-
-    public static final RegistryObject<Block> SCREEN3 = regTileBlock("screen3", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN3, 48, 96, 1));
-
-    public static final RegistryObject<Block> SCREEN4 = regTileBlock("screen4", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN4, 48, 96, 1));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
@@ -312,5 +303,13 @@ public class ModRegistry {
                     .clientTrackingRange(8)
                     .build("clu_step"));
 
+    public static final RegistryObject<EntityType<ScreenEntity>> SCREEN = ENTITIES.register("screen",
+            ()-> EntityType.Builder.<ScreenEntity>of(ScreenEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(10)
+                    .updateInterval(Integer.MAX_VALUE)
+                    .build("screen"));
+    public static final RegistryObject<Item> SCREEN_ITEM = regItem("screen",
+            ()->new ScreenItem(new Item.Properties().tab(MOD_TAB)));
 
 }

@@ -116,6 +116,7 @@ public class ClientSetup {
 
         event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY.get(), ChairEntityRenderer::new);
         event.registerEntityRenderer(ModRegistry.CLU_STEP_ENTITY.get(), CluStepEntityRenderer::new);
+        event.registerEntityRenderer(ModRegistry.SCREEN.get(), ScreenEntityRenderer::new);
     }
 
     @SubscribeEvent

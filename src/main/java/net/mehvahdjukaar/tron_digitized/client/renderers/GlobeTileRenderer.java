@@ -31,13 +31,8 @@ public class GlobeTileRenderer extends TronBlockTileRenderer<GlobeBlockTile> {
             pPoseStack.mulPose(Vector3f.YN.rotation((float) (f2 * 2 * Math.PI)));
             pPoseStack.translate(-0.5, -0.5, -0.5);
 
-            blockRenderer.getModelRenderer().renderModel(pPoseStack.last(),
-                    pBufferSource.getBuffer(RenderType.lightning()),
-                    null,
-                    blockRenderer.getBlockModelShaper().getModelManager().getModel(loc),
-                    1.0F, 1.0F, 1.0F,
-                    LightTexture.FULL_BRIGHT, pPackedOverlay);
-           // renderBlockModel(loc, pPoseStack, pBufferSource, blockRenderer, pPackedLight, pPackedOverlay, true);
+
+          renderBlockModel(loc, pPoseStack, pBufferSource, blockRenderer, pPackedLight, pPackedOverlay, true);
 
             pPoseStack.popPose();
         }
