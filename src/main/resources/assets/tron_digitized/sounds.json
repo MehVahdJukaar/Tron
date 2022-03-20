@@ -24,7 +24,7 @@
     "sounds": [
       {
         "name": "tron_digitized:block/portal_pad",
-        "stream": false
+        "stream": true
       }
     ],
     "subtitle": "subtitle.tron_digitized.block.portal_pad"

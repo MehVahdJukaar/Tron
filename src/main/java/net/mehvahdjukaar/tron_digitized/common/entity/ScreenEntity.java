@@ -121,7 +121,7 @@ public class ScreenEntity extends HangingEntity implements IEntityAdditionalSpaw
     @Override
     public InteractionResult interact(Player pPlayer, InteractionHand pHand) {
         this.on = !this.on;
-        this.playSound(SoundEvents.BEACON_ACTIVATE, 0.5F, 0.5F);
+        //this.playSound(SoundEvents.BEACON_ACTIVATE, 0.5F, 0.5F);
         return InteractionResult.sidedSuccess(pPlayer.level.isClientSide);
     }
 

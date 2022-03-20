@@ -38,7 +38,7 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
         poseStack.pushPose();
 
         this.entries.clear();
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, 2, 2, 6, 6, 1, 0.5f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, 2, 2, 6, 1, 1, 0.5f));
         this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 2, 4, 6, 3, 1, 0.5f));
 
         poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F - pEntityYaw));
@@ -81,7 +81,7 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
             poseStack.scale(s, s, 1);
             poseStack.translate(-0.5, -0.5, -0.5);
             poseStack.translate(x, y, 0);
-            TronBlockTileRenderer.renderBlockModel(model, poseStack, pBuffer, renderer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, true);
+            TronBlockTileRenderer.renderBlockModel(model, poseStack, pBuffer, renderer, pPackedLight, OverlayTexture.NO_OVERLAY, true);
             poseStack.popPose();
         }
     }
