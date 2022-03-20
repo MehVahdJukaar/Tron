@@ -7,7 +7,7 @@
   "ambientToFullbright": false,
   "flip-v": true,
   "transform":{
-    "translation": [ 1.5, 3.5, 4 ],
+    "translation": [ 1.5, 2.625, 4 ],
     "scale": [ 2, 2, 2 ],
     "rotation": [0, 0, 0]
   },

@@ -11,7 +11,9 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.player.Player;
@@ -37,6 +39,11 @@ public class ScreenEntity extends HangingEntity implements IEntityAdditionalSpaw
     public ScreenEntity(Level level, BlockPos pos, Direction direction) {
         super(ModRegistry.SCREEN.get(), level, pos);
         this.setDirection(direction);
+    }
+
+    @Override
+    protected float getEyeHeight(Pose pPose, EntityDimensions pSize) {
+        return pSize.height*0.5f;
     }
 
     @Override
@@ -72,12 +79,12 @@ public class ScreenEntity extends HangingEntity implements IEntityAdditionalSpaw
 
     @Override
     public int getWidth() {
-        return 7*16;
+        return 9*16;
     }
 
     @Override
     public int getHeight() {
-        return 7*16;
+        return 5*16;
     }
 
     @Override
@@ -130,10 +137,10 @@ public class ScreenEntity extends HangingEntity implements IEntityAdditionalSpaw
         this.prevAnimation = this.animation;
         if (on) {
             if (this.animation < 1)
-                this.animation = Math.min(this.animation + 0.0245f, 1);
+                this.animation = Math.min(this.animation + 0.04f, 1);
         } else {
             if (this.animation > 0)
-                this.animation = Math.max(this.animation - 0.0245f, 0);
+                this.animation = Math.max(this.animation - 0.04f, 0);
         }
     }
 
