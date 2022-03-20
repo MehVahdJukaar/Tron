@@ -260,11 +260,23 @@ public class ModRegistry {
     public static final RegistryObject<Block> CURTAIN2 = regTileBlock("curtain2", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CURTAIN2, 64, 96, 1));
 
+    public static final RegistryObject<Block> SCREEN1 = regTileBlock("screen1", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN, 24, 48, 1));
+
     public static final RegistryObject<Block> WORLD = regTileBlock("world", () ->
             new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WORLD, 32, 32, 32));
 
+    public static final RegistryObject<Block> SCREEN2 = regTileBlock("screen2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN2, 40, 96, 1));
+
     public static final RegistryObject<Block> CLU_WORLD = regTileBlock("clu_world", () ->
             new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_WORLD, 32, 32, 32));
+
+    public static final RegistryObject<Block> SCREEN3 = regTileBlock("screen3", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN3, 48, 96, 1));
+
+    public static final RegistryObject<Block> SCREEN4 = regTileBlock("screen4", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.SCREEN4, 48, 96, 1));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->

@@ -26,7 +26,9 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
         super(p_174332_);
         this.blockRenderer = Minecraft.getInstance().getBlockRenderer();
         //add here more widgets. params are: start pos (x,y), end pos (x,y), start scale, end scale
+
         this.entries.add(new ScreenWidget(ClientSetup.SCREEN, 0, 0, 1, 1, 1, 0.5f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 2, 4, 6, 3, 1, 0.5f));
         //this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 0, 0, 1, 1, 1, 0.5f));
     }
 
@@ -34,6 +36,10 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
     @Override
     public void render(ScreenEntity entity, float pEntityYaw, float pPartialTicks, PoseStack poseStack, MultiBufferSource pBuffer, int pPackedLight) {
         poseStack.pushPose();
+
+        this.entries.clear();
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, 2, 2, 6, 6, 1, 0.5f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 2, 4, 6, 3, 1, 0.5f));
 
         poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F - pEntityYaw));
 
