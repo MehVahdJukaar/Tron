@@ -26,10 +26,10 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
         this.blockRenderer = Minecraft.getInstance().getBlockRenderer();
         //add here more widgets. params are: start pos (x,y), end pos (x,y), start scale, end scale
 
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, -2, -2, -3, -3, 1, 0.2f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 2, -3, 9 * 0.2f, -11 * 0.2f, 1, 0.2f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN3, 0, -1, 7 * 0.2f, -9 * 0.2f, 1, 0.2f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN4, 2, -1, 9 * 0.2f, -9 * 0.2f, 1, 0.2f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, -2.675f, -0.6915f, 3.5f, -0.25f, 1.125f, 0.55f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 1.5f, -1, 3.5f, -1, 1, 0.3125f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN3, -1.5f, 1.125f, 3.49875f, 0.65f, 0.75f, 0.325f));
+        this.entries.add(new ScreenWidget(ClientSetup.SCREEN4, 3.375f, 0.8125f, 4f, 1.475f, 1, 0.5f));
 
     }
 
@@ -37,12 +37,6 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
     @Override
     public void render(ScreenEntity entity, float pEntityYaw, float pPartialTicks, PoseStack poseStack, MultiBufferSource pBuffer, int pPackedLight) {
         poseStack.pushPose();
-
-        this.entries.clear();
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, -2.675f, -0.6915f, 3.5f, -0.25f, 1.125f, 0.55f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 1.5f, -1, 3.5f, -1, 1, 0.3125f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN3, -1.5f, 1.125f, 3.49875f, 0.65f, 0.75f, 0.325f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN4, 3.375f, 0.8125f, 4f, 1.475f, 1, 0.5f));
 
         poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F - pEntityYaw));
 
