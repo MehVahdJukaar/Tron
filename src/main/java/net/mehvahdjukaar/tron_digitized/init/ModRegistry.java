@@ -236,7 +236,7 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_LITTLE_WINDOW_UPSIDEDOWN, 49.5f, 28, 69));
 
     public static final RegistryObject<Block> PORTAL_PAD = regTileBlock("portal_pad", () ->
-            new PortalPadBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_PAD, 8, 120, 120));
+            new PortalPadBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_PAD, 0.1f, 120, 120));
 
     public static final RegistryObject<Block> FLYNN = regTileBlock("flynn", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNN, 16, 48, 16));
@@ -265,6 +265,18 @@ public class ModRegistry {
 
     public static final RegistryObject<Block> CLU_WORLD = regTileBlock("clu_world", () ->
             new GlobeBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.CLU_WORLD, 32, 32, 32));
+
+    public static final RegistryObject<Block> PORTAL_BRIDGE = regTileBlock("portal_bridge", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_BRIDGE, 0.1f, 24, 100));
+
+    public static final RegistryObject<Block> PORTAL_BRIDGE2 = regTileBlock("portal_bridge2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_BRIDGE2, 0.1f, 24, 100));
+
+    public static final RegistryObject<Block> PORTAL_BRIDGE3 = regTileBlock("portal_bridge3", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_BRIDGE3, 0.1f, 24, 100));
+
+    public static final RegistryObject<Block> PORTAL_BRIDGE4 = regTileBlock("portal_bridge4", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_BRIDGE4, 0.1f, 24, 100));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->

@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/portal_bridge.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 2.005, 2.3, 2.5 ],
+    "scale": [ 2.5, 2.5, 2.7 ],
+    "rotation": [0, 0, 0]
+  },
+  "textures": {
+
+  }
+}

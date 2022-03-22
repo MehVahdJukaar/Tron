@@ -93,6 +93,10 @@ public class ClientSetup {
     public static final ResourceLocation CLU_WORLD = addCustomModel("clu_world");
     public static final ResourceLocation SCREEN3 = addCustomModel("screen3");
     public static final ResourceLocation SCREEN4 = addCustomModel("screen4");
+    public static final ResourceLocation PORTAL_BRIDGE = addCustomModel("portal_bridge");
+    public static final ResourceLocation PORTAL_BRIDGE2 = addCustomModel("portal_bridge2");
+    public static final ResourceLocation PORTAL_BRIDGE3 = addCustomModel("portal_bridge3");
+    public static final ResourceLocation PORTAL_BRIDGE4 = addCustomModel("portal_bridge4");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);
