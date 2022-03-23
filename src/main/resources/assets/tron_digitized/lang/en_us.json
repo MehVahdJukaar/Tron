@@ -50,5 +50,8 @@
   "block.tron_digitized.curtain2": "Curtain Right",
   "item.tron_digitized.screen": "Tron Interface",
   "block.tron_digitized.world": "World",
-  "block.tron_digitized.clu_world": "Clu World"
+  "block.tron_digitized.clu_world": "Clu World",
+  "block.tron_digitized.portal_bridge": "Portal Bridge",
+  "block.tron_digitized.portal_bridge3": "Portal Bridge 3",
+  "block.tron_digitized.portal_bridge4": "Portal Bridge 4"
 }
