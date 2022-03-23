@@ -29,22 +29,24 @@
     ],
     "subtitle": "subtitle.tron_digitized.block.portal_pad"
   },
-  "block.bookshelf": {
+  "block.white_door.close": {
     "category": "block",
     "sounds": [
-      {
-        "name": "tron_digitized:block/flynn_open_flip1",
-        "stream": false
-      },
-      {
-        "name": "tron_digitized:block/flynn_open_flip3",
-        "stream": false
-      },
-      {
-        "name": "tron_digitized:block/flynn_open_flip2",
-        "stream": false
-      }
+      "tron_digitized:block/close1",
+      "tron_digitized:block/close2",
+      "tron_digitized:block/close3",
+      "tron_digitized:block/close4"
     ],
-    "subtitle": "subtitle.tron_digitized.block.bookshelf"
+    "subtitle": "subtitles.block.door.toggle"
+  },
+  "block.white_door.open": {
+    "category": "block",
+    "sounds": [
+      "tron_digitized:block/open1",
+      "tron_digitized:block/open2",
+      "tron_digitized:block/open3",
+      "tron_digitized:block/open4"
+    ],
+    "subtitle": "subtitles.block.door.toggle"
   }
 }
