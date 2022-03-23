@@ -75,4 +75,13 @@ public class Locations {
     public static final ResourceLocation CLU_WORLD = addCustomModel("clu_world");
     public static final ResourceLocation SCREEN3 = addCustomModel("screen3");
     public static final ResourceLocation SCREEN4 = addCustomModel("screen4");
+    public static final ResourceLocation PORTAL_BRIDGE = addCustomModel("portal_bridge");
+    public static final ResourceLocation PORTAL_BRIDGE2 = addCustomModel("portal_bridge2");
+    public static final ResourceLocation PORTAL_BRIDGE3 = addCustomModel("portal_bridge3");
+    public static final ResourceLocation PORTAL_BRIDGE4 = addCustomModel("portal_bridge4");
+    public static final ResourceLocation BLACK_BED = addCustomModel("black_bed");
+    public static final ResourceLocation FLYNNS_BED = addCustomModel("flynns_bed");
+    public static final ResourceLocation WHITE_DOOR = addCustomModel("white_door");
+    public static final ResourceLocation WHITE_DOOR_FRAME = addCustomModel("white_door_frame");
+
 }
