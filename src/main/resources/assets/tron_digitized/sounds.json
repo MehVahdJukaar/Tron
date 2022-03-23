@@ -29,6 +29,24 @@
     ],
     "subtitle": "subtitle.tron_digitized.block.portal_pad"
   },
+  "block.bookshelf": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "tron_digitized:block/flynn_open_flip1",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:block/flynn_open_flip3",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:block/flynn_open_flip2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.tron_digitized.block.bookshelf"
+  },
   "block.white_door.close": {
     "category": "block",
     "sounds": [
@@ -47,6 +65,6 @@
       "tron_digitized:block/open3",
       "tron_digitized:block/open4"
     ],
-    "subtitle": "subtitles.block.door.toggle"
+    "subtitle": "subtitle.tron_digitized.block.white_door.toggle"
   }
 }
