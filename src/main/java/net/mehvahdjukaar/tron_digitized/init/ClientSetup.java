@@ -97,6 +97,10 @@ public class ClientSetup {
     public static final ResourceLocation PORTAL_BRIDGE2 = addCustomModel("portal_bridge2");
     public static final ResourceLocation PORTAL_BRIDGE3 = addCustomModel("portal_bridge3");
     public static final ResourceLocation PORTAL_BRIDGE4 = addCustomModel("portal_bridge4");
+    public static final ResourceLocation BLACK_BED = addCustomModel("black_bed");
+    public static final ResourceLocation FLYNNS_BED = addCustomModel("flynns_bed");
+    public static final ResourceLocation WHITE_DOOR = addCustomModel("white_door");
+    public static final ResourceLocation WHITE_DOOR_FRAME = addCustomModel("white_door_frame");
 
     public static ResourceLocation addCustomModel(String name){
         var res =  new ResourceLocation(Tron.MOD_ID + ":block/"+name);

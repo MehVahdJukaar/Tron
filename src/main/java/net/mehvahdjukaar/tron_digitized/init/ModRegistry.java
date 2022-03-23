@@ -278,6 +278,18 @@ public class ModRegistry {
     public static final RegistryObject<Block> PORTAL_BRIDGE4 = regTileBlock("portal_bridge4", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.PORTAL_BRIDGE4, 0.1f, 24, 100));
 
+    public static final RegistryObject<Block> BLACK_BED = regTileBlock("black_bed", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.BLACK_BED, 32, 48, 48));
+
+    public static final RegistryObject<Block> FLYNNS_BED = regTileBlock("flynns_bed", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.FLYNNS_BED, 32, 48, 48));
+
+    public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WHITE_DOOR, 32, 2, 16));
+
+    public static final RegistryObject<Block> WHITE_DOOR_FRAME = regTileBlock("white_door_frame", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), ClientSetup.WHITE_DOOR_FRAME, 48, 4, 48));
+
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
             new CluStairsBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLACK)

@@ -1,0 +1,17 @@
+
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "tron_digitized:models/obj/white_door.obj",
+  "diffuseLighting": true,
+  "ambientToFullbright": false,
+  "flip-v": true,
+  "transform":{
+    "translation": [ 0.875, 0.5, 0.5 ],
+    "scale": [ 1, 1, 1 ],
+    "rotation": [0, 0, 0]
+  },
+  "textures": {
+
+  }
+}
