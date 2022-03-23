@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.mehvahdjukaar.tron_digitized.common.entity.CluStepEntity;
 import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
+import net.mehvahdjukaar.tron_digitized.init.Locations;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
@@ -34,7 +35,7 @@ public class CluStepEntityRenderer extends EntityRenderer<CluStepEntity> {
     public void render(CluStepEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack poseStack, MultiBufferSource pBuffer, int pPackedLight) {
 
         super.render(pEntity, pEntityYaw, pPartialTicks, poseStack, pBuffer, pPackedLight);
-        var loc = pEntity.getOrdinal() == 0 ? ClientSetup.CLU_STAIRS_FILL:  ClientSetup.CLU_STEP;
+        var loc = pEntity.getOrdinal() == 0 ? Locations.CLU_STAIRS_FILL:  Locations.CLU_STEP;
         poseStack.pushPose();
         poseStack.mulPose(Vector3f.YP.rotationDegrees(-pEntity.getYRot()));
 

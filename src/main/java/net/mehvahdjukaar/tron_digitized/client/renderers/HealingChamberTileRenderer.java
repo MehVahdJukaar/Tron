@@ -9,6 +9,7 @@ import net.mehvahdjukaar.tron_digitized.common.block.CluDoorBlock;
 import net.mehvahdjukaar.tron_digitized.common.block.CluDoorBlockTile;
 import net.mehvahdjukaar.tron_digitized.common.block.HealingChamberTile;
 import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
+import net.mehvahdjukaar.tron_digitized.init.Locations;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
@@ -67,7 +68,7 @@ public class HealingChamberTileRenderer implements BlockEntityRenderer<HealingCh
         int lv = light >> 16 & '\uffff';
 
         var model = blockRenderer.getBlockModelShaper().getModelManager()
-                .getModel(ClientSetup.HEALING_CHAMBER_GLASS);
+                .getModel(Locations.HEALING_CHAMBER_GLASS);
 
         var quads = model.getQuads(ModRegistry.CLU_DOOR.get().defaultBlockState(), null, new Random());
         BakedQuadBuilder quadBuilder = new BakedQuadBuilder(model.getParticleIcon());

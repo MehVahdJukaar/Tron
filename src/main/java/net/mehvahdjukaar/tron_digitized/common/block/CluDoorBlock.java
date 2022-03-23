@@ -1,6 +1,7 @@
 package net.mehvahdjukaar.tron_digitized.common.block;
 
 import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
+import net.mehvahdjukaar.tron_digitized.init.Locations;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -126,7 +127,7 @@ public class CluDoorBlock extends Block implements IForgeBlock, EntityBlock, ICu
 
     @Override
     public ResourceLocation getCustomModelLocation(BlockState state) {
-        return ClientSetup.CLU_DOOR;
+        return Locations.CLU_DOOR;
     }
 
     @Override

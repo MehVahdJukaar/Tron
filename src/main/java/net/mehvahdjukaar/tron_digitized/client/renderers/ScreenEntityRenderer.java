@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.mehvahdjukaar.tron_digitized.common.entity.ScreenEntity;
 import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
+import net.mehvahdjukaar.tron_digitized.init.Locations;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
@@ -26,10 +27,10 @@ public class ScreenEntityRenderer extends EntityRenderer<ScreenEntity> {
         this.blockRenderer = Minecraft.getInstance().getBlockRenderer();
         //add here more widgets. params are: start pos (x,y), end pos (x,y), start scale, end scale
 
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN, -2.675f, -0.6915f, 3.5f, -0.25f, 1.125f, 0.55f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN2, 1.5f, -1, 3.5f, -1, 1, 0.3125f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN3, -1.5f, 1.125f, 3.49875f, 0.65f, 0.75f, 0.325f));
-        this.entries.add(new ScreenWidget(ClientSetup.SCREEN4, 3.375f, 0.8125f, 4f, 1.475f, 1, 0.5f));
+        this.entries.add(new ScreenWidget(Locations.SCREEN, -2.675f, -0.6915f, 3.5f, -0.25f, 1.125f, 0.55f));
+        this.entries.add(new ScreenWidget(Locations.SCREEN2, 1.5f, -1, 3.5f, -1, 1, 0.3125f));
+        this.entries.add(new ScreenWidget(Locations.SCREEN3, -1.5f, 1.125f, 3.49875f, 0.65f, 0.75f, 0.325f));
+        this.entries.add(new ScreenWidget(Locations.SCREEN4, 3.375f, 0.8125f, 4f, 1.475f, 1, 0.5f));
 
     }
 

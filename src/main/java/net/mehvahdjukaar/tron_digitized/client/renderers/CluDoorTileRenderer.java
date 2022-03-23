@@ -5,9 +5,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.mehvahdjukaar.tron_digitized.common.block.CluDoorBlock;
 import net.mehvahdjukaar.tron_digitized.common.block.CluDoorBlockTile;
-import net.mehvahdjukaar.tron_digitized.init.ClientSetup;
+import net.mehvahdjukaar.tron_digitized.init.Locations;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
@@ -51,7 +50,7 @@ public class CluDoorTileRenderer extends TronBlockTileRenderer<CluDoorBlockTile>
 
         poseStack.translate(0, 0, -progress);
         poseStack.translate(-0.5, 0, -0.5);
-        renderBlockModel(ClientSetup.CLU_DOOR_LEFT, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
+        renderBlockModel(Locations.CLU_DOOR_LEFT, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
 
         poseStack.popPose();
 
@@ -60,7 +59,7 @@ public class CluDoorTileRenderer extends TronBlockTileRenderer<CluDoorBlockTile>
 
         poseStack.translate(0, 0, progress);
         poseStack.translate(-0.5, 0, -0.5);
-        renderBlockModel(ClientSetup.CLU_DOOR_RIGHT, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
+        renderBlockModel(Locations.CLU_DOOR_RIGHT, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
 
         poseStack.popPose();
 
