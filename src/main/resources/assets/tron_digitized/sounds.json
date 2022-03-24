@@ -46,5 +46,25 @@
       }
     ],
     "subtitle": "subtitle.tron_digitized.block.bookshelf"
+  },
+  "block.white_door.close": {
+    "category": "block",
+    "sounds": [
+      "tron_digitized:block/close1",
+      "tron_digitized:block/close2",
+      "tron_digitized:block/close3",
+      "tron_digitized:block/close4"
+    ],
+    "subtitle": "subtitles.block.door.toggle"
+  },
+  "block.white_door.open": {
+    "category": "block",
+    "sounds": [
+      "tron_digitized:block/open1",
+      "tron_digitized:block/open2",
+      "tron_digitized:block/open3",
+      "tron_digitized:block/open4"
+    ],
+    "subtitle": "subtitle.tron_digitized.block.white_door.toggle"
   }
 }
