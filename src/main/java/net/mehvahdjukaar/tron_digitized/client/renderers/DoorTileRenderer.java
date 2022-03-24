@@ -45,12 +45,12 @@ public class DoorTileRenderer extends TronBlockTileRenderer<DoorBlockTile> {
 
         poseStack.popPose();
 
-        float progress = Mth.lerp(partialTicks, tile.prevOpeningProgress, tile.openingProgress) * 1.35f;
+        float progress = Mth.lerp(partialTicks, tile.prevOpeningProgress, tile.openingProgress) ;
 
         if(tile.getBlockState().getBlock() == ModRegistry.CLU_DOOR.get()) {
             poseStack.pushPose();
 
-            poseStack.translate(0, 0, -progress);
+            poseStack.translate(0, 0, -progress* 1.35f);
             poseStack.translate(-0.5, 0, -0.5);
             renderBlockModel(Locations.CLU_DOOR_LEFT, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
 
@@ -59,14 +59,16 @@ public class DoorTileRenderer extends TronBlockTileRenderer<DoorBlockTile> {
 
             poseStack.pushPose();
 
-            poseStack.translate(0, 0, progress);
+            poseStack.translate(0, 0, progress* 1.35f);
             poseStack.translate(-0.5, 0, -0.5);
             renderBlockModel(Locations.CLU_DOOR_RIGHT, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
 
             poseStack.popPose();
         }else{
-            poseStack.translate(0, 0, -progress);
-            poseStack.translate(-0.5, 0, -0.5);
+
+            poseStack.translate(-0, 0, -0.5);
+            poseStack.mulPose(Vector3f.YP.rotationDegrees(-progress*90));
+            poseStack.translate(-0.5, -0.5, -0);
             renderBlockModel(Locations.WHITE_DOOR, poseStack, buffer, blockRenderer, light, overlay, tile.isTranslucent());
         }
 

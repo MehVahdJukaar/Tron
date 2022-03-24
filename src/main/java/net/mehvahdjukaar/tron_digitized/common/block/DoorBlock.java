@@ -41,10 +41,12 @@ public class DoorBlock extends TronBlock {
 
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
     private final Supplier<SoundEvent> sound;
+    public final float openingSpeed;
 
-    public DoorBlock(Properties properties, ResourceLocation modelLoc,Supplier<SoundEvent> sound, float height, float width, float length) {
+    public DoorBlock(Properties properties, ResourceLocation modelLoc,Supplier<SoundEvent> sound, float height, float width, float length, float openingSpeed) {
         super(properties, modelLoc, height, width, length);
         this.sound = sound;
+        this.openingSpeed = openingSpeed;
     }
 
     @Override

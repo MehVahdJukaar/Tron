@@ -9,11 +9,15 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class DoorBlockTile extends TronBlockTile {
 
+    private final float speed;
     public float openingProgress = 0;
     public float prevOpeningProgress = 0;
 
     public DoorBlockTile(BlockPos pWorldPosition, BlockState pBlockState) {
         super(pWorldPosition, pBlockState);
+        if(pBlockState.getBlock() instanceof DoorBlock doorBlock){
+            speed = doorBlock.openingSpeed;
+        }else speed = 0.05f;
     }
 
     @Override

@@ -85,6 +85,7 @@ public class ModRegistry {
     }
 
     public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
+    public static final RegistryObject<SoundEvent> WHITE_DOOR_OPEN_SOUNDS = makeSoundEvent("block.white_door.open");
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
     public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
     public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal_pad");
@@ -97,7 +98,7 @@ public class ModRegistry {
                     .dynamicShape()
                     .strength(1.5F),
                     Locations.CLU_DOOR,CLU_DOOR_SOUND,
-                    86,64,16));
+                    86,64,16,0.0245f));
 
     public static final RegistryObject<BlockEntityType<DoorBlockTile>> CLU_DOOR_TILE = TILES
             .register("clu_door", () -> BlockEntityType.Builder.of(DoorBlockTile::new,
@@ -288,8 +289,8 @@ public class ModRegistry {
 
     public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
             new DoorBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),
-                    Locations.WHITE_DOOR_FRAME,CLU_DOOR_SOUND,
-                    64, 48, 4));
+                    Locations.WHITE_DOOR_FRAME,WHITE_DOOR_OPEN_SOUNDS,
+                    58, 64, 4, 1f));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
