@@ -10,10 +10,11 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.decoration.Painting;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -83,16 +84,24 @@ public class ModRegistry {
         return TILE_BLOCKS.stream().map(Supplier::get).toArray(Block[]::new);
     }
 
+    public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
+    public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
+    public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
+    public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal_pad");
+
+
     public static final RegistryObject<Block> CLU_DOOR = regWithItem("clu_door", () ->
-            new CluDoorBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.TERRACOTTA_WHITE)
+            new DoorBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.TERRACOTTA_WHITE)
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .dynamicShape()
-                    .strength(1.5F)));
+                    .strength(1.5F),
+                    Locations.CLU_DOOR,CLU_DOOR_SOUND,
+                    86,64,16));
 
-    public static final RegistryObject<BlockEntityType<CluDoorBlockTile>> CLU_DOOR_TILE = TILES
-            .register("clu_door", () -> BlockEntityType.Builder.of(CluDoorBlockTile::new,
-                    ModRegistry.CLU_DOOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<DoorBlockTile>> CLU_DOOR_TILE = TILES
+            .register("clu_door", () -> BlockEntityType.Builder.of(DoorBlockTile::new,
+                    ModRegistry.CLU_DOOR.get(),ModRegistry.WHITE_DOOR.get()).build(null));
 
     public static final RegistryObject<Block> HEALING_CHAMBER = regWithItem("healing_chamber", () ->
             new HealingChamberBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.TERRACOTTA_WHITE)
@@ -103,14 +112,6 @@ public class ModRegistry {
     public static final RegistryObject<BlockEntityType<HealingChamberTile>> HEALING_CHAMBER_TILE = TILES
             .register("healing_chamber", () -> BlockEntityType.Builder.of(HealingChamberTile::new,
                     ModRegistry.HEALING_CHAMBER.get()).build(null));
-
-
-
-
-    public static final RegistryObject<SoundEvent> CLU_DOOR_SOUND = makeSoundEvent("block.clu_door");
-    public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
-    public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
-    public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal_pad");
 
 
     public static final RegistryObject<Block> BLACK_CHAIR = regTileBlock("black_chair", () ->
@@ -193,14 +194,14 @@ public class ModRegistry {
             new CluBlackStairsBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.CLU_BACK_STAIRS));
 
     public static final RegistryObject<Block> FIREPLACE = regTileBlock("fireplace", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15), Locations.FIREPLACE, 32, 58, 32));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> 15), Locations.FIREPLACE, 32, 58, 32));
 
     public static final RegistryObject<Block> CHAND_ON = regTileBlock("chand_on", () ->
             new ChandelierBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> s.getValue(LampBlock.LIT) ? 15 : 0),
                     Locations.CHAND_ON, Locations.CHAND, 32, 32, 32));
 
     public static final RegistryObject<Block> CLU_GLOW_WALL = regTileBlock("clu_glow_wall", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s->15), Locations.CLU_GLOW_WALL, 16, 16, 16));
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> 15), Locations.CLU_GLOW_WALL, 16, 16, 16));
 
     public static final RegistryObject<Block> SERVER = regTileBlock("server", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.SERVER, 16, 16, 16));
@@ -243,7 +244,7 @@ public class ModRegistry {
 
     public static final RegistryObject<Block> FLYNN_SIGN = regTileBlock("flynn_sign", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).sound(SoundType.GLASS)
-                    .emissiveRendering((a,b,c)->true), Locations.FLYNN_SIGN, 48, 48, 17));
+                    .emissiveRendering((a, b, c) -> true), Locations.FLYNN_SIGN, 48, 48, 17));
 
     public static final RegistryObject<Block> FLYNN_SIGN2 = regTileBlock("flynn_sign2", () ->
             new TronBlock(BlockBehaviour.Properties.copy(FLYNN_SIGN.get()), Locations.FLYNN_SIGN2, 48, 48, 17));
@@ -284,11 +285,11 @@ public class ModRegistry {
     public static final RegistryObject<Block> FLYNNS_BED = regTileBlock("flynns_bed", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.FLYNNS_BED, 32, 48, 48));
 
-    public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.WHITE_DOOR, 32, 2, 16));
 
-    public static final RegistryObject<Block> WHITE_DOOR_FRAME = regTileBlock("white_door_frame", () ->
-            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.WHITE_DOOR_FRAME, 48, 4, 48));
+    public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
+            new DoorBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),
+                    Locations.WHITE_DOOR_FRAME,CLU_DOOR_SOUND,
+                    64, 48, 4));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
@@ -300,7 +301,7 @@ public class ModRegistry {
 
     public static final RegistryObject<BlockEntityType<GlobeBlockTile>> GLOBE_TILE = TILES
             .register("globe", () -> BlockEntityType.Builder.of(GlobeBlockTile::new,
-                    CLU_WORLD.get(),WORLD.get()).build(null));
+                    CLU_WORLD.get(), WORLD.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<PortalPadBlockTile>> PORTAL_PAD_TILE = TILES
             .register("portal_pad", () -> BlockEntityType.Builder.of(PortalPadBlockTile::new,
@@ -328,12 +329,12 @@ public class ModRegistry {
                     .build("clu_step"));
 
     public static final RegistryObject<EntityType<ScreenEntity>> SCREEN = ENTITIES.register("screen",
-            ()-> EntityType.Builder.<ScreenEntity>of(ScreenEntity::new, MobCategory.MISC)
+            () -> EntityType.Builder.<ScreenEntity>of(ScreenEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F)
                     .clientTrackingRange(10)
                     .updateInterval(Integer.MAX_VALUE)
                     .build("screen"));
     public static final RegistryObject<Item> SCREEN_ITEM = regItem("screen",
-            ()->new ScreenItem(new Item.Properties().tab(MOD_TAB)));
+            () -> new ScreenItem(new Item.Properties().tab(MOD_TAB)));
 
 }
