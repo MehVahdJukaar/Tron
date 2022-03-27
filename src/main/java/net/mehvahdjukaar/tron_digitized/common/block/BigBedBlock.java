@@ -35,13 +35,14 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.function.Function;
 
-public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelProvider {
+public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelProvider, ICustomBed {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     protected final VoxelShape renderShapeX;
     protected final VoxelShape renderShapeZ;
     protected final VoxelShape shapeX;
     protected final VoxelShape shapeZ;
     protected final ResourceLocation modelLocation;
+    private final float bedHeight;
 
     public BigBedBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length) {
         super(DyeColor.WHITE,properties);
@@ -58,6 +59,13 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
 
         this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.HEAD).setValue(FACING,Direction.NORTH)
                 .setValue(OCCUPIED, false));
+
+        this.bedHeight = height/16f;
+    }
+
+    @Override
+    public float getBedHeight() {
+        return bedHeight;
     }
 
     @Deprecated
@@ -87,7 +95,7 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         var ret = super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
         if(pPlayer.isSleeping()){
-            float offset = 1;
+            float offset = this.getBedHeight();
             pPlayer.setPos((double)pPos.getX() + 0.5D, (double)pPos.getY() + offset, (double)pPos.getZ() + 0.5D);
         }
         return ret;

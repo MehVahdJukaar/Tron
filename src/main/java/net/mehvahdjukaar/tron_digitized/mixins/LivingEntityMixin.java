@@ -1,7 +1,10 @@
 package net.mehvahdjukaar.tron_digitized.mixins;
 
+import net.mehvahdjukaar.tron_digitized.common.block.BigBedBlock;
 import net.mehvahdjukaar.tron_digitized.common.block.HealingChamberBlock;
+import net.mehvahdjukaar.tron_digitized.common.block.ICustomBed;
 import net.mehvahdjukaar.tron_digitized.common.entity.IHealableEntity;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -54,5 +57,13 @@ public abstract class LivingEntityMixin extends Entity implements IHealableEntit
     @Override
     public void setInHealingChamber(boolean inHealingChamber) {
         this.inHealingChamberTime = inHealingChamber ? Math.max(this.inHealingChamberTime,H_OFFSET) : 0;
+    }
+
+
+    @Inject(method = "setPosToBed", at = @At("TAIL"))
+    private void setPosToBed(BlockPos pos, CallbackInfo ci) {
+        if(this.level != null && this.level.getBlockState(pos) instanceof ICustomBed bed){
+            this.setPos((double)pos.getX() + 0.5D, (double)pos.getY() + bed.getBedHeight(), (double)pos.getZ() + 0.5D);
+        }
     }
 }
