@@ -2,31 +2,26 @@ package net.mehvahdjukaar.tron_digitized.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.entity.BedBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
@@ -45,7 +40,7 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
     private final float bedHeight;
 
     public BigBedBlock(Properties properties, ResourceLocation modelLoc, float height, float width, float length) {
-        super(DyeColor.WHITE,properties);
+        super(DyeColor.WHITE, properties);
         this.modelLocation = modelLoc;
         float w = width / 2f;
         float l = length / 2f;
@@ -57,15 +52,17 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
         renderShapeX = Block.box(8 - w, 0, 8 - l, 8 + w, height + 1, 8 + l);
         renderShapeZ = Block.box(8 - l, 0, 8 - w, 8 + l, height + 1, 8 + w);
 
-        this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.HEAD).setValue(FACING,Direction.NORTH)
+        this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.HEAD).setValue(FACING, Direction.NORTH)
                 .setValue(OCCUPIED, false));
 
-        this.bedHeight = height/16f;
+        this.bedHeight = height / 16f;
     }
 
     @Override
-    public float getBedHeight() {
-        return bedHeight+0.25f;
+    public Vec3 getBedOffset(BlockState state) {
+        var v = state.getValue(FACING).step();
+        double move = 0;
+        return new Vec3(move*v.x(), bedHeight + 0.25f, move*v.z());
     }
 
 
