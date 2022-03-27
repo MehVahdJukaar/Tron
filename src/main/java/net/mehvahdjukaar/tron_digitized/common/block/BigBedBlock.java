@@ -73,10 +73,6 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
 
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         this.spawnDestroyParticles(pLevel, pPlayer, pPos, pState);
-        if (pState.is(BlockTags.GUARDED_BY_PIGLINS)) {
-            PiglinAi.angerNearbyPiglins(pPlayer, false);
-        }
-
         pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
     }
 
