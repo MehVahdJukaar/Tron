@@ -44,11 +44,11 @@ public class DoorBlockTile extends TronBlockTile {
         tile.prevOpeningProgress = tile.openingProgress;
         if(open){
             if(tile.openingProgress<1)
-            tile.openingProgress = Math.min(tile.openingProgress+0.0245f, 1);
+            tile.openingProgress = Math.min(tile.openingProgress+tile.speed, 1);
         }
         else{
             if(tile.openingProgress>0)
-            tile.openingProgress = Math.max(tile.openingProgress-0.0245f, 0);
+            tile.openingProgress = Math.max(tile.openingProgress-tile.speed, 0);
         }
     }
 }
