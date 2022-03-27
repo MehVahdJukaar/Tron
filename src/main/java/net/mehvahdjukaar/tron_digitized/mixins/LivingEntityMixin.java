@@ -62,7 +62,7 @@ public abstract class LivingEntityMixin extends Entity implements IHealableEntit
 
     @Inject(method = "setPosToBed", at = @At("TAIL"))
     private void setPosToBed(BlockPos pos, CallbackInfo ci) {
-        if(this.level != null && this.level.getBlockState(pos) instanceof ICustomBed bed){
+        if(this.level != null && this.level.getBlockState(pos).getBlock() instanceof ICustomBed bed){
             this.setPos((double)pos.getX() + 0.5D, (double)pos.getY() + bed.getBedHeight(), (double)pos.getZ() + 0.5D);
         }
     }

@@ -65,8 +65,9 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
 
     @Override
     public float getBedHeight() {
-        return bedHeight;
+        return bedHeight+0.25f;
     }
+
 
     @Deprecated
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
@@ -89,16 +90,6 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
 
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @org.jetbrains.annotations.Nullable LivingEntity pPlacer, ItemStack pStack) {
-    }
-
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        var ret = super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
-        if(pPlayer.isSleeping()){
-            float offset = this.getBedHeight();
-            pPlayer.setPos((double)pPos.getX() + 0.5D, (double)pPos.getY() + offset, (double)pPos.getZ() + 0.5D);
-        }
-        return ret;
     }
 
     public VoxelShape getBaseShape(BlockState state) {

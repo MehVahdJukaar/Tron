@@ -281,10 +281,10 @@ public class ModRegistry {
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.PORTAL_BRIDGE4, 0.1f, 24, 100));
 
     public static final RegistryObject<Block> BLACK_BED = regTileBlock("black_bed", () ->
-            new BigBedBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.BLACK_BED, 8, 48, 48));
+            new BigBedBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.BLACK_BED, 12, 48, 48));
 
     public static final RegistryObject<Block> FLYNNS_BED = regTileBlock("flynns_bed", () ->
-            new BigBedBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.FLYNNS_BED, 8, 48, 48));
+            new BigBedBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.FLYNNS_BED, 12, 48, 48));
 
 
     public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
