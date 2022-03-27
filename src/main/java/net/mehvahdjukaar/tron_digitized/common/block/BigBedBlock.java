@@ -13,6 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.BedBlock;
@@ -78,7 +79,19 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
         return this.defaultBlockState();
     }
 
+    @Override
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @org.jetbrains.annotations.Nullable LivingEntity pPlacer, ItemStack pStack) {
+    }
 
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        var ret = super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        if(pPlayer.isSleeping()){
+            float offset = 1;
+            pPlayer.setPos((double)pPos.getX() + 0.5D, (double)pPos.getY() + offset, (double)pPos.getZ() + 0.5D);
+        }
+        return ret;
+    }
 
     public VoxelShape getBaseShape(BlockState state) {
         return (state.getValue(FACING).getAxis() == Direction.Axis.X) ? shapeX : shapeZ;

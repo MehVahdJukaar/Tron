@@ -290,7 +290,7 @@ public class ModRegistry {
     public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
             new DoorBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),
                     Locations.WHITE_DOOR_FRAME,WHITE_DOOR_OPEN_SOUNDS,
-                    58, 70, 4, 1f));
+                    58, 70, 4, 2f));
 
 
     public static final RegistryObject<Block> CLU_STAIRS = regWithItem("clu_stairs", () ->
