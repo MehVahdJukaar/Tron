@@ -84,7 +84,7 @@ public class BigBedBlock extends BedBlock implements EntityBlock, ICustomModelPr
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState();
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection());
     }
 
     @Override
