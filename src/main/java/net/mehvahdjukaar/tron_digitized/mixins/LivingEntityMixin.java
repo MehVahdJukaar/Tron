@@ -1,6 +1,5 @@
 package net.mehvahdjukaar.tron_digitized.mixins;
 
-import net.mehvahdjukaar.tron_digitized.common.block.BigBedBlock;
 import net.mehvahdjukaar.tron_digitized.common.block.HealingChamberBlock;
 import net.mehvahdjukaar.tron_digitized.common.block.ICustomBed;
 import net.mehvahdjukaar.tron_digitized.common.entity.IHealableEntity;
@@ -10,6 +9,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -36,7 +37,7 @@ public abstract class LivingEntityMixin extends Entity implements IHealableEntit
                 this.prevAnimationTime = this.animationTime;
                 this.animationTime = Math.max(0, animationTime - 1);
                 this.inHealingChamberTime = Math.max(0, inHealingChamberTime - 1);
-            }else{
+            } else {
                 this.prevAnimationTime = this.animationTime;
                 this.animationTime = Math.min(H_OFFSET, animationTime + 1);
                 this.inHealingChamberTime = Math.min(H_OFFSET, inHealingChamberTime + 1);
@@ -49,21 +50,27 @@ public abstract class LivingEntityMixin extends Entity implements IHealableEntit
         return inHealingChamberTime > 0;
     }
 
-    public float getHealingFade(float partialTicks){
-        return Mth.lerp(partialTicks, this.prevAnimationTime, this.animationTime)/(float)H_OFFSET;
+    public float getHealingFade(float partialTicks) {
+        return Mth.lerp(partialTicks, this.prevAnimationTime, this.animationTime) / (float) H_OFFSET;
     }
 
 
     @Override
     public void setInHealingChamber(boolean inHealingChamber) {
-        this.inHealingChamberTime = inHealingChamber ? Math.max(this.inHealingChamberTime,H_OFFSET) : 0;
+        this.inHealingChamberTime = inHealingChamber ? Math.max(this.inHealingChamberTime, H_OFFSET) : 0;
     }
 
 
     @Inject(method = "setPosToBed", at = @At("TAIL"))
     private void setPosToBed(BlockPos pos, CallbackInfo ci) {
-        if(this.level != null && this.level.getBlockState(pos).getBlock() instanceof ICustomBed bed){
-            this.setPos((double)pos.getX() + 0.5D, (double)pos.getY() + bed.getBedHeight(), (double)pos.getZ() + 0.5D);
+        if (this.level != null) {
+            BlockState state = this.level.getBlockState(pos);
+            if (state.getBlock() instanceof ICustomBed bed){
+                Vec3 v = bed.getBedOffset(state);
+                this.setPos((double) pos.getX() + 0.5D + v.x,
+                        (double) pos.getY() + v.y,
+                        (double) pos.getZ() + 0.5D + v.z);
+            }
         }
     }
 }
