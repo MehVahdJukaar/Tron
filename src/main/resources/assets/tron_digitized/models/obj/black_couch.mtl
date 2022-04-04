@@ -1,5 +1,5 @@
-# Blender MTL File: 'None'
-# Material Count: 1
+# Blender 3.1.0 MTL File: 'None'
+# www.blender.org
 
 newmtl m_0
 Ns 0.000000
@@ -10,4 +10,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/couch
+map_Kd  tron_digitized:blocks/couch
