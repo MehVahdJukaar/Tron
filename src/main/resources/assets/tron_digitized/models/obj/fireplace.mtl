@@ -1,5 +1,5 @@
-# Blender MTL File: 'None'
-# Material Count: 12
+# Blender 3.1.0 MTL File: 'None'
+# www.blender.org
 
 newmtl m_0
 Ns 0.000000
@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/frireplace
+map_Kd  tron_digitized:blocks/frireplace
 
 newmtl m_1
 Ns 0.000000
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/white_concrete
+map_Kd  tron_digitized:blocks/white_concrete
 
 newmtl m_10
 Ns 0.000000
@@ -32,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/fire
+map_Kd  tron_digitized:blocks/fire
 
 newmtl m_2
 Ns 0.000000
@@ -43,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/glass_for_fireplace
+map_Kd  tron_digitized:blocks/glass_for_fireplace
 
 newmtl m_3
 Ns 0.000000
@@ -54,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/fireplace_design
+map_Kd  tron_digitized:blocks/fireplace_design
 
 newmtl m_4
 Ns 0.000000
@@ -65,7 +65,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/fireplace_designs
+map_Kd  tron_digitized:blocks/fireplace_designs
 
 newmtl m_5
 Ns 0.000000
@@ -76,7 +76,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/fireplace_designs2
+map_Kd  tron_digitized:blocks/fireplace_designs2
 
 newmtl m_6
 Ns 0.000000
@@ -87,7 +87,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/fireplace_designs3
+map_Kd  tron_digitized:blocks/fireplace_designs3
 
 newmtl m_7
 Ns 0.000000
@@ -98,7 +98,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/fireplace_designs4
+map_Kd  tron_digitized:blocks/fireplace_designs4
 
 newmtl m_8
 Ns 0.000000
@@ -109,7 +109,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/firedog
+map_Kd  tron_digitized:blocks/firedog
 
 newmtl m_9
 Ns 0.000000
@@ -120,7 +120,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd tron_digitized:blocks/log
+map_Kd  tron_digitized:blocks/log
 
 newmtl none
 Ns 0.000000
