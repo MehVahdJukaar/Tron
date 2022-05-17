@@ -83,5 +83,6 @@ public class Locations {
     public static final ResourceLocation FLYNNS_BED = addCustomModel("flynns_bed");
     public static final ResourceLocation WHITE_DOOR = addCustomModel("white_door");
     public static final ResourceLocation WHITE_DOOR_FRAME = addCustomModel("white_door_frame");
+    public static final ResourceLocation WHITE_TABLE_2 = addCustomModel("white_table_2");
 
 }

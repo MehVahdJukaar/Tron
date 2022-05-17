@@ -286,6 +286,10 @@ public class ModRegistry {
     public static final RegistryObject<Block> FLYNNS_BED = regTileBlock("flynns_bed", () ->
             new BigBedBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.FLYNNS_BED, 12, 48, 48));
 
+    public static final RegistryObject<Block> WHITE_TABLE_2 = regTileBlock("white_table_2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.WHITE_TABLE_2, 21.5f, 48, 16));
+
+
 
     public static final RegistryObject<Block> WHITE_DOOR = regTileBlock("white_door", () ->
             new DoorBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()),
