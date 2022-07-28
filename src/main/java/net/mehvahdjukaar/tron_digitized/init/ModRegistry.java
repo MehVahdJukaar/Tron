@@ -204,6 +204,9 @@ public class ModRegistry {
     public static final RegistryObject<Block> CLU_GLOW_WALL = regTileBlock("clu_glow_wall", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()).lightLevel(s -> 15), Locations.CLU_GLOW_WALL, 16, 16, 16));
 
+    public static final RegistryObject<Block> CLU_GLOW_WALL2 = regTileBlock("clu_glow_wall2", () ->
+            new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.CLU_GLOW_WALL2, 16, 16, 16));
+
     public static final RegistryObject<Block> SERVER = regTileBlock("server", () ->
             new TronBlock(BlockBehaviour.Properties.copy(WHITE_CHAIR.get()), Locations.SERVER, 16, 16, 16));
 

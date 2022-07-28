@@ -49,6 +49,7 @@ public class Locations {
     public static final ResourceLocation CHAND_ON = addCustomModel("chand_on");
     public static final ResourceLocation CHAND = addCustomModel("chand");
     public static final ResourceLocation CLU_GLOW_WALL = addCustomModel("clu_glow_wall");
+    public static final ResourceLocation CLU_GLOW_WALL2 = addCustomModel("clu_glow_wall2");
     public static final ResourceLocation CLU_INTERFACE = addCustomModel("clu_interface");
     public static final ResourceLocation SERVER = addCustomModel("server");
     public static final ResourceLocation SERVER_BLANK = addCustomModel("server_blank");
