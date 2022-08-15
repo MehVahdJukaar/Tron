@@ -13,7 +13,7 @@
     "category": "block",
     "sounds": [
       {
-        "name": "tron_digitized:block/healing_chamber",
+        "name": "tron_digitized:block/healing_chamber6",
         "stream": false
       }
     ],
