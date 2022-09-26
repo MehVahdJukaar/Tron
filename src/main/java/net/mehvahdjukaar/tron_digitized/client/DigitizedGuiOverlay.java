@@ -6,29 +6,23 @@ import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.common.entity.IHealableEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.gui.ForgeIngameGui;
-import net.minecraftforge.client.gui.IIngameOverlay;
-import net.minecraftforge.client.gui.OverlayRegistry;
+import net.minecraftforge.client.gui.overlay.ForgeGui;
+import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
-public class DigitizedGuiOverlay extends Gui implements IIngameOverlay {
-    private static final DigitizedGuiOverlay INSTANCE = new DigitizedGuiOverlay(Minecraft.getInstance());
+public class DigitizedGuiOverlay extends Gui implements IGuiOverlay {
 
     public static final ResourceLocation texture = Tron.res("textures/entity/healing_overlay.png");
 
     public DigitizedGuiOverlay(Minecraft pMinecraft) {
-        super(pMinecraft);
+        super(pMinecraft, pMinecraft.getItemRenderer());
     }
 
-    public static void register() {
-        OverlayRegistry.registerOverlayBelow(ForgeIngameGui.FROSTBITE_ELEMENT, "Digitized", INSTANCE);
-    }
 
     @Override
-    public void render(ForgeIngameGui gui, PoseStack mStack, float partialTicks, int width, int height) {
-        if(this.minecraft.player instanceof IHealableEntity iHealable && iHealable.isInHealingChamber()) {
+    public void render(ForgeGui gui, PoseStack mStack, float partialTicks, int width, int height) {
+        if (this.minecraft.player instanceof IHealableEntity iHealable && iHealable.isInHealingChamber()) {
             float alpha = iHealable.getHealingFade(partialTicks);
             gui.setupOverlayRenderState(true, false);
             RenderSystem.disableDepthTest();
@@ -50,7 +44,6 @@ public class DigitizedGuiOverlay extends Gui implements IIngameOverlay {
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
-
 
 
 }

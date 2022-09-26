@@ -6,14 +6,11 @@ import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.init.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.LecternScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.WritableBookItem;
 
 public class BookshelfGui extends Screen {
 
@@ -26,8 +23,8 @@ public class BookshelfGui extends Screen {
     private int page;
 
     protected BookshelfGui(BlockPos pos) {
-        super(new TranslatableComponent("gui.tron.bookshelf"));
-        this.page = Math.abs(pos.hashCode() )% 5;
+        super(Component.translatable("gui.tron.bookshelf"));
+        this.page = Math.abs(pos.hashCode()) % 5;
     }
 
     public static void open(BlockPos pos) {

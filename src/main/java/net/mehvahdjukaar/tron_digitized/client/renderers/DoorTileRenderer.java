@@ -16,7 +16,6 @@ import net.minecraft.util.Mth;
 
 public class DoorTileRenderer extends TronBlockTileRenderer<DoorBlockTile> {
 
-    //public static final ResourceLocation BOAT_MODEL = new ResourceLocation(Supplementaries.MOD_ID + ":block/jar_boat_ship");
 
     private final BlockRenderDispatcher blockRenderer;
 

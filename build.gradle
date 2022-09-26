@@ -27,7 +27,7 @@ mixin {
 }
 
 
-version = '1.18-1.0.0'
+version = '1.19.2-1.0.1'
 group = 'net.mehvahdjukaar.tron_digitized' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'tron_digitized'
 
@@ -36,10 +36,11 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
 
-    //mappings channel: 'official', version: '1.18'
-    mappings channel: 'parchment', version: '2021.12.19-1.18.1'
-
-
+    if(project.parchment_enabled == "true"){
+        mappings channel: 'parchment', version: "${project.minecraft_version}"
+    }else{
+        mappings channel: 'official', version: "${project.minecraft_version}"
+    }
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
@@ -108,12 +109,12 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
 
-    minecraft 'net.minecraftforge:forge:1.18.1-39.0.14'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.1.23'
     //minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 
 
-    implementation fg.deobf("curse.maven:configured-457570:3546349")
-    implementation fg.deobf("curse.maven:jei-238222:3550020")
+ //   implementation fg.deobf("curse.maven:configured-457570:3546349")
+  //  implementation fg.deobf("curse.maven:jei-238222:3550020")
   //  implementation fg.deobf("curse.maven:alexs-mobs-426558:3603683")
 
 
