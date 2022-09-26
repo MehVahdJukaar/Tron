@@ -48,7 +48,7 @@ public class LampBlock extends TronBlock {
             BlockState blockstate = this.toggle(pState, pLevel, pPos);
             float f = blockstate.getValue(LIT) ? 0.6F : 0.5F;
             pLevel.playSound(null, pPos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, f);
-            pLevel.gameEvent(pPlayer, blockstate.getValue(LIT) ? GameEvent.BLOCK_SWITCH : GameEvent.BLOCK_UNSWITCH, pPos);
+            pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
             return InteractionResult.CONSUME;
         }
     }

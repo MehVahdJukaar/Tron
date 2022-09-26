@@ -15,9 +15,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.util.Mth;
-import net.minecraftforge.client.model.pipeline.BakedQuadBuilder;
-
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 import static net.minecraft.client.renderer.texture.TextureAtlas.LOCATION_BLOCKS;
 
@@ -59,9 +57,9 @@ public class HealingChamberTileRenderer implements BlockEntityRenderer<HealingCh
         var model = blockRenderer.getBlockModelShaper().getModelManager()
                 .getModel(Locations.HEALING_CHAMBER_GLASS);
 
-        var quads = model.getQuads(ModRegistry.CLU_DOOR.get().defaultBlockState(), null, new Random());
-        BakedQuadBuilder quadBuilder = new BakedQuadBuilder(model.getParticleIcon());
-        int formatLength = quadBuilder.getVertexFormat().getIntegerSize();
+        var quads = model.getQuads(ModRegistry.CLU_DOOR.get().defaultBlockState(), null, RandomSource.create());
+
+        int formatLength = 8;
 
         {
             poseStack.pushPose();
@@ -74,12 +72,8 @@ public class HealingChamberTileRenderer implements BlockEntityRenderer<HealingCh
                 poseStack.translate(-0.5, -0.5, -0.5);
 
 
-
-
                 var builder = buffer.getBuffer(RenderType.entityTranslucent(
                         Tron.res("textures/blocks/healing_organic.png")));
-
-
 
 
                 float fade = Mth.lerp(partialTicks, tile.prevFade, tile.fade);
@@ -121,7 +115,6 @@ public class HealingChamberTileRenderer implements BlockEntityRenderer<HealingCh
             poseStack.pushPose();
 
 
-
             poseStack.translate(-0.5, -0.5, -0.5);
 
 
@@ -156,9 +149,6 @@ public class HealingChamberTileRenderer implements BlockEntityRenderer<HealingCh
 
 
             }
-
-
-
 
 
             poseStack.popPose();
