@@ -37,7 +37,7 @@ public class ClientSetup {
 
     @SubscribeEvent
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
-        event.registerBelow(VanillaGuiOverlay.FROSTBITE.id(), "Digitized", new DigitizedGuiOverlay(Minecraft.getInstance()));
+        event.registerBelow(VanillaGuiOverlay.FROSTBITE.id(), "digitized", new DigitizedGuiOverlay(Minecraft.getInstance()));
     }
 
 
