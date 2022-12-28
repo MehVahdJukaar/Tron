@@ -1,0 +1,71 @@
+{
+	"credit": "Made by Astraica",
+	"textures": {
+		"3": "tronfa/tronfa_half2",
+		"4": "tronfa/tronfa_half_handle"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [0, 10, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"east": {"uv": [16, 0, 0, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"up": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [-5.40625, 0, 4.5625],
+			"to": [4.59375, 10, 4.5625],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2.59375, 8, 12.5625]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#4"},
+				"east": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#4"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"up": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-90, 0, 0],
+			"translation": [15, 12.5, -15],
+			"scale": [4, 4, 4]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-90, 0, 0],
+			"translation": [-29, 13.5, -14.5],
+			"scale": [4, 4, 4]
+		},
+		"firstperson_righthand": {
+			"rotation": [-61, 19, 0],
+			"translation": [26, 16, -13],
+			"scale": [1, 4, 4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-41, 0, 0],
+			"translation": [0.5, 21, 0.25],
+			"scale": [1, 4, 4]
+		},
+		"ground": {
+			"rotation": [0, 0, -90],
+			"translation": [0, -34.5, 0],
+			"scale": [4, 4, 4]
+		},
+		"gui": {
+			"rotation": [0, 68, 0],
+			"translation": [12.25, 6, 0],
+			"scale": [2, 2, 2]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0],
+			"translation": [-7.25, 6.25, 15],
+			"scale": [2, 2, 2]
+		}
+	}
+}
