@@ -66,5 +66,148 @@
       "tron_digitized:block/open4"
     ],
     "subtitle": "subtitle.tron_digitized.block.white_door.toggle"
+  },
+  "disc.bounce": {
+    "sounds": [
+      "disc/bounce/bounce1",
+      "disc/bounce/bounce2",
+      "disc/bounce/bounce3",
+      "disc/bounce/bounce4"
+    ],
+    "subtitle": "Identity disc bounces"
+  },
+  "disc.throw": {
+    "sounds": [
+      "disc/throw/throw1",
+      "disc/throw/throw2",
+      "disc/throw/throw4"
+    ],
+    "subtitle": "Identity disc thrown"
+  },
+  "disc.deactivate": {
+    "sounds": [
+      "disc/deactivate"
+    ],
+    "subtitle": "Identity disc deactivated"
+  },
+  "disc.activate": {
+    "sounds": [
+      "disc/activate"
+    ],
+    "subtitle": "Identity disc activated"
+  },
+  "disc.hum": {
+    "sounds": [
+      "disc/hum"
+    ],
+    "subtitle": "Identity disc hums"
+  },
+  "lightcycle.rez": {
+    "sounds": [
+      "cycle/rez"
+    ],
+    "subtitle": "Grid vehicle rezzed"
+  },
+  "lightjet.rez": {
+    "sounds": [
+      "jet/rez"
+    ],
+    "subtitle": "Grid vehicle rezzed"
+  },
+  "lightcycle.786.rez": {
+    "sounds": [
+      "cycle/786/rez"
+    ],
+    "subtitle": "Encom 786 rezzed"
+  },
+  "lightcycle.derez": {
+    "sounds": [
+      "cycle/derez"
+    ],
+    "subtitle": "Grid vehicle de-rezzed"
+  },
+  "lightjet.derez": {
+    "sounds": [
+      "jet/derez"
+    ],
+    "subtitle": "Grid vehicle de-rezzed"
+  },
+  "lightcycle.crash": {
+    "sounds": [
+      "cycle/crash/crash1",
+      "cycle/crash/crash2",
+      "cycle/crash/crash3"
+    ],
+    "subtitle": "Grid vehicle crashes"
+  },
+  "lightcycle.engine.rev": {
+    "sounds": [
+      "cycle/enginerev",
+      "cycle/enginerev2"
+    ],
+    "subtitle": "Light engine whirs"
+  },
+  "lightjet.engine.rev": {
+    "sounds": [
+      {
+        "name": "jet/enginerev",
+        "pitch": 1.0
+      },
+      {
+        "name": "jet/enginerev2",
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "Light engine whirs"
+  },
+  "lightjet.guns.shoot": {
+    "sounds": [
+      "jet/guns/shoot"
+    ],
+    "subtitle": "Light jet shoots"
+  },
+  "lightjet.guns.whizby": {
+    "sounds": [
+      "jet/guns/bulletwhistle1",
+      "jet/guns/bulletwhistle2",
+      "jet/guns/bulletwhistle3"
+    ],
+    "subtitle": "Bullet passes by"
+  },
+  "lightjet.guns.hit": {
+    "sounds": [
+      "jet/guns/thud1",
+      "jet/guns/thud2",
+      "jet/guns/thud3",
+      "jet/guns/thud4"
+    ],
+    "subtitle": "Bullet passes by"
+  },
+  "lightcycle.engine.idle": {
+    "sounds": [
+      "cycle/engineidle"
+    ]
+  },
+  "lightcycle.engine.accelerate": {
+    "sounds": [
+      "cycle/accelerate2"
+    ]
+  },
+  "lightcycle.lightribbon.activate": {
+    "sounds": [
+      "cycle/activateribbon"
+    ],
+    "subtitle": "Light ribon activated"
+  },
+  "lightcycle.lightribbon.deactivate": {
+    "sounds": [
+      "cycle/deactivateribbon"
+    ],
+    "subtitle": "Light ribbon deactivated"
+  },
+  "lightcycle.engine.idle2": {
+    "sounds": [
+      "cycle/engineidle2"
+    ]
   }
 }
