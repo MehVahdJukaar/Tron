@@ -1,19 +1,31 @@
 {
 	"credit": "Made by Astraica",
-	"texture_size": [1024, 1024],
 	"textures": {
 		"0": "lightswords/lightsword_gray",
+		"1": "lightswords/lightsword_gray_glow",
 		"particle": "lightswords/lightsword_gray"
 	},
 	"elements": [
 		{
-			"from": [0, 0, 0],
-			"to": [0, 10, 10],
+			"from": [0.001, 0, 0],
+			"to": [0.001, 10, 10],
 			"faces": {
 				"north": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
 				"south": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
 				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [0.003, 10, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#1", "tintindex": 0},
+				"south": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#1", "tintindex": 0},
 				"up": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"},
 				"down": {"uv": [0, 0, 0.00049, 0.15625], "texture": "#missing"}
 			}
