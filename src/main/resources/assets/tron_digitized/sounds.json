@@ -67,83 +67,107 @@
     ],
     "subtitle": "subtitle.tron_digitized.block.white_door.toggle"
   },
-  "item.disc_active.bounce": {
+  "item.disc_active": {
     "category": "item",
     "sounds": [
-      "tron_digitized:disc/bounce/bounce1",
-      "tron_digitized:disc/bounce/bounce2",
-      "tron_digitized:disc/bounce/bounce3",
-      "tron_digitized:disc/bounce/bounce4"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_active"
-  },
-  "item.disc_active.throw": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/throw/throw1",
-      "tron_digitized:disc/throw/throw2",
-      "tron_digitized:disc/throw/throw4"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_active"
-  },
-  "item.disc_active.deactivate": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/deactivate"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_active"
-  },
-  "item.disc_active.hum": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/hum"
+      {
+        "name": "tron_digitized:disc/bounce/bounce1",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/bounce/bounce2",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/bounce/bounce3",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/bounce/bounce4",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/throw/throw1",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/throw/throw2",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/throw/throw4",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/deactivate",
+        "stream": true
+      },
+      {
+        "name": "tron_digitized:disc/hum",
+        "stream": true
+      }
     ],
     "subtitle": "subtitle.tron_digitized.item.disc_active"
   },
   "item.disc": {
     "category": "item",
     "sounds": [
-      "tron_digitized:disc/activate"
+      {
+        "name": "tron_digitized:disc/activate",
+        "stream": true
+      }
     ],
     "subtitle": "subtitle.tron_digitized.item.disc"
   },
   "item.disc_editing": {
-    "category": "item",
+    "category": "gui",
     "sounds": [
-      "tron_digitized:disc/digital_sound"
+      {
+        "name": "tron_digitized:disc/digital_sound",
+        "stream": true
+      }
     ],
     "subtitle": "subtitle.tron_digitized.item.disc_editing"
   },
-  "item.disc_active_white.bounce": {
+  "item.disc_active_white": {
     "category": "item",
     "sounds": [
-      "tron_digitized:disc/bounce/bounce1",
-      "tron_digitized:disc/bounce/bounce2",
-      "tron_digitized:disc/bounce/bounce3",
-      "tron_digitized:disc/bounce/bounce4"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
-  },
-  "item.disc_active_white.throw": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/throw/throw1",
-      "tron_digitized:disc/throw/throw2",
-      "tron_digitized:disc/throw/throw4"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
-  },
-  "item.disc_active_white.deactivate": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/deactivate"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
-  },
-  "item.disc_active_white.hum": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/hum"
+      {
+        "name": "tron_digitized:disc/bounce/bounce1",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/bounce/bounce2",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/bounce/bounce3",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/bounce/bounce4",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/throw/throw1",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/throw/throw2",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/throw/throw4",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/deactivate",
+        "stream": false
+      },
+      {
+        "name": "tron_digitized:disc/hum",
+        "stream": true
+      }
     ],
     "subtitle": "subtitle.tron_digitized.item.disc_active_white"
   },
@@ -153,13 +177,6 @@
       "tron_digitized:disc/activate"
     ],
     "subtitle": "subtitle.tron_digitized.item.disc_white"
-  },
-  "item.disc_editing_white": {
-    "category": "item",
-    "sounds": [
-      "tron_digitized:disc/digital_sound"
-    ],
-    "subtitle": "subtitle.tron_digitized.item.disc_editing_white"
   },
   "lightcycle.rez": {
     "category": "entity",

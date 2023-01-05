@@ -10,7 +10,6 @@ public class KeyInputHandler {
 
     public static void onKeyInput(InputEvent.KeyInputEvent event) {
         if (KeyMappings.discEditingKeyMapping.consumeClick() && Minecraft.getInstance().player.getMainHandItem().is(ModRegistry.DISC.get())) {
-            Minecraft.getInstance().player.sendMessage(new TextComponent("Hello World!"), null);
             DiscEditingGui.open(event);
         }
     }

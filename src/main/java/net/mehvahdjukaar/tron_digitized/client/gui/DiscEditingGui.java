@@ -14,12 +14,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.InputEvent;
 
-import javax.annotation.Nullable;
-
 public class DiscEditingGui extends Screen {
 
-    public void playSound(@Nullable Player pPlayer, double pX, double pY, double pZ, SoundEvent pSound, SoundSource pCategory, float pVolume, float pPitch) {
-        pPlayer.level.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), ModRegistry.DIGITAL_SOUND.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+    public static void playSound(Player pPlayer, double pX, double pY, double pZ, SoundEvent pSound, SoundSource pCategory, float pVolume, float pPitch) {
+        pPlayer.level.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), ModRegistry.DIGITAL_SOUND.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
     }
 
     private static final ResourceLocation DISC_GUI[] = new ResourceLocation[]{
@@ -32,6 +30,7 @@ public class DiscEditingGui extends Screen {
 
     public static void open(InputEvent.KeyInputEvent event) {
         Minecraft.getInstance().setScreen(new DiscEditingGui(event));
+        Minecraft.getInstance().player.playSound(ModRegistry.DIGITAL_SOUND.get(), 1.0F, 1.0F);
     }
 
     @Override
