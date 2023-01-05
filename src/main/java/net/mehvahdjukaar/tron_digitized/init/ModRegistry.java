@@ -10,10 +10,7 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -89,6 +86,7 @@ public class ModRegistry {
     public static final RegistryObject<SoundEvent> HEALING_CHAMBER_SOUND = makeSoundEvent("block.healing_chamber");
     public static final RegistryObject<SoundEvent> BOOKSHELF_SOUND = makeSoundEvent("block.bookshelf");
     public static final RegistryObject<SoundEvent> PORTAL_SOUND = makeSoundEvent("block.portal_pad");
+    public static final RegistryObject<SoundEvent> DIGITAL_SOUND = makeSoundEvent("item.disc_editing");
 
 
     public static final RegistryObject<Block> CLU_DOOR = regWithItem("clu_door", () ->
@@ -347,5 +345,32 @@ public class ModRegistry {
                     .build("screen"));
     public static final RegistryObject<Item> SCREEN_ITEM = regItem("screen",
             () -> new ScreenItem(new Item.Properties().tab(MOD_TAB)));
+
+    public static final RegistryObject<Item> LIGHT_SWORD = regItem("light_sword", () ->
+            new SwordItem(Tiers.DIAMOND, 7, 1.6f, new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> LIGHT_SWORD_WHITE = regItem("light_sword_white", () ->
+            new SwordItem(Tiers.DIAMOND, 7, 1.6f, new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> LIGHT_STAFF = regItem("lightstaff", () ->
+            new SwordItem(Tiers.DIAMOND, 7, 1.6f, new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> LIGHT_STAFF_white = regItem("lightstaff_white", () ->
+            new SwordItem(Tiers.DIAMOND, 7, 1.6f, new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> LIGHT_SWORD2 = regItem("light_sword2", () ->
+            new SwordItem(Tiers.DIAMOND, 7, 1.6f, new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> BATON = regItem("baton",
+            () -> new Item(new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> BATON_WHITE = regItem("baton_white",
+            () -> new Item(new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> DISC = regItem("disc",
+            () -> new Item(new Item.Properties().tab(MOD_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> DISC_WHITE = regItem("disc_white",
+            () -> new Item(new Item.Properties().tab(MOD_TAB).stacksTo(1)));
 
 }

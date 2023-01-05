@@ -67,147 +67,225 @@
     ],
     "subtitle": "subtitle.tron_digitized.block.white_door.toggle"
   },
-  "disc.bounce": {
+  "item.disc_active.bounce": {
+    "category": "item",
     "sounds": [
-      "disc/bounce/bounce1",
-      "disc/bounce/bounce2",
-      "disc/bounce/bounce3",
-      "disc/bounce/bounce4"
+      "tron_digitized:disc/bounce/bounce1",
+      "tron_digitized:disc/bounce/bounce2",
+      "tron_digitized:disc/bounce/bounce3",
+      "tron_digitized:disc/bounce/bounce4"
     ],
-    "subtitle": "Identity disc bounces"
+    "subtitle": "subtitle.tron_digitized.item.disc_active"
   },
-  "disc.throw": {
+  "item.disc_active.throw": {
+    "category": "item",
     "sounds": [
-      "disc/throw/throw1",
-      "disc/throw/throw2",
-      "disc/throw/throw4"
+      "tron_digitized:disc/throw/throw1",
+      "tron_digitized:disc/throw/throw2",
+      "tron_digitized:disc/throw/throw4"
     ],
-    "subtitle": "Identity disc thrown"
+    "subtitle": "subtitle.tron_digitized.item.disc_active"
   },
-  "disc.deactivate": {
+  "item.disc_active.deactivate": {
+    "category": "item",
     "sounds": [
-      "disc/deactivate"
+      "tron_digitized:disc/deactivate"
     ],
-    "subtitle": "Identity disc deactivated"
+    "subtitle": "subtitle.tron_digitized.item.disc_active"
   },
-  "disc.activate": {
+  "item.disc_active.hum": {
+    "category": "item",
     "sounds": [
-      "disc/activate"
+      "tron_digitized:disc/hum"
     ],
-    "subtitle": "Identity disc activated"
+    "subtitle": "subtitle.tron_digitized.item.disc_active"
   },
-  "disc.hum": {
+  "item.disc": {
+    "category": "item",
     "sounds": [
-      "disc/hum"
+      "tron_digitized:disc/activate"
     ],
-    "subtitle": "Identity disc hums"
+    "subtitle": "subtitle.tron_digitized.item.disc"
+  },
+  "item.disc_editing": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/digital_sound"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_editing"
+  },
+  "item.disc_active_white.bounce": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/bounce/bounce1",
+      "tron_digitized:disc/bounce/bounce2",
+      "tron_digitized:disc/bounce/bounce3",
+      "tron_digitized:disc/bounce/bounce4"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
+  },
+  "item.disc_active_white.throw": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/throw/throw1",
+      "tron_digitized:disc/throw/throw2",
+      "tron_digitized:disc/throw/throw4"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
+  },
+  "item.disc_active_white.deactivate": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/deactivate"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
+  },
+  "item.disc_active_white.hum": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/hum"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_active_white"
+  },
+  "item.disc_white": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/activate"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_white"
+  },
+  "item.disc_editing_white": {
+    "category": "item",
+    "sounds": [
+      "tron_digitized:disc/digital_sound"
+    ],
+    "subtitle": "subtitle.tron_digitized.item.disc_editing_white"
   },
   "lightcycle.rez": {
+    "category": "entity",
     "sounds": [
-      "cycle/rez"
+      "tron_digitized:cycle/rez"
     ],
     "subtitle": "Grid vehicle rezzed"
   },
   "lightjet.rez": {
+    "category": "entity",
     "sounds": [
-      "jet/rez"
+      "tron_digitized:jet/rez"
     ],
     "subtitle": "Grid vehicle rezzed"
   },
   "lightcycle.786.rez": {
+    "category": "entity",
     "sounds": [
-      "cycle/786/rez"
+      "tron_digitized:cycle/786/rez"
     ],
     "subtitle": "Encom 786 rezzed"
   },
   "lightcycle.derez": {
+    "category": "entity",
     "sounds": [
-      "cycle/derez"
+      "tron_digitized:cycle/derez"
     ],
     "subtitle": "Grid vehicle de-rezzed"
   },
   "lightjet.derez": {
+    "category": "entity",
     "sounds": [
-      "jet/derez"
+      "tron_digitized:jet/derez"
     ],
     "subtitle": "Grid vehicle de-rezzed"
   },
   "lightcycle.crash": {
+    "category": "entity",
     "sounds": [
-      "cycle/crash/crash1",
-      "cycle/crash/crash2",
-      "cycle/crash/crash3"
+      "tron_digitized:cycle/crash/crash1",
+      "tron_digitized:cycle/crash/crash2",
+      "tron_digitized:cycle/crash/crash3"
     ],
     "subtitle": "Grid vehicle crashes"
   },
   "lightcycle.engine.rev": {
+    "category": "entity",
     "sounds": [
-      "cycle/enginerev",
-      "cycle/enginerev2"
+      "tron_digitized:cycle/enginerev",
+      "tron_digitized:cycle/enginerev2"
     ],
     "subtitle": "Light engine whirs"
   },
   "lightjet.engine.rev": {
+    "category": "entity",
     "sounds": [
       {
-        "name": "jet/enginerev",
+        "name": "tron_digitized:jet/enginerev",
         "pitch": 1.0
       },
       {
-        "name": "jet/enginerev2",
+        "name": "tron_digitized:jet/enginerev2",
         "pitch": 1.0
       }
     ],
-    "subtitle": "Light engine whirs"
+    "subtitle": "tron_digitized:Light engine whirs"
   },
   "lightjet.guns.shoot": {
+    "category": "entity",
     "sounds": [
-      "jet/guns/shoot"
+      "tron_digitized:jet/guns/shoot"
     ],
     "subtitle": "Light jet shoots"
   },
   "lightjet.guns.whizby": {
+    "category": "entity",
     "sounds": [
-      "jet/guns/bulletwhistle1",
-      "jet/guns/bulletwhistle2",
-      "jet/guns/bulletwhistle3"
+      "tron_digitized:jet/guns/bulletwhistle1",
+      "tron_digitized:jet/guns/bulletwhistle2",
+      "tron_digitized:jet/guns/bulletwhistle3"
     ],
     "subtitle": "Bullet passes by"
   },
   "lightjet.guns.hit": {
+    "category": "entity",
     "sounds": [
-      "jet/guns/thud1",
-      "jet/guns/thud2",
-      "jet/guns/thud3",
-      "jet/guns/thud4"
+      "tron_digitized:jet/guns/thud1",
+      "tron_digitized:jet/guns/thud2",
+      "tron_digitized:jet/guns/thud3",
+      "tron_digitized:jet/guns/thud4"
     ],
     "subtitle": "Bullet passes by"
   },
   "lightcycle.engine.idle": {
+    "category": "entity",
     "sounds": [
-      "cycle/engineidle"
-    ]
+      "tron_digitized:cycle/engineidle"
+    ],
+    "subtitle": "Jet engine Idle"
   },
   "lightcycle.engine.accelerate": {
+    "category": "entity",
     "sounds": [
-      "cycle/accelerate2"
-    ]
+      "tron_digitized:cycle/accelerate2"
+    ],
+    "subtitle": "Jet engine accelerate"
   },
   "lightcycle.lightribbon.activate": {
+    "category": "entity",
     "sounds": [
-      "cycle/activateribbon"
+      "tron_digitized:cycle/activateribbon"
     ],
     "subtitle": "Light ribon activated"
   },
   "lightcycle.lightribbon.deactivate": {
+    "category": "entity",
     "sounds": [
-      "cycle/deactivateribbon"
+      "tron_digitized:cycle/deactivateribbon"
     ],
     "subtitle": "Light ribbon deactivated"
   },
   "lightcycle.engine.idle2": {
+    "category": "entity",
     "sounds": [
-      "cycle/engineidle2"
-    ]
+      "tron_digitized:cycle/engineidle2"
+    ],
+    "subtitle": "Jet engine idle"
   }
 }

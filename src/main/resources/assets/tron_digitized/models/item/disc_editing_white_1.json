@@ -1,0 +1,20 @@
+{
+	"credit": "Made by Flubberschnub",
+	"parent": "tron_digitized:item/disc_editing1_model",
+	"textures": {
+		"0": "tron_digitized:blocks/discs/basic/white_disc",
+		"1": "tron_digitized:blocks/discs/basic/blue_ani2",
+		"2": "tron_digitized:blocks/discs/basic/gray",
+		"4": "tron_digitized:blocks/discs/basic/deactivatedrim",
+		"10": "tron_digitized:blocks/discs/basic/white",
+		"11": "tron_digitized:blocks/discs/basic/lightcolumn_ani2",
+		"12": "tron_digitized:blocks/discs/basic/blue_ani",
+		"particle": "tron_digitized:blocks/discs/basic/white_disc"
+	},
+	"overrides": [
+		{
+		  "predicate": {"custom_model_data":4444},
+		  "model": "tron_digitized:item/disc_editing1_model"
+		}
+	]
+}

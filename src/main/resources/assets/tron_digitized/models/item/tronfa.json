@@ -1,7 +1,7 @@
 {
 	"credit": "Made by Astraica",
 	"textures": {
-		"1": "tronfa/tronfa"
+		"1": "tron_digitized:tronfa/tronfa"
 	},
 	"elements": [
 		{

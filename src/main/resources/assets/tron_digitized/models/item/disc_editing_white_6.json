@@ -1,0 +1,25 @@
+{
+	"credit": "Made by Flubberschnub",
+	"parent": "tron_digitized:item/disc_editing6_model",
+	"textures": {
+		"0": "tron_digitized:blocks/discs/basic/white_disc",
+		"1": "tron_digitized:blocks/discs/basic/blue_ani2",
+		"2": "tron_digitized:blocks/discs/basic/gray",
+		"4": "tron_digitized:blocks/discs/basic/deactivatedrim",
+		"5": "tron_digitized:blocks/discs/basic/codeframe_ani",
+		"10": "tron_digitized:blocks/discs/basic/white",
+		"11": "tron_digitized:blocks/discs/basic/lightcolumn2",
+		"12": "tron_digitized:blocks/discs/basic/blue_ani",
+		"13": "tron_digitized:blocks/discs/basic/basic_ani",
+		"particle": "tron_digitized:blocks/discs/basic/white_disc",
+		"1_5": "tron_digitized:blocks/discs/basic/codeframe_ani1",
+		"2_5": "tron_digitized:blocks/discs/basic/codeframe_ani2",
+		"3_5": "tron_digitized:blocks/discs/basic/codeframe_ani3"
+	},
+	"overrides": [
+		{
+		  "predicate": {"custom_model_data":4444},
+		  "model": "tron_digitized:item/disc_editing6_model"
+		}
+	]
+}

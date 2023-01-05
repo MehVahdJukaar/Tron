@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import net.mehvahdjukaar.tron_digitized.Tron;
 import net.mehvahdjukaar.tron_digitized.client.DigitizedGuiOverlay;
 import net.mehvahdjukaar.tron_digitized.client.DigitizedLayer;
+import net.mehvahdjukaar.tron_digitized.client.KeyInputHandler;
+import net.mehvahdjukaar.tron_digitized.client.KeyMappings;
 import net.mehvahdjukaar.tron_digitized.client.renderers.*;
 import net.mehvahdjukaar.tron_digitized.common.entity.IHealableEntity;
 import net.minecraft.client.color.block.BlockColors;
@@ -20,6 +22,7 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ForgeModelBakery;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -58,6 +61,8 @@ public class ClientSetup {
         ItemBlockRenderTypes.setRenderLayer(ModRegistry.HEALING_CHAMBER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModRegistry.BLACK_CHAIR.get(), RenderType.translucent());
         DigitizedGuiOverlay.register();
+        MinecraftForge.EVENT_BUS.addListener(KeyInputHandler::onKeyInput);
+        KeyMappings.init();
     }
 
 

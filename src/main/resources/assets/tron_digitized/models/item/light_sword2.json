@@ -1,9 +1,9 @@
 {
 	"credit": "Made by Astraica",
 	"textures": {
-		"0": "lightswords/lightsword_gray",
-		"1": "lightswords/lightsword_gray_glow",
-		"particle": "lightswords/lightsword_gray"
+		"0": "tron_digitized:/lightswords/lightsword_gray",
+		"1": "tron_digitized:lightswords/lightsword_gray_glow",
+		"particle": "tron_digitized:lightswords/lightsword_gray"
 	},
 	"elements": [
 		{

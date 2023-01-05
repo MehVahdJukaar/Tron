@@ -61,5 +61,15 @@
   "block.tron_digitized.white_door": "White Door",
   "block.tron_digitized.flynns_bed": "Flynn's Bed",
   "block.tron_digitized.black_bed": "Black Bed",
-  "block.tron_digitized.white_table_2": "White Table 2"
+  "block.tron_digitized.white_table_2": "White Table 2",
+  "item.tron_digitized.light_sword": "Light Sword",
+  "item.tron_digitized.light_sword_white": "Light Sword White",
+  "item.tron_digitized.light_sword2": "Light Gladiator Sword",
+  "item.tron_digitized.light_staff": "Light Staff",
+  "item.tron_digitized.light_staff_white": "Light Staff White",
+  "item.tron_digitized.baton": "Baton",
+  "item.tron_digitized.baton_white": "Baton White",
+  "key.disc_editing": "Disc Editing",
+  "item.tron_digitized.disc": "Disc",
+  "item.tron_digitized.disc_white": "Disc White"
 }

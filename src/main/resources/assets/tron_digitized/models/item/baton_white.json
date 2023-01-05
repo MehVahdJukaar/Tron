@@ -1,9 +1,9 @@
 {
 	"credit": "Made by Astraica",
 	"textures": {
-		"0": "light_swords/metal",
-		"3": "light_swords/baton",
-		"particle": "light_swords/metal"
+		"0": "tron_digitized:light_swords/metal",
+		"3": "tron_digitized:light_swords/baton",
+		"particle": "tron_digitized:light_swords/metal"
 	},
 	"elements": [
 		{

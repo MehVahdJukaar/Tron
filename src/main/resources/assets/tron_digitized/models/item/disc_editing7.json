@@ -1,0 +1,42 @@
+{
+	"credit": "Made by Flubberschnub and Astraica",
+	"parent": "tron_digitized:item/disc_editing7_model",
+	"textures": {
+		"0": "tron_digitized:blocks/discs/basic/black",
+		"1": "tron_digitized:blocks/discs/basic/blue_ani2",
+		"2": "tron_digitized:blocks/discs/basic/gray",
+		"4": "tron_digitized:blocks/discs/basic/deactivatedrim",
+		"5": "tron_digitized:blocks/discs/basic/codeframe_ani",
+		"10": "tron_digitized:blocks/discs/basic/white",
+		"11": "tron_digitized:blocks/discs/basic/lightcolumn2",
+		"12": "tron_digitized:blocks/discs/basic/blue_ani",
+		"14": "tron_digitized:blocks/gen5/gone",
+		"15": "tron_digitized:blocks/discs/basic/tron_outline_ani1",
+		"16": "tron_digitized:blocks/discs/basic/basic_ani",
+		"17": "tron_digitized:blocks/discs/basic/tron_outline_ani2",
+		"18": "tron_digitized:blocks/discs/basic/tron_outline_ani3",
+		"19": "tron_digitized:blocks/discs/basic/tron_outline_ani4",
+		"20": "tron_digitized:blocks/discs/basic/tron_outline_ani5",
+		"21": "tron_digitized:blocks/discs/basic/tron_outline_ani6",
+		"22": "tron_digitized:blocks/discs/basic/tron_outline_ani7",
+		"23": "tron_digitized:blocks/discs/basic/tron_outline_ani8",
+		"24": "tron_digitized:blocks/discs/basic/tron_outline_ani9",
+		"25": "tron_digitized:blocks/discs/basic/tron_outline_ani10",
+		"26": "tron_digitized:blocks/discs/basic/tron_outline_ani11",
+		"27": "tron_digitized:blocks/discs/basic/tron_outline_ani12",
+		"28": "tron_digitized:blocks/discs/basic/tron_outline_ani13",
+		"29": "tron_digitized:blocks/discs/basic/tron_outline_ani14",
+		"30": "tron_digitized:blocks/discs/basic/tron_outline_ani15",
+		"31": "tron_digitized:blocks/discs/basic/tron_outline_ani16",
+		"1_5": "tron_digitized:blocks/discs/basic/codeframe_ani1",
+		"2_5": "tron_digitized:blocks/discs/basic/codeframe_ani2",
+		"3_5": "tron_digitized:blocks/discs/basic/codeframe_ani3",
+		"particle": "tron_digitized:blocks/discs/basic/black"
+	},
+	"overrides": [
+		{
+		  "predicate": {"custom_model_data":4444},
+		  "model": "tron_digitized:item/disc_editing7_model"
+		}
+	]
+}
